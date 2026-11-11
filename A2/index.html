@@ -611,6 +611,23 @@ body{font-size:1.1rem;line-height:1.7}
 .tm-f.prev{left:-6px}.tm-f.next{right:-6px}.tm-f[disabled]{opacity:.35;cursor:default}
 @media (max-width:1199px){.tira-m{min-height:420px}}@media (max-width:899px){.tira-m{min-height:370px}}@media (max-width:640px){.tira-m{min-height:360px}.tm-i{flex-basis:118px}.tm-f{width:40px;height:40px}}
 @media (prefers-reduced-motion:reduce){.tm-v{scroll-behavior:auto}}
+/* panel de detalle de modelos (tira + panel = única navegación con JS) */
+.js .marcas>.acc[data-r]{display:none}
+.pm{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .28s var(--ease),opacity .28s ease,visibility 0s linear .28s;margin:0}
+.pm.open{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .28s var(--ease),opacity .28s ease,visibility 0s}
+.pm-w{overflow:hidden;min-height:0}
+.pm-in{position:relative;border-top:3px solid var(--acento);padding:clamp(18px,3vw,32px) 0 clamp(20px,3vw,36px);outline:none}
+.pm-c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,3.4vw,52px);align-items:start;transition:opacity .14s ease}
+.pm-c.fading{opacity:0}
+.pm-c .apps{margin:0;max-width:460px;justify-self:center;width:100%}
+.pm-c .apps img{width:100%;height:auto;display:block}
+.pm-c .apps.par{max-width:none}
+.pm-c .ap .pm-t{font:800 clamp(1.4rem,2.6vw,2.1rem)/1.15 var(--sans);letter-spacing:-.03em;margin:0 0 14px;padding-right:56px}
+.pm-x{position:absolute;top:10px;right:0;width:44px;height:44px;border:1px solid var(--tinta);background:var(--papel);color:var(--tinta);font:600 20px/1 var(--sans);cursor:pointer;padding:0;border-radius:0}
+.pm-x:hover{background:var(--tinta);color:var(--papel)}.pm-x:focus-visible,.pm-in:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+@media (max-width:760px){.pm-c{grid-template-columns:1fr}.pm-c .apps{max-width:300px;order:-1}.pm-c .apps.par{max-width:none}}
+@media (prefers-reduced-motion:reduce){.pm,.pm.open,.pm-c{transition:none}}
+.pm-c .ap h4{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento);margin:20px 0 6px}.pm-c .ap .pm-t+h4{margin-top:0}.pm-c .ap p{color:var(--mut);max-width:34em}.pm-c .ap .cot{margin-top:16px}.pm-c .tags{display:flex;flex-wrap:wrap;gap:6px}.pm-c .tags li{border:1px solid var(--tinta);padding:5px 9px;font-size:.85rem;line-height:1.3}.pm-c .adapta{display:grid;gap:5px}.pm-c .adapta li{padding-left:16px;position:relative;color:var(--mut)}.pm-c .adapta li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--acento)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -1061,9 +1078,7 @@ var first=document.querySelector('.acc.match');if(first&&first.scrollIntoView&&!
 <script>
 (function(){var pend=null;
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-abre]');if(a)pend=a.getAttribute('data-abre')},true);
-document.addEventListener('pantalla',function(ev){if(!pend||ev.detail!=='modelos')return;var id=pend;pend=null;setTimeout(function(){var el=document.getElementById(id);if(!el)return;
-[].slice.call(document.querySelectorAll('.acc')).forEach(function(x){var on=x===el;x.classList.toggle('open',on);x.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')});
-var b=el.querySelector('.ah');if(b)b.focus({preventScroll:true});el.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})},120)})})();
+document.addEventListener('pantalla',function(ev){if(!pend||ev.detail!=='modelos')return;var id=pend;pend=null;setTimeout(function(){if(window.abrirModelo)window.abrirModelo(id)},120)})})();
 </script>
 <script>
 (function(){var f=document.querySelector('.auditoria');if(!f)return;var m=document.getElementById('marcoV'),c=document.getElementById('capV'),bs=[].slice.call(f.querySelectorAll('.eb'));
@@ -1074,22 +1089,37 @@ c.textContent='Diseño de ejemplo · '+T[e][0];m.setAttribute('aria-label','Dise
 </script>
 <a class="wa-fijo" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n.%20Me%20dedico%20a%3A%20" rel="noopener" aria-label="Cotizar por WhatsApp">Cotizar por WhatsApp</a>
 <script>
-(function(){var m=document.getElementById('modelos');if(!m)return;var fil=document.getElementById('filtro');
+(function(){var m=document.getElementById('modelos');if(!m)return;var fil=document.getElementById('filtro'),t=document.getElementById('tira');if(!t)return;
 var accs=[].slice.call(m.querySelectorAll('.acc[data-r]'));if(!accs.length)return;
-var t=document.getElementById('tira');if(!t)return;t.innerHTML='<button type="button" class="tm-f prev" aria-label="Modelo anterior">&#8592;</button><div class="tm-v" tabindex="0" role="region" aria-label="Modelos de app"></div><button type="button" class="tm-f next" aria-label="Modelo siguiente">&#8594;</button>';
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches,cur=null;
+t.innerHTML='<button type="button" class="tm-f prev" aria-label="Modelo anterior">&#8592;</button><div class="tm-v" tabindex="0" role="region" aria-label="Modelos de app"></div><button type="button" class="tm-f next" aria-label="Modelo siguiente">&#8594;</button>';
 var v=t.querySelector('.tm-v'),pv=t.querySelector('.prev'),nx=t.querySelector('.next');
-accs.forEach(function(a){var im=a.querySelector('.acc-i img');if(!im)return;var tit=(a.querySelector('.an b')||{textContent:''}).textContent.replace(/^(Aplicación|Plataforma) de /,'');tit=tit.charAt(0).toUpperCase()+tit.slice(1);
-var b=document.createElement('button');b.type='button';b.className='tm-i';b.setAttribute('data-id',a.id);b.setAttribute('aria-pressed','false');b.setAttribute('aria-label','Ver el modelo: '+tit);
+var pm=document.createElement('div');pm.className='pm';pm.id='panelM';pm.innerHTML='<div class="pm-w"><div class="pm-in" id="pmIn" tabindex="-1" role="region" aria-label="Detalle del modelo"><button type="button" class="pm-x" aria-label="Cerrar detalle">&#10005;</button><div class="pm-c" id="pmC"></div></div></div>';
+t.parentNode.insertBefore(pm,t.nextSibling);
+var pin=pm.querySelector('#pmIn'),pc=pm.querySelector('#pmC'),px=pm.querySelector('.pm-x');
+function ttl(a){var s=(a.querySelector('.an b')||{textContent:''}).textContent.replace(/^(Aplicación|Plataforma) de /,'');return s.charAt(0).toUpperCase()+s.slice(1)}
+accs.forEach(function(a){var im=a.querySelector('.acc-i img');if(!im)return;var tit=ttl(a);
+var b=document.createElement('button');b.type='button';b.className='tm-i';b.setAttribute('data-id',a.id);b.setAttribute('aria-pressed','false');b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','panelM');b.setAttribute('aria-label','Ver el modelo: '+tit);
 var i=document.createElement('img');i.src=im.getAttribute('src');i.width=im.getAttribute('width');i.height=im.getAttribute('height');i.alt='';i.loading='lazy';var s=document.createElement('span');s.textContent=tit;b.appendChild(i);b.appendChild(s);v.appendChild(b);
-b.addEventListener('click',function(){accs.forEach(function(x){var on=x===a;x.classList.toggle('open',on);x.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')});sync();
-a.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})});
-function sync(){[].slice.call(v.children).forEach(function(b){var a=document.getElementById(b.getAttribute('data-id'));b.setAttribute('aria-pressed',a.classList.contains('open')?'true':'false');b.classList.toggle('no-match',a.classList.contains('no-match'))});upd()}
+b.addEventListener('click',function(){abrir(a.id,true)})});
+function rellena(a){pc.innerHTML='';var ap=a.querySelector('.acc-i .ap').cloneNode(true);var h=document.createElement('h3');h.className='pm-t';h.textContent=ttl(a);ap.insertBefore(h,ap.firstChild);
+var fg=a.querySelector('.acc-i .apps');var f=fg?fg.cloneNode(true):null;if(f)pc.appendChild(f);pc.appendChild(ap)}
+function marca(){[].slice.call(v.children).forEach(function(b){var on=b.getAttribute('data-id')===cur;b.setAttribute('aria-pressed',on?'true':'false');b.setAttribute('aria-expanded',on?'true':'false')})}
+function abrir(id,foco){var a=document.getElementById(id);if(!a)return;
+if(cur&&cur!==id&&pm.classList.contains('open')&&!red){cur=id;pc.classList.add('fading');setTimeout(function(){rellena(a);pc.classList.remove('fading')},140)}
+else{cur=id;rellena(a);pm.classList.add('open')}
+marca();if(foco)pin.focus({preventScroll:true})}
+function cerrar(){var c=cur;cur=null;pm.classList.remove('open');marca();var b=c&&v.querySelector('[data-id="'+c+'"]');if(b)b.focus({preventScroll:true})}
+px.addEventListener('click',cerrar);
+pm.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();cerrar()}});
+window.abrirModelo=function(id){abrir(id,true)};
+function sync(){[].slice.call(v.children).forEach(function(b){var a=document.getElementById(b.getAttribute('data-id'));b.classList.toggle('no-match',a.classList.contains('no-match'))});upd()}
 function upd(){pv.disabled=v.scrollLeft<=2;nx.disabled=v.scrollLeft+v.clientWidth>=v.scrollWidth-2}
-function paso(d){v.scrollBy({left:d*(v.clientWidth*.8),behavior:'smooth'})}
+function paso(d){v.scrollBy({left:d*(v.clientWidth*.8),behavior:red?'auto':'smooth'})}
 pv.addEventListener('click',function(){paso(-1)});nx.addEventListener('click',function(){paso(1)});
 v.addEventListener('scroll',upd,{passive:true});
 v.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();paso(1)}if(e.key==='ArrowLeft'){e.preventDefault();paso(-1)}});
-m.addEventListener('click',function(){setTimeout(sync,60)});
+if(fil)fil.addEventListener('click',function(){setTimeout(function(){sync();var first=accs.filter(function(a){return a.classList.contains('match')})[0];if(first&&!cur){}},60)});
 sync();addEventListener('resize',upd);
 })();
 </script>
