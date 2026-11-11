@@ -579,6 +579,23 @@ em{font-style:normal}
  [data-v="modelos"] .dos>div{flex:0 0 66%;scroll-snap-align:center}
  [data-v="modelos"] .dos:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
 }
+/* tira de modelos (carrusel) */
+.marcas>*{min-width:0}.tira-m{min-height:450px;min-width:0;max-width:100%;position:relative;margin:clamp(22px,4vh,40px) 0 6px;display:none}.js .tira-m{display:block}
+.tm-v{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 12px;scrollbar-width:thin}
+.tm-v:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.tm-i{all:unset;box-sizing:border-box;flex:0 0 clamp(128px,15vw,176px);scroll-snap-align:start;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:opacity .2s}
+.tm-i img{width:100%;height:auto;display:block;border:1px solid #0003;background:#fff;box-shadow:0 14px 26px -18px #000a;transition:transform .25s var(--ease)}
+.tm-i:hover img{transform:translateY(-3px)}
+.tm-i span{font:600 13px/1.3 var(--sans);color:var(--tinta)}
+.tm-i[aria-pressed="true"] img{outline:3px solid var(--acento);outline-offset:2px}
+.tm-i[aria-pressed="true"] span{color:var(--acento)}
+.tm-i:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
+.tm-i.no-match{opacity:.38}
+.tm-f{position:absolute;top:38%;width:44px;height:44px;border:1px solid var(--tinta);background:var(--papel);color:var(--tinta);display:grid;place-items:center;cursor:pointer;z-index:2;font:700 20px/1 var(--sans);padding:0;border-radius:0}
+.tm-f:hover{background:var(--tinta);color:var(--papel)}.tm-f:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.tm-f.prev{left:-6px}.tm-f.next{right:-6px}.tm-f[disabled]{opacity:.35;cursor:default}
+@media (max-width:1199px){.tira-m{min-height:420px}}@media (max-width:899px){.tira-m{min-height:370px}}@media (max-width:640px){.tira-m{min-height:360px}.tm-i{flex-basis:118px}.tm-f{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.tm-v{scroll-behavior:auto}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -846,6 +863,7 @@ em{font-style:normal}
   <h2 id="t-mo" data-t data-k>Modelos de app <em>para tu negocio.</em></h2>
   <p class="intro">Diseños de aplicaciones que ajustamos a la medida de tu negocio, tu marca y tu rubro.</p>
   <div class="marcas" id="modelos">
+    <div class="tira-m" id="tira"></div>
     <div class="filtro" id="filtro" role="group" aria-label="¿Cuál es tu negocio?"><p class="fq">¿Cuál es tu negocio?</p><div class="fch"><button type="button" class="fc" data-r="clinica" aria-pressed="false">Clínica o consulta</button><button type="button" class="fc" data-r="peluqueria" aria-pressed="false">Barbería o peluquería</button><button type="button" class="fc" data-r="almacen" aria-pressed="false">Almacén o minimarket</button><button type="button" class="fc" data-r="restaurante" aria-pressed="false">Restaurante o cafetería</button><button type="button" class="fc" data-r="flota" aria-pressed="false">Flota o transportista</button><button type="button" class="fc" data-r="reparto" aria-pressed="false">Bodega o reparto</button><button type="button" class="fc" data-r="conductor" aria-pressed="false">Conductor de aplicaciones</button><button type="button" class="fc" data-r="barrio" aria-pressed="false">Comercio de barrio</button><button type="button" class="fc" data-r="estacion" aria-pressed="false">Estación de servicio</button><button type="button" class="fc fc-t" data-r="" aria-pressed="false">Ver todas</button></div><p class="fm" id="fm" aria-live="polite"></p></div>
     <article class="acc" id="a-2" data-r="flota reparto">
       <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-2" id="b-2">
@@ -1040,5 +1058,25 @@ m.querySelector('.est-ver').style.visibility=e==='ver'?'visible':'hidden';[].sli
 c.textContent='Diseño de ejemplo · '+T[e][0];m.setAttribute('aria-label','Diseño de ejemplo: app de rentabilidad del viaje con ruta, ganancia neta, ingreso y costos. El color del marco indica el resultado: '+T[e][1])})})})();
 </script>
 <a class="wa-fijo" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n.%20Me%20dedico%20a%3A%20" rel="noopener" aria-label="Cotizar por WhatsApp">Cotizar por WhatsApp</a>
+<script>
+(function(){var m=document.getElementById('modelos');if(!m)return;var fil=document.getElementById('filtro');
+var accs=[].slice.call(m.querySelectorAll('.acc[data-r]'));if(!accs.length)return;
+var t=document.getElementById('tira');if(!t)return;t.innerHTML='<button type="button" class="tm-f prev" aria-label="Modelo anterior">&#8592;</button><div class="tm-v" tabindex="0" role="region" aria-label="Modelos de app"></div><button type="button" class="tm-f next" aria-label="Modelo siguiente">&#8594;</button>';
+var v=t.querySelector('.tm-v'),pv=t.querySelector('.prev'),nx=t.querySelector('.next');
+accs.forEach(function(a){var im=a.querySelector('.acc-i img');if(!im)return;var tit=(a.querySelector('.an b')||{textContent:''}).textContent.replace(/^(Aplicación|Plataforma) de /,'');tit=tit.charAt(0).toUpperCase()+tit.slice(1);
+var b=document.createElement('button');b.type='button';b.className='tm-i';b.setAttribute('data-id',a.id);b.setAttribute('aria-pressed','false');b.setAttribute('aria-label','Ver el modelo: '+tit);
+var i=document.createElement('img');i.src=im.getAttribute('src');i.width=im.getAttribute('width');i.height=im.getAttribute('height');i.alt='';i.loading='lazy';var s=document.createElement('span');s.textContent=tit;b.appendChild(i);b.appendChild(s);v.appendChild(b);
+b.addEventListener('click',function(){accs.forEach(function(x){var on=x===a;x.classList.toggle('open',on);x.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')});sync();
+a.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})})});
+function sync(){[].slice.call(v.children).forEach(function(b){var a=document.getElementById(b.getAttribute('data-id'));b.setAttribute('aria-pressed',a.classList.contains('open')?'true':'false');b.classList.toggle('no-match',a.classList.contains('no-match'))});upd()}
+function upd(){pv.disabled=v.scrollLeft<=2;nx.disabled=v.scrollLeft+v.clientWidth>=v.scrollWidth-2}
+function paso(d){v.scrollBy({left:d*(v.clientWidth*.8),behavior:'smooth'})}
+pv.addEventListener('click',function(){paso(-1)});nx.addEventListener('click',function(){paso(1)});
+v.addEventListener('scroll',upd,{passive:true});
+v.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();paso(1)}if(e.key==='ArrowLeft'){e.preventDefault();paso(-1)}});
+m.addEventListener('click',function(){setTimeout(sync,60)});
+sync();addEventListener('resize',upd);
+})();
+</script>
 </body>
 </html>
