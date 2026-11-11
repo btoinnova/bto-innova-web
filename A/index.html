@@ -613,6 +613,29 @@ em{font-style:normal}
 @media (max-width:760px){.pm-c{grid-template-columns:1fr}.pm-c .apps{max-width:300px;order:-1}.pm-c .apps.par{max-width:none}}
 @media (prefers-reduced-motion:reduce){.pm,.pm.open,.pm-c{transition:none}}
 .pm-c .ap h4{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento);margin:20px 0 6px}.pm-c .ap .pm-t+h4{margin-top:0}.pm-c .ap p{color:var(--mut);max-width:34em}.pm-c .ap .cot{margin-top:16px}.pm-c .tags{display:flex;flex-wrap:wrap;gap:6px}.pm-c .tags li{border:1px solid var(--tinta);padding:5px 9px;font-size:.85rem;line-height:1.3}.pm-c .adapta{display:grid;gap:5px}.pm-c .adapta li{padding-left:16px;position:relative;color:var(--mut)}.pm-c .adapta li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--acento)}
+.tm-i{align-self:flex-start}
+.tm-i img{aspect-ratio:1/2.05;height:auto;object-fit:cover;object-position:top;width:100%}
+.tm-i span{min-height:3.9em;display:block}
+/* ===== PASO 1 (Impeccable): tipografía, planos, tamaños mínimos. Colores y estructura sin cambio ===== */
+:root{--mono:var(--sans)}
+.cod2,.cod2 pre,.sol .n,.pasos3 li span,.como li span,.flujo .ts,.flujo .sat text,.eb{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace!important}
+.etq2,.fq,.est,.acc-i .ap h4,.pm-c .ap h4,.datos dt,.ficha dt,.ficha2 dt,.vias span,.mod-est,.medida,.fila>h3,.ej,.sello,.nota,.leg,.peq,.tm-i span{letter-spacing:0!important;text-transform:none!important}
+.etq2,.fq,.acc-i .ap h4,.pm-c .ap h4,.datos dt,.ficha dt,.ficha2 dt,.vias span,.fila>h3{font-size:12px!important;font-weight:600!important}
+/* capturas y pantallas planas: sin sombra, borde de 1 px */
+img,.demo>*,.cod,.tel,.pay,.nav2,.marco-v,.cod2,.vis,.tm-i img,.e3 img,.dos img,.mp-v img{box-shadow:none!important}
+.acc-i .apps img,.pm-c .apps img,.tm-i img,.dos img,.e3 img,.mp-v .mp-d1,.nav2,.cap img{border:1px solid var(--linea)!important}
+.acc-i .cap .m,.mp-v .mp-m1{border:1px solid var(--linea)!important}
+.demo .lap,.demo .cod,.demo .pay{border:1px solid var(--linea)!important}
+/* móvil: ningún texto bajo 12 px; diagrama reescalado */
+@media (max-width:640px){
+ figcaption,.dos span,.e3 span,.tm-i span,.nota,.peq,.leg,.ej,.est,.mod-est,.medida,.fm,.er-n small,.er-t,.vias span{font-size:12px!important}
+ .er-r,.er-h,.er-btn{font-size:12px!important}
+ .flujo{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .flujo svg{min-width:600px;overflow:visible}
+ .flujo .t{font-size:17px}.flujo .ts{font-size:15px;letter-spacing:0}.flujo .sat text{font-size:15px}
+ .flujo .sat .ts{font-size:14px!important}
+}
+@media (max-width:640px){.demo .lap .bar span,.demo .pay span,.demo .pay em,.demo .nota{font-size:12px!important}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -686,7 +709,7 @@ em{font-style:normal}
         <a class="sat" href="https://elplaneador.cl" target="_blank" rel="noopener" aria-label="El Planeador, publicada (se abre en otra pestaña)">
           <line class="cam" x1="395" y1="140" x2="350" y2="170"/>
           <circle class="s" cx="420" cy="122" r="26"/><circle class="dot ok" cx="420" cy="122" r="4"/>
-          <text x="420" y="82" text-anchor="middle">El Planeador</text><text class="ts" x="420" y="168" style="font-size:10.5px">PUBLICADA</text>
+          <text x="420" y="82" text-anchor="middle">El Planeador</text><text class="ts" x="420" y="168" style="font-size:14px">PUBLICADA</text>
         </a>
       </g>
     </svg>
