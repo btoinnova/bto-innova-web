@@ -534,6 +534,16 @@ em{font-style:normal}
 .acc-i .apps{max-width:360px;justify-self:center}.acc-i .apps img{border:1px solid #0002;box-shadow:0 26px 44px -26px #000a;background:#fff}
 @media (max-width:760px){.acc-i .apps{justify-self:start;max-width:100%}.barra .enl{gap:2px}.barra .enl a{padding:0 2px;font-size:12px}}
 @media (max-width:720px){.barra .enl{overflow-x:auto;scrollbar-width:none;gap:14px;justify-content:flex-start}.barra .enl::-webkit-scrollbar{display:none}.barra .enl a{white-space:nowrap;flex:none;font-size:13px;padding:0}}
+.marca-pl{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,5vw,72px);align-items:center;margin-top:clamp(28px,5vh,56px);padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--tinta)}
+.mp-logo{width:clamp(72px,9vw,96px);height:auto;margin-bottom:18px}
+.marca-pl h3{font:800 clamp(2.2rem,5vw,4.4rem)/1 var(--sans);letter-spacing:-.04em}
+.mp-d{margin-top:16px;color:var(--mut);max-width:30em;font-size:1.08rem}
+.mp-a{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;margin-top:26px}
+.mp-v{margin:0;position:relative;padding-bottom:clamp(40px,8vw,90px)}
+.mp-v .mp-d1{width:88%;height:auto;display:block;border:1px solid #0003;box-shadow:0 30px 56px -30px #000a;background:#fff}
+.mp-v .mp-m1{position:absolute;right:0;bottom:clamp(14px,3vw,34px);width:27%;height:auto;border:4px solid #14161b;box-shadow:0 26px 44px -22px #000b;background:#fff}
+.mp-v figcaption{position:absolute;left:0;bottom:0;font:500 11px/1.3 var(--mono);opacity:.8}
+@media (max-width:860px){.marca-pl{grid-template-columns:1fr}.mp-v .mp-d1{width:90%}.mp-v .mp-m1{width:30%}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -690,16 +700,16 @@ em{font-style:normal}
 <section class="pagina" data-v="marcas" aria-labelledby="t-ma">
   <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
   <h2 id="t-ma" data-t data-k>Nuestra marca <em>propia.</em></h2>
-  <p class="intro">Las marcas que BTo Innova crea y opera. Hoy, una publicada.</p>
-  <div class="marcas">
-    <p class="etq2">Marca propia · publicada</p>
-    <article class="acc open" id="a-1">
-      <h3><button type="button" class="ah" aria-expanded="true" aria-controls="p-1" id="b-1">
-        <span class="al"><img src="img/logo-planeador.svg?v=11b" width="56" height="56" alt="Logo de El Planeador"></span><span class="an"><b>El Planeador</b><small>Agencia de marketing digital de BTo Innova.</small></span><em class="on">Publicada</em><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-1" role="region" aria-labelledby="b-1"><div class="acc-i"><div class="ap"><p>Páginas web, publicidad en redes y buscadores, gestión de redes y posicionamiento.</p><a class="cot visita" href="https://elplaneador.cl" target="_blank" rel="noopener">Visitar elplaneador.cl ↗</a></div><figure class="cap"><img class="d" src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la página de inicio de El Planeador en computador" loading="lazy"><img class="m" src="img/planeador-movil.webp?v=11b" width="390" height="800" alt="Captura de El Planeador en el teléfono" loading="lazy"><figcaption>Capturas de la web publicada.</figcaption></figure></div></div>
-    </article>
-      </div>
+  <p class="intro">La marca que BTo Innova crea y opera.</p>
+  <article class="marca-pl">
+    <div class="mp-t">
+      <img class="mp-logo" src="img/logo-planeador.svg?v=11b" width="96" height="96" alt="Logo de El Planeador">
+      <h3>El Planeador</h3>
+      <p class="mp-d">Agencia de marketing digital de BTo Innova: páginas web, publicidad en redes y buscadores, gestión de redes y posicionamiento.</p>
+      <div class="mp-a"><a class="btn" href="https://elplaneador.cl" target="_blank" rel="noopener">Visitar elplaneador.cl ↗</a><a class="vermas" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20conversar%20sobre%20marketing%20digital%20y%20una%20p%C3%A1gina%20web%20para%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu proyecto →</a></div>
+    </div>
+    <figure class="mp-v"><img class="mp-d1" src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la página de inicio de El Planeador en computador" loading="lazy"><img class="mp-m1" src="img/planeador-movil.webp?v=11b" width="390" height="800" alt="Captura de El Planeador en el teléfono" loading="lazy"><figcaption>Capturas de la web publicada.</figcaption></figure>
+  </article>
 </section>
 
 <section class="pagina emp" data-v="empresa" aria-labelledby="t-em">
