@@ -530,6 +530,10 @@ em{font-style:normal}
 .datos .tags{margin:0}.vis .ecomi{width:100%;height:auto;display:block}
 .ej:has(a){border:0;padding:0;margin-top:14px;font:500 13px/1.6 var(--mono)}
 .acc-i:not(:has(.apps)){grid-template-columns:1fr}.acc-i:not(:has(.apps)) .ap{max-width:46em}
+@media (max-width:720px){.barra .enl{font-size:12px}}
+.acc-i .apps{max-width:360px;justify-self:center}.acc-i .apps img{border:1px solid #0002;box-shadow:0 26px 44px -26px #000a;background:#fff}
+@media (max-width:760px){.acc-i .apps{justify-self:start;max-width:100%}.barra .enl{gap:2px}.barra .enl a{padding:0 2px;font-size:12px}}
+@media (max-width:720px){.barra .enl{overflow-x:auto;scrollbar-width:none;gap:14px;justify-content:flex-start}.barra .enl::-webkit-scrollbar{display:none}.barra .enl a{white-space:nowrap;flex:none;font-size:13px;padding:0}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -541,6 +545,7 @@ em{font-style:normal}
   <nav class="enl" aria-label="Principal">
     <a href="#inicio" data-nav="inicio">Inicio</a>
     <a href="#soluciones" data-nav="soluciones">Soluciones</a>
+    <a href="#modelos" data-nav="modelos">Modelos de app</a>
     <a href="#marcas" data-nav="marcas">Marcas</a>
     <a href="#empresa" data-nav="empresa">Empresa</a>
     <a href="#contacto" data-nav="contacto">Contacto</a>
@@ -553,7 +558,7 @@ em{font-style:normal}
   <div class="txt">
     <h1 id="t-in" data-t data-k><span>Tu negocio, ahora también es digital.</span><em>Apps, web, publicidad y <b>e-commerce</b>, con un solo equipo.</em></h1>
     <p class="sub">Diseñamos, construimos y operamos contigo, de principio a fin.</p>
-    <div class="cta"><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Conversemos por WhatsApp</a><a class="vermas" href="#flujo-sec">o conoce nuestras marcas ↓</a></div>
+    <div class="cta"><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Conversemos por WhatsApp</a><a class="vermas" href="#modelos">o mira los modelos de app ↓</a></div>
   </div>
   <div class="demo" id="demo" role="group" aria-label="Capturas reales de la web de El Planeador, código de esta web y una maqueta de pago en línea">
     <figure class="lap"><div class="bar"><i></i><i></i><i></i><span>elplaneador.cl</span></div><img src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la página de inicio de El Planeador en computador"></figure>
@@ -624,7 +629,7 @@ em{font-style:normal}
         <dt>Para quién</dt>
         <dd>Negocios que hoy se arreglan con planillas, mensajes sueltos o programas que no calzan con su forma de trabajar.</dd>
       </dl>
-      <p class="ej">Ejemplo: <a href="#marcas" data-abre="a-2">aplicación de transporte y logística con geolocalización</a></p>
+      <p class="ej">Ejemplo: <a href="#modelos" data-abre="a-2">aplicación de transporte y logística con geolocalización</a></p>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20o%20un%20sistema%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar una app o sistema →</a>
     </div>
     <figure class="vis"><div class="cod2" aria-hidden="true"><i></i><i></i><i></i><pre><span style="--l:0">function reservar(cliente, hora) {</span>
@@ -661,9 +666,9 @@ em{font-style:normal}
         <dt>Incluye</dt>
         <dd><ul class="inc"><li>Tienda en línea propia</li><li>Catálogo de productos o servicios</li><li>Carrito y pedidos</li><li>Reservas y agenda con pago</li><li>Despacho a domicilio y seguimiento</li><li>Panel para administrar tus pedidos</li></ul></dd>
         <dt>Para quién</dt>
-        <dd><ul class="tags"><li>Almacenes de barrio</li><li>Librerías</li><li>Restaurantes y cafeterías</li><li>Peluquerías y barberías</li><li>Clínicas</li><li>Arriendo de vehículos</li><li>Ferias y comercios de barrio</li></ul></dd>
+        <dd><ul class="tags"><li>Almacenes de barrio</li><li>Librerías</li><li>Restaurantes y cafeterías</li><li>Peluquerías y barberías</li><li>Clínicas</li><li>Catálogos de autos y otros bienes</li><li>Ferias y comercios de barrio</li></ul></dd>
         <dt>Ejemplos</dt>
-        <dd><ul class="ejl"><li><a href="#marcas" data-abre="a-4">Tienda con catálogo y carrito →</a></li><li><a href="#marcas" data-abre="a-5">Reserva y pago en línea →</a></li><li><a href="#marcas" data-abre="a-3">Agenda de horas con tienda →</a></li></ul><small class="peq">Los adaptamos a tu medida; abren la plantilla correspondiente.</small></dd>
+        <dd><ul class="ejl"><li><a href="#modelos" data-abre="a-4">Tienda con catálogo y carrito →</a></li><li><a href="#modelos" data-abre="a-5">Catálogo con reserva y pago →</a></li><li><a href="#modelos" data-abre="a-3">Agenda de horas con tienda →</a></li></ul><small class="peq">Los adaptamos a tu medida; abren el modelo correspondiente.</small></dd>
       </dl>
       <p class="ley2">Los pagos los procesan proveedores autorizados de terceros. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20montar%20mi%20tienda%20en%20l%C3%ADnea.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar mi tienda en línea →</a>
@@ -684,8 +689,8 @@ em{font-style:normal}
 
 <section class="pagina" data-v="marcas" aria-labelledby="t-ma">
   <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
-  <h2 id="t-ma" data-t data-k>Lo que construimos <em>y operamos.</em></h2>
-  <p class="intro">Una marca propia publicada y los modelos de plataforma que ya desarrollamos.</p>
+  <h2 id="t-ma" data-t data-k>Nuestra marca <em>propia.</em></h2>
+  <p class="intro">Las marcas que BTo Innova crea y opera. Hoy, una publicada.</p>
   <div class="marcas">
     <p class="etq2">Marca propia · publicada</p>
     <article class="acc open" id="a-1">
@@ -694,110 +699,7 @@ em{font-style:normal}
       </button></h3>
       <div class="acc-p" id="p-1" role="region" aria-labelledby="b-1"><div class="acc-i"><div class="ap"><p>Páginas web, publicidad en redes y buscadores, gestión de redes y posicionamiento.</p><a class="cot visita" href="https://elplaneador.cl" target="_blank" rel="noopener">Visitar elplaneador.cl ↗</a></div><figure class="cap"><img class="d" src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la página de inicio de El Planeador en computador" loading="lazy"><img class="m" src="img/planeador-movil.webp?v=11b" width="390" height="800" alt="Captura de El Planeador en el teléfono" loading="lazy"><figcaption>Capturas de la web publicada.</figcaption></figure></div></div>
     </article>
-    <h3 class="sec-mod" id="modelos">Plantillas de aplicaciones que podemos realizar para tu negocio</h3>
-    <p class="mod-baj">Maquetas de diseño de aplicaciones que ajustamos a la medida de tu negocio, tu marca y tu rubro.</p>
-    <div class="filtro" id="filtro" role="group" aria-label="¿Cuál es tu negocio?"><p class="fq">¿Cuál es tu negocio?</p><div class="fch"><button type="button" class="fc" data-r="clinica" aria-pressed="false">Clínica o consulta</button><button type="button" class="fc" data-r="peluqueria" aria-pressed="false">Peluquería o estética</button><button type="button" class="fc" data-r="almacen" aria-pressed="false">Almacén o minimarket</button><button type="button" class="fc" data-r="restaurante" aria-pressed="false">Restaurante o cafetería</button><button type="button" class="fc" data-r="flota" aria-pressed="false">Flota o transportista</button><button type="button" class="fc" data-r="reparto" aria-pressed="false">Bodega o reparto</button><button type="button" class="fc" data-r="conductor" aria-pressed="false">Conductor de aplicaciones</button><button type="button" class="fc" data-r="barrio" aria-pressed="false">Comercio de barrio</button><button type="button" class="fc" data-r="mall" aria-pressed="false">Mall o feria</button><button type="button" class="fc fc-t" data-r="" aria-pressed="false">Ver todas</button></div><p class="fm" id="fm" aria-live="polite"></p></div>
-    <article class="acc" id="a-2" data-r="flota reparto">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-2" id="b-2">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></span></span><span class="an"><b>Aplicación de transporte y logística con geolocalización</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-2" role="region" aria-labelledby="b-2"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Seguimiento en el mapa de cargas, distribuciones, rutas y flotas, con vehículo, origen y destino en tiempo real.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Flotas de vehículos</li><li>Transportistas</li><li>Distribución de cargas</li><li>Reparto de última milla</li><li>Bodegas y centros de distribución</li><li>Empresas con reparto</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus rutas, vehículos y puntos de carga y entrega.</li><li>Los reportes y avisos que necesitas ver.</li></ul>
-        <h4>Ideal si…</h4><p>Tienes vehículos o repartos y quieres ver en un mapa dónde va cada carga.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20transporte%20y%20log%C3%ADstica%20con%20geolocalizaci%C3%B3n.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/logistica-v3.webp?v=11e" width="800" height="993" alt="Diseño de ejemplo: app de logística en un teléfono, con mapa, ruta, camión, punto de carga y punto de entrega" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-3" data-r="clinica peluqueria">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-3" id="b-3">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span><span class="an"><b>Aplicación de agenda para consultas médicas, de salud y atención comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-3" role="region" aria-labelledby="b-3"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Tus clientes eligen servicio, día y hora desde el celular, y tú ves la agenda del día. Puede sumar una tienda en línea.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Clínicas médicas y dentales</li><li>Consultas de salud y terapias</li><li>Peluquerías y barberías</li><li>Centros de estética</li><li>Cualquier negocio de atención personalizada con hora previa</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus servicios, profesionales y horarios.</li><li>Tus medios de pago de terceros, para reservas o tienda.</li></ul>
-        <h4>Ideal si…</h4><p>Tienes un local y quieres que tus clientes pidan hora sin llamar.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20agenda%20de%20horas.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/agenda-v3.webp?v=11e" width="800" height="993" alt="Diseño de ejemplo: app de agenda en un teléfono, con servicios, día y hora para reservar" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-4" data-r="restaurante almacen barrio reparto">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-4" id="b-4">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg></span></span><span class="an"><b>Aplicación de delivery con tienda en línea</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-4" role="region" aria-labelledby="b-4"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Catálogo de productos, carrito y despacho a domicilio, con pago en línea con medios de pago de terceros.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Restaurantes y cafeterías</li><li>Almacenes de barrio</li><li>Minimarkets y abarrotes</li><li>Librerías</li><li>Productos de limpieza</li><li>Farmacias de barrio</li><li>Ferreterías</li><li>Panaderías</li><li>Cualquier comercio con productos entregables a domicilio</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu catálogo de productos y tus zonas de despacho.</li><li>Tus medios de pago de terceros.</li></ul>
-        <h4>Ideal si…</h4><p>Vendes productos en tu local y quieres que tus clientes los pidan desde el celular y los reciban en su casa.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20delivery%20con%20tienda%20en%20l%C3%ADnea.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/delivery-v3.webp?v=11e" width="800" height="993" alt="Diseño de ejemplo: app de delivery en un teléfono, con catálogo de productos y carrito" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
-    </article>    <article class="acc" id="a-10" data-r="almacen barrio">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-10" id="b-10">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></span></span><span class="an"><b>Aplicación de inventario y comercio</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-10" role="region" aria-labelledby="b-10"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Controla el stock de tu local, tu catálogo y tus ventas desde el celular o el computador.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Almacenes de barrio</li><li>Abarrotes</li><li>Minimarkets</li><li>Librerías</li><li>Ferreterías</li><li>Productos de limpieza</li><li>Panaderías</li><li>Farmacias de barrio</li><li>Comercios con productos en estantería</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu catálogo y tus categorías.</li><li>Tus proveedores y alertas de bajo stock.</li><li>Conexión con tu tienda en línea y medios de pago de terceros.</li></ul>
-        <h4>Ideal si…</h4><p>Llevas el inventario en cuaderno o planilla y quieres saber qué tienes, qué se acabó y qué vender.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20inventario%20y%20comercio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/inventario-comercio-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de dos pantallas de una app de inventario y comercio: lista de productos con stock y aviso de stock bajo, y resumen de ventas del día, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-5" data-r="flota conductor">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-5" id="b-5">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 10l2 5v3h-3M3 15v3h3M3 15h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></span></span><span class="an"><b>Plataforma de arriendo de autos entre particulares</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-5" role="region" aria-labelledby="b-5"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Los propietarios publican sus autos y quienes arriendan buscan, reservan y pagan en línea con medios de pago de terceros.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Propietarios que arriendan su auto</li><li>Flotas pequeñas de arriendo</li><li>Comunidades de conductores</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus reglas de publicación y reserva.</li><li>Tus medios de pago de terceros.</li></ul>
-        <h4>Ideal si…</h4><p>Tienes autos para arrendar y quieres ordenar publicaciones y reservas en un solo lugar.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20arriendo%20de%20autos%20entre%20particulares.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/plataforma-autos-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de una plataforma de arriendo de autos: listado de autos y reserva con pago en línea, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-6" data-r="mall barrio">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-6" id="b-6">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span></span><span class="an"><b>Aplicación de geolocalización comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-6" role="region" aria-labelledby="b-6"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Un mapa que muestra dónde está cada comercio y guía hasta él.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Barrios comerciales</li><li>Centros comerciales pequeños</li><li>Malls</li><li>Ferias</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu listado de locales y sus categorías.</li><li>Tu mapa y los puntos de interés de tu recinto.</li></ul>
-        <h4>Ideal si…</h4><p>Administras un conjunto de locales y quieres que los visitantes encuentren cada uno sin preguntar.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20geolocalizaci%C3%B3n%20comercial.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/geolocalizacion-gemini-v3.webp?v=11e" width="800" height="993" alt="Diseño de ejemplo: app de geolocalización comercial en un teléfono, con mapa y lista de locales" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-7" data-r="flota conductor">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-7" id="b-7">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 8h14M5 8l-3 7a3 3 0 0 0 6 0L5 8zM19 8l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></span></span><span class="an"><b>Aplicación de conciliación de peajes y TAG</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-7" role="region" aria-labelledby="b-7"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Cruza los cobros de peajes con los viajes realizados.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas y empresas de transporte</li><li>Servicios de traslado</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus reglas de revisión y tus reportes.</li><li>Tus fuentes de datos de peajes y viajes.</li></ul>
-        <h4>Ideal si…</h4><p>Revisas los peajes a mano y quieres compararlos con tus viajes.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20conciliaci%C3%B3n%20de%20peajes%20y%20TAG.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/conciliacion-gemini-v3.webp?v=11e" width="800" height="993" alt="Diseño de ejemplo: app de conciliación de peajes y TAG en un teléfono" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
-    </article>
-    <article class="acc" id="a-9" data-r="conductor flota">
-      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-9" id="b-9">
-        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span></span><span class="an"><b>Aplicación de control de rentabilidad de viajes</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
-      </button></h3>
-      <div class="acc-p" id="p-9" role="region" aria-labelledby="b-9"><div class="acc-i"><div class="ap">
-        <h4>Qué hace</h4><p>Audita cada viaje en línea y muestra cuánto rinde realmente, descontando costos.</p>
-        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas pequeñas</li><li>Servicios de traslado</li></ul>
-        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus costos y los datos de tus viajes.</li><li>Los reportes que necesitas ver.</li></ul>
-        <h4>Ideal si…</h4><p>Quieres saber cuánto te queda de cada viaje.</p>
-        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20una%20plantilla%20de%20aplicaci%C3%B3n%3A%20control%20de%20rentabilidad%20de%20viajes.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
-        <figure class="apps"><img src="img/auditoria-viajes-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de dos pantallas de control de rentabilidad: resumen del día y lista de viajes, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
-    </article>
-    <aside class="punto osc bleed" aria-labelledby="t-punto">
-      <h3 id="t-punto">Ninguna plantilla es el final: es el punto de partida.</h3>
-      <ol class="pasos3"><li><span>01</span>Conversamos tu negocio</li><li><span>02</span>Ajustamos el diseño a tu medida</li><li><span>03</span>La construimos y la operamos contigo</li></ol>
-      <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20ajustar%20una%20plantilla%20de%20aplicaci%C3%B3n%20a%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Cuéntanos tu negocio</a>
-    </aside>
-  </div>
+      </div>
 </section>
 
 <section class="pagina emp" data-v="empresa" aria-labelledby="t-em">
@@ -885,6 +787,114 @@ em{font-style:normal}
     <p>Los servicios de cada marca se rigen por sus propios términos, que se publican en su sitio o aplicación. Se aplica la ley chilena. Los consumidores conservan los derechos que les reconoce la Ley N° 19.496.</p>
   </div>
 </section>
+<section class="pagina" data-v="modelos" aria-labelledby="t-mo">
+  <h2 id="t-mo" data-t data-k>Modelos de app <em>para tu negocio.</em></h2>
+  <p class="intro">Diseños de aplicaciones que ajustamos a la medida de tu negocio, tu marca y tu rubro.</p>
+  <div class="marcas" id="modelos">
+    <div class="filtro" id="filtro" role="group" aria-label="¿Cuál es tu negocio?"><p class="fq">¿Cuál es tu negocio?</p><div class="fch"><button type="button" class="fc" data-r="clinica" aria-pressed="false">Clínica o consulta</button><button type="button" class="fc" data-r="peluqueria" aria-pressed="false">Peluquería o estética</button><button type="button" class="fc" data-r="almacen" aria-pressed="false">Almacén o minimarket</button><button type="button" class="fc" data-r="restaurante" aria-pressed="false">Restaurante o cafetería</button><button type="button" class="fc" data-r="flota" aria-pressed="false">Flota o transportista</button><button type="button" class="fc" data-r="reparto" aria-pressed="false">Bodega o reparto</button><button type="button" class="fc" data-r="conductor" aria-pressed="false">Conductor de aplicaciones</button><button type="button" class="fc" data-r="barrio" aria-pressed="false">Comercio de barrio</button><button type="button" class="fc" data-r="mall" aria-pressed="false">Mall o feria</button><button type="button" class="fc fc-t" data-r="" aria-pressed="false">Ver todas</button></div><p class="fm" id="fm" aria-live="polite"></p></div>
+    <article class="acc" id="a-2" data-r="flota reparto">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-2" id="b-2">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></span></span><span class="an"><b>Aplicación de transporte y logística con geolocalización</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-2" role="region" aria-labelledby="b-2"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Seguimiento en el mapa de cargas, distribuciones, rutas y flotas, con vehículo, origen y destino en tiempo real.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Flotas de vehículos</li><li>Transportistas</li><li>Distribución de cargas</li><li>Reparto de última milla</li><li>Bodegas y centros de distribución</li><li>Empresas con reparto</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus rutas, vehículos y puntos de carga y entrega.</li><li>Los reportes y avisos que necesitas ver.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes vehículos o repartos y quieres ver en un mapa dónde va cada carga.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20transporte%20y%20log%C3%ADstica%20con%20geolocalizaci%C3%B3n.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/logistica-v4.webp?v=11f" width="720" height="1388" alt="Diseño de ejemplo: app de logística en un teléfono, con mapa, ruta, camión, punto de carga y punto de entrega" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-3" data-r="clinica peluqueria">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-3" id="b-3">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span><span class="an"><b>Aplicación de agenda para consultas médicas, de salud y atención comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-3" role="region" aria-labelledby="b-3"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Tus clientes eligen servicio, día y hora desde el celular, y tú ves la agenda del día. Puede sumar una tienda en línea.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Clínicas médicas y dentales</li><li>Consultas de salud y terapias</li><li>Peluquerías y barberías</li><li>Centros de estética</li><li>Cualquier negocio de atención personalizada con hora previa</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus servicios, profesionales y horarios.</li><li>Tus medios de pago de terceros, para reservas o tienda.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes un local y quieres que tus clientes pidan hora sin llamar.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20agenda%20de%20horas.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/agenda-v4.webp?v=11f" width="720" height="1433" alt="Diseño de ejemplo: app de agenda en un teléfono, con servicios, día y hora para reservar" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-4" data-r="restaurante almacen barrio reparto">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-4" id="b-4">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg></span></span><span class="an"><b>Aplicación de delivery con tienda en línea</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-4" role="region" aria-labelledby="b-4"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Catálogo de productos, carrito y despacho a domicilio, con pago en línea con medios de pago de terceros.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Restaurantes y cafeterías</li><li>Almacenes de barrio</li><li>Minimarkets y abarrotes</li><li>Librerías</li><li>Productos de limpieza</li><li>Farmacias de barrio</li><li>Ferreterías</li><li>Panaderías</li><li>Cualquier comercio con productos entregables a domicilio</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu catálogo de productos y tus zonas de despacho.</li><li>Tus medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Vendes productos en tu local y quieres que tus clientes los pidan desde el celular y los reciban en su casa.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20delivery%20con%20tienda%20en%20l%C3%ADnea.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/delivery-v4.webp?v=11f" width="640" height="1359" alt="Diseño de ejemplo: app de delivery en un teléfono, con catálogo de productos y carrito" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>    <article class="acc" id="a-10" data-r="almacen barrio">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-10" id="b-10">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></span></span><span class="an"><b>Aplicación de inventario y comercio</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-10" role="region" aria-labelledby="b-10"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Controla el stock de tu local, tu catálogo y tus ventas desde el celular o el computador.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Almacenes de barrio</li><li>Abarrotes</li><li>Minimarkets</li><li>Librerías</li><li>Ferreterías</li><li>Productos de limpieza</li><li>Panaderías</li><li>Farmacias de barrio</li><li>Comercios con productos en estantería</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu catálogo y tus categorías.</li><li>Tus proveedores y alertas de bajo stock.</li><li>Conexión con tu tienda en línea y medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Llevas el inventario en cuaderno o planilla y quieres saber qué tienes, qué se acabó y qué vender.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20inventario%20y%20comercio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/inventario-comercio-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de dos pantallas de una app de inventario y comercio: lista de productos con stock y aviso de stock bajo, y resumen de ventas del día, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-5" data-r="barrio flota">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-5" id="b-5">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 10l2 5v3h-3M3 15v3h3M3 15h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></span></span><span class="an"><b>Catálogo interactivo</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-5" role="region" aria-labelledby="b-5"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Un catálogo donde se desliza para elegir y se conectan la oferta y la demanda (match), con reserva y pago en línea con medios de pago de terceros.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Negocios con oferta de autos</li><li>Otros bienes que se eligen por catálogo</li><li>Servicios que se eligen por catálogo</li><li>Comunidades de oferta y demanda</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu catálogo y tus reglas de publicación y reserva.</li><li>Tus medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes una oferta que se elige mirando un catálogo y quieres que tus clientes deslicen, elijan y se conecten contigo.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20cat%C3%A1logo%20interactivo.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/plataforma-autos-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de un catálogo interactivo: listado de autos y reserva con pago en línea, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-6" data-r="mall barrio">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-6" id="b-6">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span></span><span class="an"><b>Aplicación de geolocalización comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-6" role="region" aria-labelledby="b-6"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Un mapa que muestra dónde está cada comercio y guía hasta él.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Barrios comerciales</li><li>Centros comerciales pequeños</li><li>Malls</li><li>Ferias</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu listado de locales y sus categorías.</li><li>Tu mapa y los puntos de interés de tu recinto.</li></ul>
+        <h4>Ideal si…</h4><p>Administras un conjunto de locales y quieres que los visitantes encuentren cada uno sin preguntar.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20geolocalizaci%C3%B3n%20comercial.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/geolocalizacion-v4.webp?v=11f" width="640" height="1406" alt="Diseño de ejemplo: app de geolocalización comercial en un teléfono, con mapa y lista de locales" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-7" data-r="flota conductor">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-7" id="b-7">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 8h14M5 8l-3 7a3 3 0 0 0 6 0L5 8zM19 8l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></span></span><span class="an"><b>Aplicación de conciliación de peajes y TAG</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-7" role="region" aria-labelledby="b-7"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Cruza los cobros de peajes con los viajes realizados.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas y empresas de transporte</li><li>Servicios de traslado</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus reglas de revisión y tus reportes.</li><li>Tus fuentes de datos de peajes y viajes.</li></ul>
+        <h4>Ideal si…</h4><p>Revisas los peajes a mano y quieres compararlos con tus viajes.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20conciliaci%C3%B3n%20de%20peajes%20y%20TAG.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/conciliacion-v4.webp?v=11f" width="640" height="1406" alt="Diseño de ejemplo: app de conciliación de peajes y TAG en un teléfono" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-9" data-r="conductor flota">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-9" id="b-9">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span></span><span class="an"><b>Aplicación de control de rentabilidad de viajes</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-9" role="region" aria-labelledby="b-9"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Audita cada viaje en línea y muestra cuánto rinde realmente, descontando costos.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas pequeñas</li><li>Servicios de traslado</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus costos y los datos de tus viajes.</li><li>Los reportes que necesitas ver.</li></ul>
+        <h4>Ideal si…</h4><p>Quieres saber cuánto te queda de cada viaje.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20control%20de%20rentabilidad%20de%20viajes.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/auditoria-viajes-v3.webp?v=11d" width="1200" height="1199" alt="Diseño de ejemplo de dos pantallas de control de rentabilidad: resumen del día y lista de viajes, con datos de ejemplo" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <aside class="punto osc bleed" aria-labelledby="t-punto">
+      <h3 id="t-punto">Ningún modelo es el final: es el punto de partida.</h3>
+      <ol class="pasos3"><li><span>01</span>Conversamos tu negocio</li><li><span>02</span>Ajustamos el diseño a tu medida</li><li><span>03</span>La construimos y la operamos contigo</li></ol>
+      <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20ajustar%20una%20modelo%20de%20app%20a%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Cuéntanos tu negocio</a>
+    </aside>
+  </div>
+</section>
+
 </main>
 <footer class="fpie"><div class="fin"><p class="leg"><span class="ley">BTo Innova SpA · RUT 78.533.592-9 · Desarrollo de software, marketing digital y e-commerce · </span><span class="loc">Ñuñoa, Chile</span><span class="mail"><a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a></span></p><p class="leg lnk"><a href="#privacidad">Privacidad</a> · <a href="#terminos">Términos de uso</a></p></div></footer>
 <script src="pantallas.js?v=11b"></script>
@@ -957,13 +967,13 @@ cs.forEach(function(x){x.setAttribute('aria-pressed','false')});
 if(!k||act){as.forEach(function(a){a.classList.remove('match','no-match');abre(a,false)});fm.textContent='';return}
 c.setAttribute('aria-pressed','true');var n=0;
 as.forEach(function(a){var ok=(' '+a.getAttribute('data-r')+' ').indexOf(' '+k+' ')>-1;a.classList.toggle('match',ok);a.classList.toggle('no-match',!ok);abre(a,ok);if(ok)n++});
-fm.textContent=n+(n===1?' plantilla sirve':' plantillas sirven')+' para "'+c.textContent+'".';
+fm.textContent=n+(n===1?' modelo sirve':' modelos sirven')+' para "'+c.textContent+'".';
 var first=document.querySelector('.acc.match');if(first&&first.scrollIntoView&&!matchMedia('(prefers-reduced-motion:reduce)').matches)first.scrollIntoView({behavior:'smooth',block:'nearest'})})})})();
 </script>
 <script>
 (function(){var pend=null;
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-abre]');if(a)pend=a.getAttribute('data-abre')},true);
-document.addEventListener('pantalla',function(ev){if(!pend||ev.detail!=='marcas')return;var id=pend;pend=null;setTimeout(function(){var el=document.getElementById(id);if(!el)return;
+document.addEventListener('pantalla',function(ev){if(!pend||ev.detail!=='modelos')return;var id=pend;pend=null;setTimeout(function(){var el=document.getElementById(id);if(!el)return;
 [].slice.call(document.querySelectorAll('.acc')).forEach(function(x){var on=x===el;x.classList.toggle('open',on);x.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')});
 var b=el.querySelector('.ah');if(b)b.focus({preventScroll:true});el.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})},120)})})();
 </script>
