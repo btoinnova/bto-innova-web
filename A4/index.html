@@ -692,16 +692,22 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
  .mp-v .mp-m1{position:static;width:44%}
  .mp-v figcaption{position:static}
 }
-.demo-m{display:none}
 @media (max-width:640px){
  .portada.osc .demo{display:none!important}
- .demo-m{display:block;margin:26px 0 14px}
- .dm-v{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin:0;list-style:none;scrollbar-width:thin}
- .dm-v:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
- .dm-v li{flex:0 0 44%;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
- .dm-v img{width:100%;height:auto;display:block;aspect-ratio:1/2.05;object-fit:cover;object-position:top;border:1px solid #2a3a54;box-shadow:none;background:#fff}
- .dm-v span{font:600 13px/1.3 var(--sans);color:var(--tinta)}
- .dm-c{font:500 13px/1.4 var(--sans);color:var(--mut);margin-top:6px}
+}
+.tm-i{transition:flex-basis .28s var(--ease),opacity .22s ease,margin .28s var(--ease)}
+.tm-i.fuera{flex-basis:0!important;opacity:0;margin-right:-14px;overflow:hidden;pointer-events:none;visibility:hidden;transition:flex-basis .28s var(--ease),opacity .2s ease,margin .28s var(--ease),visibility 0s linear .28s}
+.tm-i.no-match{opacity:1}
+.fc.sel{background:#1b3d7a!important;border-color:#1b3d7a!important;color:#fff!important}
+.fc.sel::before{content:"\2713";margin-right:8px;font-weight:700}
+.fm{margin-top:12px;color:var(--tinta);font:600 15px/1.5 var(--sans);min-height:1.5em}
+.fm .btn{margin-left:10px;display:inline-flex;align-items:center;min-height:44px;padding:0 18px;font-size:15px}
+@media (prefers-reduced-motion:reduce){.tm-i,.tm-i.fuera{transition:none}}
+@media (max-width:640px){
+ .portada.osc{min-height:0;padding-bottom:28px}
+ .portada.osc .cta{margin-bottom:6px}
+ .franja{padding-bottom:calc(14px + 0px)}
+ [data-v="inicio"].franja ~ *{}
 }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
@@ -738,7 +744,7 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
     <svg class="flow" viewBox="0 0 100 85" preserveAspectRatio="none" aria-hidden="true"><path d="M26 78 C26 60 20 52 30 44"/><path d="M62 30 C70 22 70 14 76 8"/><path d="M60 60 C74 62 80 70 86 78"/></svg>
     <p class="nota">Capturas de elplaneador.cl · código de esta web · maqueta de pago</p>
   </div>
-  <div class="demo-m" role="group" aria-label="Diseños de ejemplo de apps"><ul class="dm-v" tabindex="0" aria-label="Pantallas de ejemplo; desliza para ver más"><li><img src="img/delivery-v4.webp?v=11f" width="640" height="1359" alt="Diseño de ejemplo: tienda con catálogo y carrito" loading="lazy"><span>Delivery con tienda en línea</span></li><li><img src="img/agenda-v6.webp?v=11l" width="640" height="1354" alt="Diseño de ejemplo: app de agenda de horas" loading="lazy"><span>Agenda de horas</span></li><li><img src="img/catalogo-interactivo-v5.webp?v=11g" width="640" height="1330" alt="Diseño de ejemplo: catálogo interactivo con tarjeta para deslizar" loading="lazy"><span>Catálogo interactivo</span></li></ul><p class="dm-c">Diseños de ejemplo de apps a la medida.</p></div>
+
 </section>
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
 
@@ -1149,15 +1155,22 @@ b.addEventListener('click',function(){abre(a,!a.classList.contains('open'))});
 b.addEventListener('keydown',function(e){var t=null;if(e.key==='ArrowDown')t=as[(i+1)%as.length];if(e.key==='ArrowUp')t=as[(i+as.length-1)%as.length];if(t){e.preventDefault();t.querySelector('.ah').focus()}})})})();
 </script>
 <script>
-(function(){var f=document.getElementById('filtro');if(!f)return;var as=[].slice.call(document.querySelectorAll('.acc[data-r]')),cs=[].slice.call(f.querySelectorAll('.fc')),fm=document.getElementById('fm');
-function abre(a,on){a.classList.toggle('open',on);a.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')}
+(function(){var f=document.getElementById('filtro');if(!f)return;var cs=[].slice.call(f.querySelectorAll('.fc')),fm=document.getElementById('fm');
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function items(){return [].slice.call(document.querySelectorAll('.tm-i'))}
+function rubros(it){var a=document.getElementById(it.getAttribute('data-id'));return ' '+(a?a.getAttribute('data-r'):'')+' '}
+function limpia(){cs.forEach(function(x){x.setAttribute('aria-pressed','false');x.classList.remove('sel')});items().forEach(function(i){i.classList.remove('fuera');i.removeAttribute('aria-hidden');i.tabIndex=0})}
 cs.forEach(function(c){c.addEventListener('click',function(){var k=c.getAttribute('data-r'),act=c.getAttribute('aria-pressed')==='true';
-cs.forEach(function(x){x.setAttribute('aria-pressed','false')});
-if(!k||act){as.forEach(function(a){a.classList.remove('match','no-match');abre(a,false)});fm.textContent='';return}
-c.setAttribute('aria-pressed','true');var n=0;
-as.forEach(function(a){var ok=(' '+a.getAttribute('data-r')+' ').indexOf(' '+k+' ')>-1;a.classList.toggle('match',ok);a.classList.toggle('no-match',!ok);abre(a,ok);if(ok)n++});
-fm.textContent=n+(n===1?' modelo sirve':' modelos sirven')+' para "'+c.textContent+'".';
-var first=document.querySelector('.acc.match');if(first&&first.scrollIntoView&&!matchMedia('(prefers-reduced-motion:reduce)').matches)first.scrollIntoView({behavior:'smooth',block:'nearest'})})})})();
+limpia();
+if(!k||act){if(window.cerrarModelo)window.cerrarModelo();fm.textContent='';var v=document.querySelector('.tm-v');if(v)v.scrollTo({left:0,behavior:red?'auto':'smooth'});return}
+c.setAttribute('aria-pressed','true');c.classList.add('sel');
+var it=items(),ok=it.filter(function(i){return rubros(i).indexOf(' '+k+' ')>-1});
+it.forEach(function(i){if(ok.indexOf(i)<0){i.classList.add('fuera');i.setAttribute('aria-hidden','true');i.tabIndex=-1}});
+var v=document.querySelector('.tm-v');if(v)v.scrollTo({left:0,behavior:'auto'});
+var n=ok.length,tx=c.textContent.trim();
+if(n){fm.textContent='Para '+tx+': '+n+(n===1?' modelo':' modelos');if(window.abrirModelo)window.abrirModelo(ok[0].getAttribute('data-id'))}
+else{if(window.cerrarModelo)window.cerrarModelo();fm.innerHTML='Para tu rubro lo conversamos: escríbenos por WhatsApp <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Mi%20rubro%20no%20aparece%20en%20los%20modelos%20de%20app.%20Mi%20negocio%20es%3A%20" rel="noopener">Escribir por WhatsApp</a>'}
+setTimeout(function(){if(v)v.dispatchEvent(new Event('scroll'))},320)})})})();
 </script>
 <script>
 (function(){var pend=null;
