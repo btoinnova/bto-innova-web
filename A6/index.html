@@ -1137,7 +1137,7 @@ html[data-pantalla="inicio"] main>.portada.osc::before{display:block;content:"";
 .portada.osc .cta{margin-top:clamp(18px,3vh,30px)}
 .portada.osc .btn{background:#fff!important;color:#1b3d7a!important;border-color:#fff!important}
 .portada.osc .btn:active{background:#dbe6fa!important}
-.hv{position:fixed;left:0;top:0;margin:0;pointer-events:none;z-index:70;transform-origin:0 0;will-change:transform,opacity;font:800 14vw/.94 var(--sans);letter-spacing:-.05em;color:#fff}
+.hv{position:fixed;left:0;top:0;margin:0;pointer-events:none;z-index:35;transform-origin:0 0;will-change:transform,opacity;font:800 14vw/.94 var(--sans);letter-spacing:-.05em;color:#fff}
 .hv>.ln{display:block;overflow:hidden;padding-block:.1em;margin-block:-.1em}
 .hv>.ln>span{display:inline-block;white-space:nowrap;transform:translateY(112%);animation:lnup 1.05s cubic-bezier(.2,.8,.2,1) forwards}
 .hv>.ln:nth-child(2)>span{animation-delay:.13s}.hv>.ln:nth-child(3)>span{animation-delay:.26s}
@@ -1158,6 +1158,25 @@ html.hv-on .portada.osc h1{opacity:0}
  .portada.osc::after{display:none}
  ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
+/* v5.1: titular que domina, sin trama genérica */
+.portada.osc h1,.hv{line-height:.88}
+.portada.osc h1>.gr,.hv>.gr{display:block;width:max-content;max-width:none}
+.portada.osc h1 .ln,.hv .ln{display:inline-block;vertical-align:top;overflow:hidden;padding-block:.1em;margin-block:-.1em}
+.portada.osc h1>.gr>.ln:nth-child(1)>span,.hv>.gr>.ln:nth-child(1)>span{animation-delay:0s}
+.portada.osc h1>.gr:nth-child(2)>.ln:nth-child(1)>span,.hv>.gr:nth-child(2)>.ln:nth-child(1)>span{animation-delay:.26s}
+.portada.osc h1>.gr:nth-child(2)>.ln:nth-child(2)>span,.hv>.gr:nth-child(2)>.ln:nth-child(2)>span{animation-delay:.34s}
+.portada.osc h1>.gr:nth-child(3)>.ln:nth-child(1)>span,.hv>.gr:nth-child(3)>.ln:nth-child(1)>span{animation-delay:.52s}
+.portada.osc h1>.gr:nth-child(3)>.ln:nth-child(2)>span,.hv>.gr:nth-child(3)>.ln:nth-child(2)>span{animation-delay:.6s}
+.portada.osc h1>.gr:nth-child(1)>.ln:nth-child(2)>span,.hv>.gr:nth-child(1)>.ln:nth-child(2)>span{animation-delay:.08s}
+@media (max-width:759px){.portada.osc h1 .ln,.hv .ln{display:block}.portada.osc h1>.gr>.ln:nth-child(n)>span,.hv>.gr>.ln:nth-child(n)>span{animation-delay:0s}
+ .portada.osc h1>.gr:nth-child(1)>.ln:nth-child(2)>span,.hv>.gr:nth-child(1)>.ln:nth-child(2)>span{animation-delay:.1s}
+ .portada.osc h1>.gr:nth-child(2)>.ln:nth-child(1)>span,.hv>.gr:nth-child(2)>.ln:nth-child(1)>span{animation-delay:.2s}
+ .portada.osc h1>.gr:nth-child(2)>.ln:nth-child(2)>span,.hv>.gr:nth-child(2)>.ln:nth-child(2)>span{animation-delay:.3s}
+ .portada.osc h1>.gr:nth-child(3)>.ln:nth-child(1)>span,.hv>.gr:nth-child(3)>.ln:nth-child(1)>span{animation-delay:.4s}
+ .portada.osc h1>.gr:nth-child(3)>.ln:nth-child(2)>span,.hv>.gr:nth-child(3)>.ln:nth-child(2)>span{animation-delay:.5s}}
+html[data-pantalla="inicio"] main>.portada.osc{background-image:linear-gradient(#1b3d7a 0,#1b3d7a 62%,rgba(27,61,122,0) 100%)!important;background-size:100% 100%!important}
+html[data-pantalla="inicio"] body{background-image:radial-gradient(900px circle at 100% 0%,rgba(59,111,212,.5),transparent 62%),radial-gradient(820px circle at 0% 55%,rgba(27,61,122,.55),transparent 65%),radial-gradient(900px circle at 100% 100%,rgba(27,61,122,.4),transparent 65%)!important;background-size:auto,auto,auto!important}
+.portada.osc::after{background-image:linear-gradient(rgba(255,255,255,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.22) 1px,transparent 1px)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -1183,7 +1202,7 @@ html.hv-on .portada.osc h1{opacity:0}
   <!-- VIDEO DE FONDO (desactivado): para activarlo, poner la ruta en data-src, un poster en poster=, y quitar hidden. Sin src no se descarga nada. -->
   <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="" data-src="" aria-hidden="true" hidden></video>
   <div class="txt">
-    <h1 id="t-in" data-t><span class="ln"><span>Tu negocio,</span></span><span class="ln"><span>ahora también</span></span><span class="ln"><span>es digital.</span></span></h1>
+    <h1 id="t-in" data-t><span class="gr"><span class="ln"><span>Tu</span></span> <span class="ln"><span>negocio,</span></span></span><span class="gr"><span class="ln"><span>ahora</span></span> <span class="ln"><span>también</span></span></span><span class="gr"><span class="ln"><span>es</span></span> <span class="ln"><span>digital.</span></span></span></h1>
     <p class="sub">Apps, sistemas y marketing a la medida.</p>
     <div class="cta"><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cuéntanos tu negocio por WhatsApp</a></div>
   </div>
@@ -1677,8 +1696,8 @@ var red=matchMedia('(prefers-reduced-motion:reduce)').matches,root=document.docu
 var hero=document.getElementById('inicio'),h1=document.getElementById('t-in'),logo=document.querySelector('.barra .logo');
 if(!hero||!h1)return;
 /* titular a todo el ancho */
-function ajusta(){var tx=hero.querySelector('.txt'),cw=tx.clientWidth;if(!cw)return;var ls=[].slice.call(h1.querySelectorAll('.ln>span'));h1.style.fontSize='100px';var mx=0;ls.forEach(function(x){mx=Math.max(mx,x.getBoundingClientRect().width)});if(!mx)return;
-var f=100*cw/mx;var hs=(innerHeight-72-170)/(3*.94);f=Math.max(40,Math.min(f,hs>120?hs:f));h1.style.fontSize=f.toFixed(1)+'px'}
+function ajusta(){var tx=hero.querySelector('.txt'),cw=tx.clientWidth;if(!cw)return;var gs=[].slice.call(h1.querySelectorAll('.gr'));h1.style.fontSize='100px';var mx=0;gs.forEach(function(g){mx=Math.max(mx,g.getBoundingClientRect().width)});if(!mx)return;
+var L=innerWidth<760?6:3,f=100*cw/mx,hs=(innerHeight-72-190)/(L*.88);f=Math.max(40,Math.min(f,hs>120?hs:f));h1.style.fontSize=f.toFixed(1)+'px'}
 var okHv=false;function r2(){ajusta();if(okHv){medir();pinta()}}
 ajusta();addEventListener('resize',r2);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(r2);
 /* fondo que reacciona al dedo o al cursor */
