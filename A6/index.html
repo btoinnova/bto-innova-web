@@ -1029,6 +1029,99 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
 .bl .ms{flex-wrap:wrap;white-space:normal;row-gap:2px}
 .bl .ms span{white-space:nowrap}
 @media (max-width:760px){.bq{grid-template-columns:minmax(0,1fr)}.bl .ms{font-size:12px;gap:.3em}.bl{padding:18px 16px}}
+/* ===== A6 v4: cuatro mini-interfaces vivas (HTML/CSS/SVG) ===== */
+.bq{grid-template-columns:repeat(3,minmax(0,1fr))!important;max-width:1080px}
+.bl{padding:12px 12px 16px;gap:12px;align-items:stretch}
+.bl-sis{grid-row:auto!important;grid-column:1/-1;min-height:0!important;justify-content:flex-start!important}
+.bl h3{font:800 clamp(1.3rem,2.1vw,1.7rem)/1.1 var(--sans);letter-spacing:-.03em;padding:0 4px;max-width:none!important}
+.bl-sis h3{font-size:clamp(1.7rem,3.4vw,2.6rem)!important;line-height:1.04;max-width:none!important;color:#0f1a2b}
+.bl .btn{align-self:flex-start;margin:0 4px}
+.bl .bd,.bl .ms{display:none}
+.ui{position:relative;overflow:hidden;height:236px;background:#f4f7fc;color:#0f1a2b;font:600 12px/1.2 var(--sans);border:1px solid #cdd6e2}
+.u2{height:clamp(300px,30vw,340px);background:#0f1d38;color:#eef2f8;border-color:#24324a}
+.ui i,.ui s,.ui u,.ui em{font-style:normal;text-decoration:none}
+/* 1 · app */
+.u1{padding:12px}
+.u1-top{display:flex;justify-content:space-between;align-items:center;font-size:14px}.u1-top span{color:#4e5a6c;font-weight:500}
+.u1-days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0}
+.u1-days i{display:grid;place-items:center;height:26px;border:1px solid #cdd6e2;background:#fff;color:#4e5a6c}.u1-days i.a{background:#1b3d7a;border-color:#1b3d7a;color:#fff}
+.u1-slots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.u1-slots i{position:relative;display:grid;place-items:center;height:34px;border:1px solid #cdd6e2;background:#fff}
+.u1-slots .p{border-color:#1b3d7a}
+.u1-slots .p::before{content:"";position:absolute;inset:0;background:#1b3d7a;animation:u1a 7s linear infinite}
+.u1-slots .p s,.u1-slots .p u{position:absolute;inset:0;display:grid;place-items:center}.u1-slots .p u{color:#fff;animation:u1a 7s linear infinite}.u1-slots .p s{animation:u1b 7s linear infinite}
+.u1-cf{position:absolute;left:12px;right:12px;bottom:12px;height:36px;display:grid;place-items:center;background:#1b3d7a;color:#fff;animation:u1c 7s linear infinite}
+.u1-toast{position:absolute;left:12px;right:12px;bottom:56px;height:34px;display:flex;align-items:center;padding:0 12px;background:#e6edf8;border-left:3px solid #1b3d7a;animation:u1t 7s linear infinite}
+.u1-note{position:absolute;left:8px;right:8px;top:8px;height:34px;display:flex;align-items:center;gap:8px;padding:0 10px;background:#0f1d38;color:#fff;animation:u1n 7s linear infinite}
+.u1-note em{width:8px;height:8px;background:#5b8def}
+@keyframes u1a{0%,16%{opacity:0}22%,94%{opacity:1}100%{opacity:0}}
+@keyframes u1b{0%,16%{opacity:1}22%,94%{opacity:0}100%{opacity:1}}
+@keyframes u1c{0%,16%{opacity:.4;scale:1}22%,40%{opacity:1;scale:1}44%{scale:.95}50%,100%{opacity:1;scale:1}}
+@keyframes u1t{0%,48%{translate:0 140%;opacity:0}56%,90%{translate:0 0;opacity:1}96%,100%{translate:0 140%;opacity:0}}
+@keyframes u1n{0%,64%{translate:0 -150%}72%,90%{translate:0 0}96%,100%{translate:0 -150%}}
+/* 2 · sistema */
+.u2{display:grid;grid-template-columns:1fr 1.25fr 1fr;grid-template-rows:auto 1fr;gap:12px 18px;padding:14px;grid-template-areas:"k bars map" "rows bars map"}
+.u2-k{grid-area:k;display:flex;flex-direction:column;gap:4px}.u2-k span{color:#a9b5c7;font-weight:500}
+@property --n{syntax:'<integer>';inherits:false;initial-value:128}
+.cnt{font:800 34px/1 var(--sans);letter-spacing:-.03em;counter-reset:c var(--n);animation:u2n 7s linear infinite}.cnt::after{content:counter(c)}
+@keyframes u2n{0%{--n:0}38%,90%{--n:128}100%{--n:0}}
+.u2-rows{grid-area:rows;display:flex;flex-direction:column;justify-content:space-around;gap:6px}
+.u2-rows div{display:grid;grid-template-columns:auto 1fr 8px;align-items:center;gap:8px;color:#a9b5c7;font-weight:500}
+.u2-rows s{display:block;height:8px;background:#24324a;overflow:hidden}
+.u2-rows u{display:block;height:100%;background:#5b8def;transform-origin:left;transform:scaleX(var(--w2));animation:u2r 7s linear infinite;animation-delay:calc(var(--i)*.25s)}
+.u2-rows b{width:8px;height:8px;background:#5b8def;animation:u2p 7s linear infinite;animation-delay:calc(var(--i)*.25s)}
+@keyframes u2r{0%{transform:scaleX(.08)}28%{transform:scaleX(var(--w))}58%,90%{transform:scaleX(var(--w2))}100%{transform:scaleX(.08)}}
+@keyframes u2p{0%,55%{opacity:.3}60%,90%{opacity:1}100%{opacity:.3}}
+.u2-bars{grid-area:bars;display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid #3a4a68;padding-bottom:0}
+.u2-bars i{flex:1;height:100%;background:linear-gradient(#5b8def,#2f5db3);transform-origin:bottom;transform:scaleY(var(--h));animation:u2b 7s linear infinite;animation-delay:calc(var(--i)*.07s)}
+@keyframes u2b{0%{transform:scaleY(0)}30%,90%{transform:scaleY(var(--h))}100%{transform:scaleY(0)}}
+.u2-map{grid-area:map;position:relative;border:1px solid #24324a;background:#0c1730;overflow:hidden}
+.u2-map svg{position:absolute;inset:0;width:100%;height:100%}
+.u2-map .rd{fill:none;stroke:#24324a;stroke-width:3}.u2-map .rt{fill:none;stroke:#3a5fa8;stroke-width:2;stroke-dasharray:1;animation:u2d 7s linear infinite}
+.u2-map .dt{fill:#fff;animation:u2m 7s linear infinite}
+@keyframes u2d{0%{stroke-dashoffset:1}80%,92%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@keyframes u2m{0%{translate:10px 80px;opacity:0}4%{opacity:1}20%{translate:30px 62px}40%{translate:30px 30px}60%{translate:80px 30px}80%{translate:80px 62px}92%{translate:110px 62px;opacity:1}100%{translate:110px 62px;opacity:0}}
+/* 3 · marca */
+.u3{padding:12px}
+.u3-sb{display:flex;align-items:center;height:34px;padding:0 10px;border:1px solid #1b3d7a;background:#fff;font-size:13px;position:relative}
+.u3-sb .ty{display:inline-block;clip-path:inset(0 0 0 0);animation:u3t 7s linear infinite;white-space:nowrap}
+.u3-sb em{display:inline-block;width:1px;height:16px;background:#1b3d7a;margin-left:2px;animation:u3c 1s steps(2) infinite}
+@keyframes u3t{0%,6%{clip-path:inset(0 100% 0 0);animation-timing-function:steps(20)}34%,94%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 100% 0 0)}}
+@keyframes u3c{50%{opacity:0}}
+.u3-res{position:relative;height:138px;margin-top:10px}
+.u3 .r{position:absolute;left:0;right:0;height:42px;display:grid;grid-template-columns:1fr;align-content:center;gap:5px;padding:0 10px;border:1px solid #cdd6e2;background:#fff}
+.u3 .r b{display:block;height:7px;width:46%;background:#c6d0e0}.u3 .r i{display:block;height:5px;width:78%;background:#e0e7f1}
+.u3 .r1{top:48px;animation:u3r 7s linear infinite}.u3 .r2{top:96px;animation:u3r 7s linear infinite}
+.u3 .rt{top:0;border-left:4px solid #1b3d7a;background:#e6edf8;animation:u3u 7s linear infinite}.u3 .rt b{background:#1b3d7a;width:40%}
+.u3 .rt span{position:absolute;right:8px;top:6px;font-size:12px;color:#1b3d7a}
+@keyframes u3r{0%,40%{translate:0 -48px}56%,94%{translate:0 0}100%{translate:0 -48px}}
+@keyframes u3u{0%,40%{translate:0 96px}56%,94%{translate:0 0}100%{translate:0 96px}}
+.u3-cv{position:absolute;right:12px;bottom:10px;width:44%;height:auto;fill:none;stroke:#1b3d7a;stroke-width:2}
+.u3-cv path{stroke-dasharray:1;animation:u3v 7s linear infinite}
+@keyframes u3v{0%,56%{stroke-dashoffset:1}80%,94%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+/* 4 · varias marcas */
+.u4 svg{position:absolute;inset:0;width:100%;height:100%}
+.u4 .bx rect,.u4 .bx circle,.u4 .bx path{fill:none;stroke:#1b3d7a;stroke-width:2}
+.u4 .bd{fill:#e6edf8;stroke:#1b3d7a;stroke-width:2}
+.u4 .cn path{fill:none;stroke:#1b3d7a;stroke-width:2;stroke-dasharray:1;animation:u4l 7s linear infinite;animation-delay:calc(var(--k)*.3s)}
+.u4 .tr{fill:#cdd6e2}.u4 .fl{fill:#1b3d7a;transform-box:fill-box;transform-origin:left;transform:scaleX(var(--w));animation:u4m 7s linear infinite;animation-delay:calc(var(--k)*.3s)}
+.u4 .ln{fill:none;stroke:#1b3d7a;stroke-width:2.4;stroke-dasharray:1;animation:u4v 7s linear infinite}
+@keyframes u4l{0%{stroke-dashoffset:1}24%,92%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+@keyframes u4m{0%,16%{transform:scaleX(0)}48%,92%{transform:scaleX(var(--w))}100%{transform:scaleX(0)}}
+@keyframes u4v{0%,40%{stroke-dashoffset:1}70%,92%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}
+/* solo corren mientras el bloque está visible */
+.js .bl:not(.on) .ui,.js .bl:not(.on) .ui *,.js .bl:not(.on) .ui *::before{animation-play-state:paused}
+@media (max-width:760px){
+ .bq{grid-template-columns:minmax(0,1fr)!important}
+ .ui{height:270px}.u2{height:360px;grid-template-columns:1fr 1fr;grid-template-areas:"k bars" "rows bars" "map map";grid-template-rows:auto auto 120px}
+ .u4 svg{preserveAspectRatio:xMidYMid meet}
+}
+@media (prefers-reduced-motion:reduce){.ui,.ui *,.ui *::before{animation:none!important}}
+.mas{margin:6px 0 4px}
+.mas summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px var(--mono);color:var(--acento)}
+.mas summary::-webkit-details-marker{display:none}
+.mas summary::after{content:"+";font-size:18px}.mas[open] summary::after{content:"–"}
+.mas-osc summary{color:var(--tinta);font:700 clamp(1.2rem,2.2vw,1.6rem) var(--sans);letter-spacing:-.02em}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -1070,7 +1163,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
 </section>
 <section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Qué podemos construir contigo">
   <h2 class="flujo-t" data-k>De la idea al <em>negocio funcionando.</em></h2>
-  <div class="bq" id="bq"><article class="bl bl-sis" data-img="img/inventario-v7.webp?v=11k"><h3>Un sistema para toda la operación</h3><p class="bd">Un solo sistema: usuarios y roles, reportes por unidad e integración con lo que ya usas</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20un%20sistema%20para%20toda%20la%20operaci%C3%B3n%20de%20mi%20empresa.%20Somos%3A%20" rel="noopener">Cotizar este sistema</a></article><article class="bl bl-app" data-img="img/restaurante-v1.webp?v=12a"><h3>Una app para atender clientes</h3><p class="bd">Agenda, pedidos o reparto, a tu medida y con tu marca</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20para%20atender%20a%20mis%20clientes.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar esta app</a></article><article class="bl bl-marca" data-img="img/planeador-desktop.webp?v=11b"><h3>Una marca que se encuentre</h3><p class="bd">Tu web, tus redes y tu ficha en buscadores</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20que%20mi%20marca%20se%20encuentre%20en%20internet.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar el posicionamiento de mi marca</a></article><article class="bl bl-marcas" data-img="img/planeador-movil.webp?v=11b"><h3>Varias marcas, una estrategia</h3><p class="bd">Web, campañas y redes de cada marca, con coherencia entre ellas</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20una%20estrategia%20com%C3%BAn%20para%20varias%20marcas.%20Somos%3A%20" rel="noopener">Cotizar la estrategia de mis marcas</a></article></div>
+  <div class="bq" id="bq"><article class="bl bl-sis"><div class="ui u2" aria-hidden="true"><div class="u2-k"><span>Pedidos · Hoy</span><b class="cnt"></b></div><div class="u2-rows"><div style="--i:0"><i>Sucursal 1</i><s><u style="--w:.45;--w2:.82"></u></s><b></b></div><div style="--i:1"><i>Sucursal 2</i><s><u style="--w:.7;--w2:.55"></u></s><b></b></div><div style="--i:2"><i>Sucursal 3</i><s><u style="--w:.3;--w2:.64"></u></s><b></b></div><div style="--i:3"><i>Sucursal 4</i><s><u style="--w:.85;--w2:.9"></u></s><b></b></div></div><div class="u2-bars"><i style="--h:.35;--i:0"></i><i style="--h:.5;--i:1"></i><i style="--h:.42;--i:2"></i><i style="--h:.7;--i:3"></i><i style="--h:.58;--i:4"></i><i style="--h:.84;--i:5"></i><i style="--h:.66;--i:6"></i><i style="--h:.92;--i:7"></i></div><div class="u2-map"><svg viewBox="0 0 120 90"><path class="rd" d="M0 30H120M0 62H120M30 0V90M80 0V90"/><path class="rt" d="M10 80L30 62L30 30L80 30L80 62L110 62" pathLength="1"/><circle class="dt" r="4"/></svg></div></div><h3>Un sistema para toda tu operación</h3><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20un%20sistema%20para%20toda%20la%20operaci%C3%B3n%20de%20mi%20empresa.%20Somos%3A%20" rel="noopener">Cotizar este sistema</a></article><article class="bl bl-app"><div class="ui u1" aria-hidden="true"><div class="u1-top"><b>Agenda</b><span>Hoy</span></div><div class="u1-days"><i>L</i><i>M</i><i class="a">M</i><i>J</i><i>V</i></div><div class="u1-slots"><i>09:00</i><i>09:30</i><i>10:00</i><i class="p"><s>10:30</s><u>10:30</u></i><i>11:00</i><i>11:30</i></div><div class="u1-cf">Confirmar</div><div class="u1-toast">Reserva confirmada</div><div class="u1-note"><em></em>Nueva reserva · 10:30</div></div><h3>Una app para tus clientes</h3><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20para%20atender%20a%20mis%20clientes.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar esta app</a></article><article class="bl bl-marca"><div class="ui u3" aria-hidden="true"><div class="u3-sb"><span class="ty">servicio cerca de ti</span><em></em></div><div class="u3-res"><div class="r r1"><b></b><i></i></div><div class="r r2"><b></b><i></i></div><div class="r rt"><b></b><i></i><span>Tu negocio</span></div></div><svg class="u3-cv" viewBox="0 0 120 40"><path d="M2 36L22 30L42 32L62 20L82 14L102 8L118 4" pathLength="1"/></svg></div><h3>Una marca que se encuentra</h3><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20que%20mi%20marca%20se%20encuentre%20en%20internet.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar mi posicionamiento</a></article><article class="bl bl-marcas"><div class="ui u4" aria-hidden="true"><svg viewBox="0 0 300 200"><g class="bx"><rect x="10" y="12" width="60" height="36"/><circle cx="40" cy="30" r="9"/><rect x="10" y="62" width="60" height="36"/><path d="M40 70L51 90H29Z"/><rect x="10" y="112" width="60" height="36"/><rect x="31" y="121" width="18" height="18"/><rect x="10" y="162" width="60" height="26"/><path d="M24 175H56"/></g><g class="cn"><path pathLength="1" style="--k:0" d="M70 30C110 30 110 44 150 44"/><path pathLength="1" style="--k:1" d="M70 80C110 80 110 74 150 74"/><path pathLength="1" style="--k:2" d="M70 130C110 130 110 104 150 104"/><path pathLength="1" style="--k:3" d="M70 175C110 175 110 134 150 134"/></g><rect class="bd" x="150" y="12" width="140" height="176"/><g class="mt"><rect class="tr" x="164" y="36" width="112" height="10"/><rect class="fl" style="--k:0;--w:.78" x="164" y="36" width="112" height="10"/><rect class="tr" x="164" y="66" width="112" height="10"/><rect class="fl" style="--k:1;--w:.52" x="164" y="66" width="112" height="10"/><rect class="tr" x="164" y="96" width="112" height="10"/><rect class="fl" style="--k:2;--w:.9" x="164" y="96" width="112" height="10"/><rect class="tr" x="164" y="126" width="112" height="10"/><rect class="fl" style="--k:3;--w:.64" x="164" y="126" width="112" height="10"/><path class="ln" d="M164 168L190 160L214 164L240 150L276 142" pathLength="1"/></g></svg></div><h3>Varias marcas, una estrategia</h3><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20una%20estrategia%20com%C3%BAn%20para%20varias%20marcas.%20Somos%3A%20" rel="noopener">Cotizar la estrategia</a></article></div>
 </section>
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
 <section class="pagina" data-v="soluciones" aria-labelledby="t-so">
@@ -1081,6 +1174,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
       <p class="n">01</p>
       <h3>Software y apps</h3>
       <p class="que">Programas hechos para tu negocio, no versiones genéricas.</p>
+      <details class="mas"><summary>Ver detalle</summary>
       <dl class="datos">
         <dt>Incluye</dt>
         <dd><ul class="inc"><li>Apps para celular</li><li>Páginas y sistemas web</li><li>Sistemas internos para ordenar tu trabajo diario</li><li>Plataformas que conectan a clientes y prestadores</li></ul></dd>
@@ -1088,6 +1182,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
         <dd>Negocios que hoy se arreglan con planillas, mensajes sueltos o programas que no calzan con su forma de trabajar.</dd>
       </dl>
       <p class="ej">Ejemplo: <a href="#modelos" data-abre="a-2">aplicación de transporte y logística con geolocalización</a></p>
+      </details>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20o%20un%20sistema%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar una app o sistema →</a>
     </div>
     <figure class="vis"><img class="sol-ph" src="img/reparto-v1.webp?v=12a" width="640" height="1273" alt="Diseño de ejemplo: app de reparto con la ruta del día en el mapa, la parada actual y el botón para confirmar la entrega con foto" loading="lazy"></figure>
@@ -1098,6 +1193,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
       <p class="n">02</p>
       <h3>Marketing digital</h3>
       <p class="que">Que te encuentren y te escriban las personas que buscan lo que ofreces.</p>
+      <details class="mas"><summary>Ver detalle</summary>
       <dl class="datos">
         <dt>Incluye</dt>
         <dd><ul class="inc"><li>Página web propia</li><li>Publicidad en redes y buscadores, y posicionamiento</li><li>Gestión de redes y contenido</li><li>Informe claro de qué campañas funcionan</li></ul></dd>
@@ -1105,6 +1201,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
         <dd>Empresas, pymes y comercios que quieren recibir más consultas, reservas o cotizaciones.</dd>
       </dl>
       <p class="ej fill">Lo hace <a href="#marcas">El Planeador</a></p>
+      </details>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20m%C3%A1s%20clientes%20con%20publicidad%20y%20una%20p%C3%A1gina%20web.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar marketing y web →</a>
     </div>
     <figure class="vis"><div class="nav2"><div class="bar"><i></i><i></i><i></i><span>elplaneador.cl</span></div><img src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la web de El Planeador" loading="lazy"><span class="cur" aria-hidden="true"></span></div></figure>
@@ -1115,6 +1212,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
       <p class="n">03</p>
       <h3>E-commerce</h3>
       <p class="que">Tu tienda abierta en internet, lista para recibir pedidos.</p>
+      <details class="mas"><summary>Ver detalle</summary>
       <dl class="datos">
         <dt>Incluye</dt>
         <dd><ul class="inc"><li>Tienda en línea propia</li><li>Catálogo de productos o servicios</li><li>Carrito y pedidos</li><li>Reservas y agenda con pago</li><li>Despacho a domicilio y seguimiento</li><li>Panel para administrar tus pedidos</li></ul></dd>
@@ -1123,6 +1221,7 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
         <dt>Ejemplos</dt>
         <dd><ul class="ejl"><li><a href="#modelos" data-abre="a-4">Tienda con catálogo y carrito →</a></li><li><a href="#modelos" data-abre="a-5">Catálogo con reserva y pago →</a></li><li><a href="#modelos" data-abre="a-3">Agenda de horas con tienda →</a></li></ul></dd>
       </dl>
+      </details>
       <p class="ley2">Los pagos los procesan proveedores autorizados de terceros. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20montar%20mi%20tienda%20en%20l%C3%ADnea.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar mi tienda en línea →</a>
     </div>
@@ -1132,23 +1231,21 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
   <section class="como osc" aria-labelledby="t-como">
     <h3 id="t-como" data-k>Así trabajamos</h3>
     <ol>
-      <li><span>01</span><b>Conversamos</b><p>Entendemos tu negocio y qué necesitas.</p></li>
-      <li><span>02</span><b>Diseñamos</b><p>Te mostramos cómo quedaría antes de construir.</p></li>
-      <li><span>03</span><b>Construimos</b><p>Lo armamos y lo probamos contigo.</p></li>
-      <li><span>04</span><b>Operamos contigo</b><p>Lo ponemos en marcha y lo mantenemos al día.</p></li>
+      <li><span>01</span><b>Conversamos</b></li>
+      <li><span>02</span><b>Diseñamos</b></li>
+      <li><span>03</span><b>Construimos</b></li>
+      <li><span>04</span><b>Operamos contigo</b></li>
     </ol>
   </section>
 </section>
 
 <section class="pagina" data-v="marcas" aria-labelledby="t-ma">
-  <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
   <h2 id="t-ma" data-t data-k>Nuestra marca <em>propia.</em></h2>
-  <p class="intro">La marca que BTo Innova crea y opera.</p>
   <article class="marca-pl">
     <div class="mp-t">
       <img class="mp-logo" src="img/logo-planeador.svg?v=11b" width="96" height="96" alt="Logo de El Planeador">
       <h3>El Planeador</h3>
-      <p class="mp-d">Agencia de marketing digital de BTo Innova: páginas web, publicidad en redes y buscadores, gestión de redes y posicionamiento.</p>
+      <p class="mp-d">Agencia de marketing digital de BTo Innova.</p>
       <div class="mp-a"><a class="btn" href="https://elplaneador.cl" target="_blank" rel="noopener">Visitar elplaneador.cl ↗</a><a class="vermas" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20conversar%20sobre%20marketing%20digital%20y%20una%20p%C3%A1gina%20web%20para%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu proyecto →</a></div>
     </div>
     <figure class="mp-v"><img class="mp-d1" src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la página de inicio de El Planeador en computador" loading="lazy"><img class="mp-m1" src="img/planeador-movil.webp?v=11b" width="390" height="800" alt="Captura de El Planeador en el teléfono" loading="lazy"></figure>
@@ -1156,30 +1253,17 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
 </section>
 
 <section class="pagina emp" data-v="empresa" aria-labelledby="t-em">
-  <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
   <h2 id="t-em" data-t data-k>Quiénes <em>somos.</em></h2>
   <p class="lead">BTo Innova soluciones es la casa donde se diseñan, construyen y operan soluciones tecnológicas, propias y a medida.</p>
 
-  <div class="fila">
-    <h3>Qué hacemos</h3>
-    <div>
-      <ul class="tres">
-        <li><b>Software y apps</b><span>Lo que tu negocio necesita para funcionar mejor por dentro.</span></li>
-        <li><b>Marketing digital</b><span>Lo que hace que te encuentren por fuera.</span></li>
-        <li><b>E-commerce</b><span>Lo que te permite vender por internet.</span></li>
-      </ul>
-      <a class="cot" href="#soluciones">Ver las soluciones →</a>
-    </div>
-  </div>
-
   <div class="fila osc bleed">
-    <h3>Nuestros principios</h3>
+    <details class="mas mas-osc"><summary>Nuestros principios</summary>
     <ul class="princ">
       <li><b>Hablamos claro.</b> Sin jerga ni letra chica.</li>
       <li><b>Entregamos lo que dijimos.</b> Lo acordado es lo que se construye.</li>
       <li><b>Tu información es tuya.</b> La usamos solo para tu proyecto.</li>
       <li><b>Atención directa.</b> Hablas con quienes hacen el trabajo.</li>
-    </ul>
+    </ul></details>
   </div>
 
     <div class="fila">
@@ -1189,15 +1273,6 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
       <details><summary>¿De quién es el código y el contenido?</summary><p>Depende de cada proyecto y se define por escrito antes de empezar. En proyectos para terceros, lo acordado en el contrato; en nuestras marcas, es de BTo Innova SpA.</p></details>
       <details><summary>¿Cómo se pagan las compras en una tienda en línea?</summary><p>Con medios de pago de terceros autorizados. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p></details>
     </div>
-  </div>
-
-    <div class="fila">
-    <h3>Hechos verificables</h3>
-    <ul class="hechos">
-      <li><b>Empresa inscrita.</b> BTo Innova SpA.</li>
-      <li><b>Comuna.</b> Ñuñoa, Chile.</li>
-      <li><b>Contacto directo.</b> <a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a> o WhatsApp.</li>
-    </ul>
   </div>
 
   <div class="fila">
@@ -1555,13 +1630,18 @@ setTimeout(function(){h2.classList.remove('oculto');sp.style.opacity='0';setTime
 var q=document.getElementById('bq'),fl=document.getElementById('bqImg'),fi=fl&&fl.querySelector('img');
 if(fino&&q&&fl){var fx=0,fy=0,tx=0,ty=0,an=false;function sigue(){fx+=(tx-fx)*.18;fy+=(ty-fy)*.18;fl.style.transform='translate3d('+fx+'px,'+fy+'px,0)';if(Math.abs(tx-fx)>.5||Math.abs(ty-fy)>.5)requestAnimationFrame(sigue);else an=false}
 q.addEventListener('pointermove',function(e){tx=e.clientX+36;ty=e.clientY-120;if(!an){an=true;requestAnimationFrame(sigue)}});
-[].slice.call(q.querySelectorAll('.bl')).forEach(function(b){b.addEventListener('pointerenter',function(){fi.src=b.getAttribute('data-img');fl.classList.add('on')})});
+[].slice.call(q.querySelectorAll('.bl')).forEach(function(b){b.addEventListener('pointerenter',function(){var im=b.getAttribute('data-img');if(im){fi.src=im;fl.classList.add('on')}})});
 q.addEventListener('pointerleave',function(){fl.classList.remove('on')});addEventListener('scroll',function(){fl.classList.remove('on')},{passive:true})}
 var cu=document.getElementById('curP');
 if(fino&&cu){addEventListener('pointermove',function(e){cu.style.transform='translate3d('+e.clientX+'px,'+e.clientY+'px,0)';cu.classList.add('vivo')},{passive:true});
 document.addEventListener('pointerover',function(e){cu.classList.toggle('grande',!!(e.target.closest&&e.target.closest('a,button')))});
 document.addEventListener('pointerleave',function(){cu.classList.remove('vivo')})}
 }catch(err){}})();
+</script>
+<script>
+(function(){var q=document.getElementById('bq');if(!q||!('IntersectionObserver' in window))return;
+var o=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('on',e.isIntersecting)})},{threshold:.3});
+[].slice.call(q.querySelectorAll('.bl')).forEach(function(b){o.observe(b)})})();
 </script>
 </body>
 </html>
