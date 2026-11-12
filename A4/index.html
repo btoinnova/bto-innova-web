@@ -630,8 +630,7 @@ img,.demo>*,.cod,.tel,.pay,.nav2,.marco-v,.cod2,.vis,.tm-i img,.e3 img,.dos img,
 @media (max-width:640px){
  figcaption,.dos span,.e3 span,.tm-i span,.nota,.peq,.leg,.ej,.est,.mod-est,.medida,.fm,.er-n small,.er-t,.vias span{font-size:12px!important}
  .er-r,.er-h,.er-btn{font-size:12px!important}
- .flujo{overflow-x:auto;-webkit-overflow-scrolling:touch}
- .flujo svg{min-width:600px;overflow:visible}
+  .flujo svg{overflow:visible}
  .flujo .t{font-size:17px}.flujo .ts{font-size:15px;letter-spacing:0}.flujo .sat text{font-size:15px}
  .flujo .sat .ts{font-size:14px!important}
 }
@@ -671,6 +670,39 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
  .barra .enl.abierto{display:flex!important}
  .barra .enl a{display:flex;align-items:center;min-height:48px;font-size:16px;border-bottom:1px solid var(--linea);padding:0}
 }
+@media (max-width:640px){
+ .flujo-sec{padding-top:24px;padding-bottom:calc(110px + env(safe-area-inset-bottom))}
+ .flujo{max-width:100%;overflow:visible}
+ .flujo svg{width:100%;height:auto;max-width:100%}
+ .capf{padding-bottom:6px}
+}
+/* móvil: hero sin piezas montadas; se apilan con espacio */
+@media (max-width:640px){
+ .portada.osc .demo{aspect-ratio:auto!important;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;transform:none!important;margin:28px 0 18px;max-width:none}
+ .portada.osc .demo>*{position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:100%;margin:0;animation:none!important;translate:none!important}
+ .portada.osc .demo .lap{grid-column:1/-1}
+ .portada.osc .demo .pay{grid-column:1/-1;max-width:260px}
+ .portada.osc .demo .flow{display:none}
+ .portada.osc .demo .nota{grid-column:1/-1;margin-top:2px}
+}
+@media (max-width:640px){
+ .pm-c{padding-top:52px}
+ .mp-v{padding-bottom:0;display:grid;gap:14px;justify-items:start}
+ .mp-v .mp-d1{width:100%}
+ .mp-v .mp-m1{position:static;width:44%}
+ .mp-v figcaption{position:static}
+}
+.demo-m{display:none}
+@media (max-width:640px){
+ .portada.osc .demo{display:none!important}
+ .demo-m{display:block;margin:26px 0 14px}
+ .dm-v{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin:0;list-style:none;scrollbar-width:thin}
+ .dm-v:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+ .dm-v li{flex:0 0 44%;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
+ .dm-v img{width:100%;height:auto;display:block;aspect-ratio:1/2.05;object-fit:cover;object-position:top;border:1px solid #2a3a54;box-shadow:none;background:#fff}
+ .dm-v span{font:600 13px/1.3 var(--sans);color:var(--tinta)}
+ .dm-c{font:500 13px/1.4 var(--sans);color:var(--mut);margin-top:6px}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -706,6 +738,7 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
     <svg class="flow" viewBox="0 0 100 85" preserveAspectRatio="none" aria-hidden="true"><path d="M26 78 C26 60 20 52 30 44"/><path d="M62 30 C70 22 70 14 76 8"/><path d="M60 60 C74 62 80 70 86 78"/></svg>
     <p class="nota">Capturas de elplaneador.cl · código de esta web · maqueta de pago</p>
   </div>
+  <div class="demo-m" role="group" aria-label="Diseños de ejemplo de apps"><ul class="dm-v" tabindex="0" aria-label="Pantallas de ejemplo; desliza para ver más"><li><img src="img/delivery-v4.webp?v=11f" width="640" height="1359" alt="Diseño de ejemplo: tienda con catálogo y carrito" loading="lazy"><span>Delivery con tienda en línea</span></li><li><img src="img/agenda-v6.webp?v=11l" width="640" height="1354" alt="Diseño de ejemplo: app de agenda de horas" loading="lazy"><span>Agenda de horas</span></li><li><img src="img/catalogo-interactivo-v5.webp?v=11g" width="640" height="1330" alt="Diseño de ejemplo: catálogo interactivo con tarjeta para deslizar" loading="lazy"><span>Catálogo interactivo</span></li></ul><p class="dm-c">Diseños de ejemplo de apps a la medida.</p></div>
 </section>
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
 
@@ -1054,6 +1087,14 @@ h.addEventListener('pointerleave',function(){d.style.setProperty('--mx',0);d.sty
 <script>
 (function(){var flujo=document.getElementById('flujo');if(!flujo)return;var NS='http://www.w3.org/2000/svg',svg=flujo.querySelector('svg'),cap=document.getElementById('cap');
 var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches,movil=false;
+var CX=320,CY=200,KR=1,esM=matchMedia('(max-width:640px)').matches;
+if(esM){svg.setAttribute('viewBox','0 0 360 640');
+ document.getElementById('pAB').setAttribute('d','M100 110 C100 210 250 210 250 310');
+ document.getElementById('pBC').setAttribute('d','M250 310 C250 410 100 410 100 520');
+ var cam=svg.querySelector('path.cam:not(.v)');if(cam)cam.setAttribute('d','M100 110 C20 230 20 400 100 520');
+ var T=[[-10,-240],[-70,110],[-430,170]];[].slice.call(svg.querySelectorAll('.nd')).forEach(function(n,i){n.setAttribute('transform','translate('+T[i][0]+' '+T[i][1]+')')});
+ var sat=svg.querySelector('a.sat');if(sat)sat.setAttribute('transform','translate(-110 78)');
+ CX=250;CY=310;KR=.62;cap.innerHTML='<b>Toca cada nodo.</b>'}
 var textos=['<b class="m">Software.</b> Apps y sitios web a medida. Aquí nace lo que luego se vende.','<b class="m">Marketing.</b> Publicidad que trae clientes a la app o a la web. Lo lleva El Planeador.','<b class="m">E-commerce.</b> Plataformas para vender por internet, con medios de pago de terceros.'];
 var defecto=cap.innerHTML,nodos=[].slice.call(flujo.querySelectorAll('.nd')),vel=1;
 function foco(i){pAB.classList.toggle('on',i===0||i===1);pBC.classList.toggle('on',i===1||i===2);nodos.forEach(function(n,k){n.classList.toggle('on',k===i)});cap.innerHTML=i>=0?textos[i]:defecto;vel=i>=0?3:1}
@@ -1065,7 +1106,7 @@ for(var i=0;i<N;i++){var c=document.createElementNS(NS,'circle');c.setAttribute(
 var gc=document.getElementById('clientes'),cl=[];
 for(var j=0;j<7;j++){var q=document.createElementNS(NS,'circle');q.setAttribute('class','cli');q.setAttribute('r',3.5);gc.appendChild(q);cl.push({el:q,u:j/7,a:(j*53)%360})}
 var pago=document.getElementById('pago'),fSW=document.getElementById('fSW'),fMK=document.getElementById('fMK');function dest(e){e.classList.remove('go');void e.getBoundingClientRect();e.classList.add('go')}
-function ponCli(c,op){var ang=(c.a-20)*Math.PI/180,rad=210*(1-c.u)+50;c.el.setAttribute('cx',320+Math.cos(ang)*rad);c.el.setAttribute('cy',200+Math.sin(ang)*rad*.55-10);c.el.setAttribute('opacity',op)}
+function ponCli(c,op){var ang=(c.a-20)*Math.PI/180,rad=210*(1-c.u)+50;c.el.setAttribute('cx',CX+Math.cos(ang)*rad*KR);c.el.setAttribute('cy',CY+Math.sin(ang)*rad*.55*KR-10);c.el.setAttribute('opacity',op)}
 function pinta(dt){ps.forEach(function(p){var tp=p.t;p.t+=dt*.00013*vel;if(p.t>=1){p.t-=1;p.hecho=false;dest(fSW)}if(tp<lAB/L&&p.t>=lAB/L)dest(fMK);var pt=en(p.t);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);p.el.setAttribute('opacity',Math.min(1,p.t*8,(1-p.t)*8));if(p.t>.96&&!p.hecho){p.hecho=true;pago.classList.remove('go');void pago.getBoundingClientRect();pago.classList.add('go')}});cl.forEach(function(c){c.u+=dt*.00022*vel;if(c.u>=1)c.u-=1;ponCli(c,Math.min(1,c.u*5,(1-c.u)*3)*.8)})}
 function estatico(){ps.forEach(function(p,i){var pt=en((i+.5)/N);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y)});cl.forEach(function(c){ponCli(c,.5)})}
 var visible=true,raf=0,last=0;
