@@ -724,6 +724,27 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
 .mp-v{padding-bottom:0!important}.mp-v .mp-m1{bottom:0!important}
 .acc-i .cap{margin-bottom:0!important}
 .vis{gap:0}
+/* diagrama simple: recorrido de un pedido o reserva */
+.pf-l{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative}
+.pf-l li{position:relative;padding:0 6px}
+.pf-l li:not(:last-child)::after{content:"";position:absolute;top:27px;left:calc(50% + 34px);right:calc(-50% + 34px);border-top:2px dashed var(--acento);opacity:.55}
+.pf{all:unset;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;cursor:pointer;text-align:center}
+.pf .pn{display:grid;place-items:center;width:54px;height:54px;border:2px solid var(--acento);background:transparent;color:var(--acento);font:600 17px var(--mono);transition:background .2s,color .2s}
+.pf .pt{font:600 clamp(.95rem,1.35vw,1.1rem)/1.3 var(--sans);color:var(--tinta);max-width:12em}
+.pf:hover .pn,.pf[aria-pressed="true"] .pn{background:var(--acento);color:#0c131f}
+.pf:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
+.pf-l::after{content:"";position:absolute;top:24px;left:10%;width:8px;height:8px;margin-left:-4px;background:var(--acento);animation:pfcorre 6.5s linear infinite;pointer-events:none}
+@keyframes pfcorre{0%{left:10%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:90%;opacity:0}}
+@media (prefers-reduced-motion:reduce){.pf-l::after{display:none}}
+@media (max-width:640px){
+ .pf-l{grid-template-columns:1fr;gap:0}
+ .pf-l li{padding:0 0 18px 0}
+ .pf-l li:not(:last-child)::after{top:62px;bottom:-4px;left:26px;right:auto;border-top:0;border-left:2px dashed var(--acento)}
+ .pf{flex-direction:row;text-align:left;gap:16px}
+ .pf .pt{font-size:18px;max-width:none}
+ .pf-l::after{display:none}
+}
+.vis .sol-ph{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border:1px solid var(--linea)}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -764,45 +785,11 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
 
 
-<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Cómo se conectan software, marketing y e-commerce">
+<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Cómo recorre un pedido o una reserva tu negocio">
   <h2 class="flujo-t" data-k>De la idea al <em>negocio funcionando.</em></h2>
   <div class="flujo" id="flujo">
-    <svg viewBox="0 0 640 520" role="group" aria-label="Diagrama: la app o web, los clientes que llegan por marketing y la tienda en línea">
-      <title>Flujo: software, marketing y e-commerce</title>
-      <g class="g" style="--d:3">
-        <path id="pAB" class="cam v" d="M110 350 C120 250 210 200 320 200"/>
-        <path id="pBC" class="cam v" d="M320 200 C430 200 520 250 530 350"/>
-        <path class="cam" d="M110 350 C200 450 440 450 530 350"/>
-      </g>
-      <g class="g" id="clientes" style="--d:7" aria-hidden="true"></g>
-      <g class="g" style="--d:12">
-        <g class="nd" tabindex="0" role="button" data-i="0" aria-label="Software: apps y sitios web a medida">
-          <circle class="h" cx="110" cy="350" r="62"/><circle id="fSW" class="fl" cx="110" cy="350" r="46"/><circle class="c" cx="110" cy="350" r="46"/>
-          <path class="ico" d="M98 338l-14 12 14 12M122 338l14 12-14 12M114 334l-8 32"/>
-          <text class="t" x="110" y="424">Software</text><text class="ts" x="110" y="442">APPS Y WEB</text>
-        </g>
-        <g class="nd" tabindex="0" role="button" data-i="1" aria-label="Marketing: publicidad que trae clientes">
-          <circle class="h" cx="320" cy="200" r="62"/><circle id="fMK" class="fl" cx="320" cy="200" r="46"/><circle class="c" cx="320" cy="200" r="46"/>
-          <circle class="ico" cx="320" cy="200" r="5"/><circle class="ico" cx="320" cy="200" r="16"/><circle class="ico" cx="320" cy="200" r="28" opacity=".5"/>
-          <text class="t" x="320" y="274">Marketing</text><text class="ts" x="320" y="292">CLIENTES QUE LLEGAN</text>
-        </g>
-        <g class="nd" tabindex="0" role="button" data-i="2" aria-label="E-commerce: tu tienda en línea con medios de pago de terceros">
-          <circle class="h" cx="530" cy="350" r="62"/><circle class="c" cx="530" cy="350" r="46"/>
-          <circle id="pago" class="pago" cx="530" cy="350" r="46"/>
-          <rect class="ico" x="508" y="336" width="44" height="30"/><path class="ico" d="M508 346h44M514 358h10"/>
-          <text class="t" x="530" y="424">E-commerce</text><text class="ts" x="530" y="442">TU TIENDA EN LÍNEA</text>
-        </g>
-      </g>
-      <g class="g" id="part" style="--d:18" aria-hidden="true"></g>
-      <g class="g" style="--d:22">
-        <a class="sat" href="https://elplaneador.cl" target="_blank" rel="noopener" aria-label="El Planeador, publicada (se abre en otra pestaña)">
-          <line class="cam" x1="395" y1="140" x2="350" y2="170"/>
-          <circle class="s" cx="420" cy="122" r="26"/><circle class="dot ok" cx="420" cy="122" r="4"/>
-          <text x="420" y="82" text-anchor="middle">El Planeador</text><text class="ts" x="420" y="168" style="font-size:14px">PUBLICADA</text>
-        </a>
-      </g>
-    </svg>
-    <p class="capf" id="cap" aria-live="polite"><b>Pasa el cursor o toca cada nodo.</b></p>
+    <ol class="pf-l" id="pasosF"><li><button type="button" class="pf" data-i="0" aria-pressed="false"><span class="pn" aria-hidden="true">01</span><span class="pt">Tu cliente reserva o pide</span></button></li><li><button type="button" class="pf" data-i="1" aria-pressed="false"><span class="pn" aria-hidden="true">02</span><span class="pt">Te llega el aviso</span></button></li><li><button type="button" class="pf" data-i="2" aria-pressed="false"><span class="pn" aria-hidden="true">03</span><span class="pt">Se cobra</span></button></li><li><button type="button" class="pf" data-i="3" aria-pressed="false"><span class="pn" aria-hidden="true">04</span><span class="pt">Queda registrado</span></button></li><li><button type="button" class="pf" data-i="4" aria-pressed="false"><span class="pn" aria-hidden="true">05</span><span class="pt">Ves tus números</span></button></li></ol>
+    <p class="capf" id="cap" aria-live="polite"><b>Toca cada paso.</b></p>
   </div>
 </section>
 
@@ -823,12 +810,7 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
       <p class="ej">Ejemplo: <a href="#modelos" data-abre="a-2">aplicación de transporte y logística con geolocalización</a></p>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20o%20un%20sistema%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar una app o sistema →</a>
     </div>
-    <figure class="vis"><div class="cod2" aria-hidden="true"><i></i><i></i><i></i><pre><span style="--l:0">function reservar(cliente, hora) {</span>
-<span style="--l:1">  if (hora.libre) {</span>
-<span style="--l:2">    agenda.agregar(cliente, hora);</span>
-<span style="--l:3">    avisar(cliente);</span>
-<span style="--l:4">  }</span>
-<span style="--l:5">}</span></pre></div></figure>
+    <figure class="vis"><img class="sol-ph" src="img/agenda-v6.webp?v=11l" width="640" height="1354" alt="Diseño de ejemplo: app de peluquería para pedir turno, con servicios, día y hora" loading="lazy"></figure>
   </article>
 
   <article class="sol inv">
@@ -842,7 +824,7 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
         <dt>Para quién</dt>
         <dd>Empresas, pymes y comercios que quieren recibir más consultas, reservas o cotizaciones.</dd>
       </dl>
-      <p class="ej fill">Lo hace El Planeador, agencia de marketing digital de BTo Innova</p>
+      <p class="ej fill">Lo hace <a href="#marcas">El Planeador</a></p>
       <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20m%C3%A1s%20clientes%20con%20publicidad%20y%20una%20p%C3%A1gina%20web.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar marketing y web →</a>
     </div>
     <figure class="vis"><div class="nav2"><div class="bar"><i></i><i></i><i></i><span>elplaneador.cl</span></div><img src="img/planeador-desktop.webp?v=11b" width="1280" height="800" alt="Captura de la web de El Planeador" loading="lazy"><span class="cur" aria-hidden="true"></span></div></figure>
@@ -910,15 +892,6 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
     </div>
   </div>
 
-  <div class="fila">
-    <h3>Nuestras marcas</h3>
-    <div class="marcas2">
-      <p>El Planeador es una marca de BTo Innova SpA: la creamos y la operamos nosotros.</p>
-      <svg viewBox="0 0 520 100" role="img" aria-label="BTo Innova SpA crea y opera una marca publicada: El Planeador"><path class="ln" d="M260 46 V60 H110 V70" style="display:none"/><rect class="nb0" x="170" y="6" width="180" height="46"/><text x="260" y="34" class="tt">BTo Innova SpA</text><path class="ln" d="M260 52 V70"/><rect class="nb1" x="170" y="70" width="180" height="24"/><text x="260" y="87" class="tt w" style="font-size:12px">El Planeador · publicada</text></svg>
-      <p class="det2">El Planeador es la agencia de marketing digital de BTo Innova.</p>
-    </div>
-  </div>
-
   <div class="fila osc bleed">
     <h3>Nuestros principios</h3>
     <ul class="princ">
@@ -932,10 +905,9 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
     <div class="fila">
     <h3>Preguntas frecuentes</h3>
     <div class="faq">
-      <details><summary>¿Cómo trabajamos contigo?</summary><p>Conversamos, diseñamos, construimos y operamos contigo. Antes de construir te mostramos cómo quedaría.</p></details>
+      <details><summary>¿Cómo trabajamos y cómo se cotiza?</summary><p>Nos escribes por WhatsApp o correo y nos cuentas tu negocio. Te respondemos con una propuesta, te mostramos cómo quedaría antes de construir, y luego la construimos y la operamos contigo.</p></details>
       <details><summary>¿De quién es el código y el contenido?</summary><p>Depende de cada proyecto y se define por escrito antes de empezar. En proyectos para terceros, lo acordado en el contrato; en nuestras marcas, es de BTo Innova SpA.</p></details>
       <details><summary>¿Cómo se pagan las compras en una tienda en línea?</summary><p>Con medios de pago de terceros autorizados. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p></details>
-      <details><summary>¿Cómo se cotiza?</summary><p>Nos escribes por WhatsApp o correo, nos cuentas tu negocio y qué necesitas, y te respondemos con una propuesta.</p></details>
     </div>
   </div>
 
@@ -944,7 +916,6 @@ html[data-pantalla="inicio"] .fpie .ley{display:none}
     <ul class="hechos">
       <li><b>Empresa inscrita.</b> BTo Innova SpA.</li>
       <li><b>Comuna.</b> Ñuñoa, Chile.</li>
-      <li><b>Un proyecto publicado.</b> El Planeador funciona hoy en <a href="https://elplaneador.cl" target="_blank" rel="noopener">elplaneador.cl ↗</a>.</li>
       <li><b>Contacto directo.</b> <a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a> o WhatsApp.</li>
     </ul>
   </div>
@@ -1106,37 +1077,10 @@ var pend=false,e0;h.addEventListener('pointermove',function(e){e0=e;if(!pend){pe
 h.addEventListener('pointerleave',function(){d.style.setProperty('--mx',0);d.style.setProperty('--my',0)})})();
 </script>
 <script>
-(function(){var flujo=document.getElementById('flujo');if(!flujo)return;var NS='http://www.w3.org/2000/svg',svg=flujo.querySelector('svg'),cap=document.getElementById('cap');
-var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches,movil=false;
-var CX=320,CY=200,KR=1,esM=matchMedia('(max-width:640px)').matches;
-if(esM){svg.setAttribute('viewBox','0 0 360 640');
- document.getElementById('pAB').setAttribute('d','M100 110 C100 210 250 210 250 310');
- document.getElementById('pBC').setAttribute('d','M250 310 C250 410 100 410 100 520');
- var cam=svg.querySelector('path.cam:not(.v)');if(cam)cam.setAttribute('d','M100 110 C20 230 20 400 100 520');
- var T=[[-10,-240],[-70,110],[-430,170]];[].slice.call(svg.querySelectorAll('.nd')).forEach(function(n,i){n.setAttribute('transform','translate('+T[i][0]+' '+T[i][1]+')')});
- var sat=svg.querySelector('a.sat');if(sat)sat.setAttribute('transform','translate(-110 78)');
- CX=250;CY=310;KR=.62;cap.innerHTML='<b>Toca cada nodo.</b>'}
-var textos=['<b class="m">Software.</b> Apps y sitios web a medida. Aquí nace lo que luego se vende.','<b class="m">Marketing.</b> Publicidad que trae clientes a la app o a la web. Lo lleva El Planeador.','<b class="m">E-commerce.</b> Plataformas para vender por internet, con medios de pago de terceros.'];
-var defecto=cap.innerHTML,nodos=[].slice.call(flujo.querySelectorAll('.nd')),vel=1;
-function foco(i){pAB.classList.toggle('on',i===0||i===1);pBC.classList.toggle('on',i===1||i===2);nodos.forEach(function(n,k){n.classList.toggle('on',k===i)});cap.innerHTML=i>=0?textos[i]:defecto;vel=i>=0?3:1}
-nodos.forEach(function(n,i){n.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')foco(i)});n.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')foco(-1)});n.addEventListener('focus',function(){foco(i)});n.addEventListener('blur',function(){foco(-1)});n.addEventListener('click',function(){foco(i)});n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();foco(i)}})});
-var pAB=document.getElementById('pAB'),pBC=document.getElementById('pBC'),lAB=pAB.getTotalLength(),lBC=pBC.getTotalLength(),L=lAB+lBC;
-function en(t){var d=t*L;return d<=lAB?pAB.getPointAtLength(d):pBC.getPointAtLength(d-lAB)}
-var gp=document.getElementById('part'),N=14,ps=[];
-for(var i=0;i<N;i++){var c=document.createElementNS(NS,'circle');c.setAttribute('class','part');c.setAttribute('r',i%3?3:4.5);gp.appendChild(c);ps.push({el:c,t:i/N,hecho:false})}
-var gc=document.getElementById('clientes'),cl=[];
-for(var j=0;j<7;j++){var q=document.createElementNS(NS,'circle');q.setAttribute('class','cli');q.setAttribute('r',3.5);gc.appendChild(q);cl.push({el:q,u:j/7,a:(j*53)%360})}
-var pago=document.getElementById('pago'),fSW=document.getElementById('fSW'),fMK=document.getElementById('fMK');function dest(e){e.classList.remove('go');void e.getBoundingClientRect();e.classList.add('go')}
-function ponCli(c,op){var ang=(c.a-20)*Math.PI/180,rad=210*(1-c.u)+50;c.el.setAttribute('cx',CX+Math.cos(ang)*rad*KR);c.el.setAttribute('cy',CY+Math.sin(ang)*rad*.55*KR-10);c.el.setAttribute('opacity',op)}
-function pinta(dt){ps.forEach(function(p){var tp=p.t;p.t+=dt*.00013*vel;if(p.t>=1){p.t-=1;p.hecho=false;dest(fSW)}if(tp<lAB/L&&p.t>=lAB/L)dest(fMK);var pt=en(p.t);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);p.el.setAttribute('opacity',Math.min(1,p.t*8,(1-p.t)*8));if(p.t>.96&&!p.hecho){p.hecho=true;pago.classList.remove('go');void pago.getBoundingClientRect();pago.classList.add('go')}});cl.forEach(function(c){c.u+=dt*.00022*vel;if(c.u>=1)c.u-=1;ponCli(c,Math.min(1,c.u*5,(1-c.u)*3)*.8)})}
-function estatico(){ps.forEach(function(p,i){var pt=en((i+.5)/N);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y)});cl.forEach(function(c){ponCli(c,.5)})}
-var visible=true,raf=0,last=0;
-function loop(ts){raf=0;if(!visible||document.hidden){last=0;return}var dt=last?Math.min(48,ts-last):16;last=ts;pinta(dt);raf=requestAnimationFrame(loop)}
-function arranca(){if(!raf&&!reduce&&!movil){last=0;raf=requestAnimationFrame(loop)}}
-if(reduce||movil){estatico()}else{if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)arranca()}).observe(flujo)}document.addEventListener('visibilitychange',function(){if(!document.hidden)arranca()});arranca()}
-var host=document.getElementById('flujo-sec'),pend=false,px=0,py=0;
-if(fino&&!reduce){host.addEventListener('pointermove',function(e){var rc=host.getBoundingClientRect();px=e.clientX-rc.left;py=e.clientY-rc.top;if(!pend){pend=true;requestAnimationFrame(function(){pend=false;svg.style.setProperty('--mx',((px/rc.width)-.5)*2);svg.style.setProperty('--my',((py/rc.height)-.5)*2)})}},{passive:true});host.addEventListener('pointerleave',function(){svg.style.setProperty('--mx',0);svg.style.setProperty('--my',0)})}
-})();
+(function(){var l=document.getElementById('pasosF'),cap=document.getElementById('cap');if(!l||!cap)return;
+var T=[["Tu cliente reserva o pide", "Tus clientes piden hora o compran cuando quieren, sin esperar a que les respondas."], ["Te llega el aviso", "Te enteras al instante, sin estar pegado al teléfono."], ["Se cobra", "El cliente paga en línea con medios de pago de terceros, sin que tengas que andar cobrando."], ["Queda registrado", "Cada reserva y cada venta queda anotada: se acabaron las planillas y los mensajes sueltos."], ["Ves tus números", "Sabes cuánto vendes y qué te funciona, para decidir con datos y no a ojo."]],def=cap.innerHTML,bs=[].slice.call(l.querySelectorAll('.pf'));
+function f(i){bs.forEach(function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false')});if(i<0){cap.innerHTML=def;return}cap.innerHTML='<b class="m"></b> <span></span>';cap.querySelector('b').textContent=T[i][0]+'.';cap.querySelector('span').textContent=T[i][1]}
+bs.forEach(function(b,i){b.addEventListener('click',function(){f(i)});b.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')f(i)});b.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'&&document.activeElement!==b)f(-1)});b.addEventListener('focus',function(){f(i)});b.addEventListener('blur',function(){f(-1)})})})();
 </script>
 <script>
 (function(){
