@@ -758,6 +758,22 @@ html[data-pantalla="inicio"] .fpie{background:#e1e7ef}
  .pf-l::after{display:none}
 }
 .vis .sol-ph{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;border:1px solid var(--linea)}
+/* ===== A5 v2: luz por zonas, claramente distinta en cada sección (solo azules del logo sobre #edf1f6) ===== */
+html[data-pantalla] .pagina:not(.osc),html[data-pantalla] .emp{background:transparent!important}
+html[data-pantalla] .barra{background:rgba(237,241,246,.8)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tira-m{background:transparent!important}
+/* Inicio: oscuro, foco azul fuerte arriba a la derecha y reflejo abajo a la izquierda */
+[data-v="inicio"].osc{background-image:radial-gradient(900px circle at 100% 0%,rgba(59,111,212,.55),transparent 62%),radial-gradient(700px circle at 0% 100%,rgba(27,61,122,.7),transparent 65%),linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px)!important;background-size:auto,auto,72px 72px,72px 72px!important}
+/* Soluciones: arriba casi blanco, cae a un azul grisáceo profundo (vertical) */
+html[data-pantalla="soluciones"] body{background:linear-gradient(180deg,#fbfcfe 0,#edf1f6 260px,#bccbe2 1100px,#bccbe2 100%)!important}
+/* Modelos de app: foco blanco centrado detrás de la tira, bordes más azulados (radial) */
+html[data-pantalla="modelos"] body{background:radial-gradient(ellipse 760px 560px at 50% 340px,#ffffff 0,rgba(255,255,255,0) 72%),#d5e0ef!important}
+/* Marcas: diagonal, azul medio a la izquierda y luz a la derecha */
+html[data-pantalla="marcas"] body{background:linear-gradient(115deg,#bccce4 0,#dbe5f2 38%,#f6f8fc 100%)!important}
+/* Empresa: banda lateral de luz azul a la izquierda, lineal horizontal */
+html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d6e1f0 24%,#edf1f6 60%,#f7f9fc 100%)!important}
+/* Contacto: oscuro, resplandor azul desde abajo al centro */
+.contacto.osc{background-image:radial-gradient(760px 380px at 50% 100%,rgba(59,111,212,.32),transparent 70%),radial-gradient(420px circle at 0% 0%,rgba(27,61,122,.35),transparent 70%)!important}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
