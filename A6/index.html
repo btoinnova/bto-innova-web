@@ -1023,6 +1023,12 @@ html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
 @media (prefers-reduced-motion:reduce){.hb .d1,.hb .d2,.hb .d3,.hb .hb-bar{animation:none!important;stroke-dashoffset:0;transform:none;opacity:1}}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;z-index:0;pointer-events:none}
 .hero-video[hidden]{display:none}
+/* fix desborde: columnas que pueden encoger y mini-secuencia que baja de línea si no cabe */
+.bq{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.bl{min-width:0;max-width:100%}
+.bl .ms{flex-wrap:wrap;white-space:normal;row-gap:2px}
+.bl .ms span{white-space:nowrap}
+@media (max-width:760px){.bq{grid-template-columns:minmax(0,1fr)}.bl .ms{font-size:12px;gap:.3em}.bl{padding:18px 16px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -1516,7 +1522,9 @@ if('IntersectionObserver' in window){var T=[].slice.call(document.querySelectorA
 T.forEach(function(e){e.classList.add('rv')});
 var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--rd',(n++*0.09).toFixed(2)+'s');e.target.classList.add('rv-in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
 T.forEach(function(e){io.observe(e)});
-setTimeout(function(){T.forEach(function(e){e.classList.add('rv-in')})},9000)}
+var rest=T.slice();function barre(){rest=rest.filter(function(e){if(e.classList.contains('rv-in'))return false;var rc=e.getBoundingClientRect();if(rc.width&&rc.top<innerHeight*.95){e.classList.add('rv-in');return false}return true})}
+var tk=0;addEventListener('scroll',function(){if(tk)return;tk=requestAnimationFrame(function(){tk=0;barre()})},{passive:true});
+setTimeout(function(){T.forEach(function(e){e.classList.add('rv-in')})},6000)}
 }catch(err){[].slice.call(document.querySelectorAll('.rv')).forEach(function(e){e.classList.add('rv-in')});var d=document.getElementById('dgw');if(d)d.classList.remove('pre')}})();
 </script>
 <script>
