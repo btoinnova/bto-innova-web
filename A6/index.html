@@ -909,6 +909,120 @@ html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]
  .pm-abierto [data-v="modelos"] :is(h2,.intro),.pm-abierto .como.osc,.pm-abierto .filtro,.pm-abierto .tira-m,.menu-ab main,.menu-ab .fpie{filter:none!important;opacity:1!important}
  .dg-b button,.tm-i{transform:none!important}
 }
+/* ===== A6 v2: animaciones que se ven (solo transform / opacity / filter) ===== */
+@keyframes subir{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.js .portada.osc .k>i{transform:none!important;transition:none!important}
+.js .portada.osc h1>span{animation:subir .8s cubic-bezier(.2,.7,.2,1) .12s both}
+.js .portada.osc h1>em{display:block;animation:subir .8s cubic-bezier(.2,.7,.2,1) .26s both}
+.js .portada.osc .sub{animation:subir .8s cubic-bezier(.2,.7,.2,1) .55s both}
+.js .portada.osc .cta{animation:subir .8s cubic-bezier(.2,.7,.2,1) .78s both}
+.js .portada.osc .demo{animation:aparece 1s ease-out .95s both}
+/* diagrama: ruta que se dibuja, nodo central que se enciende, etapas una tras otra */
+.dgw.pre .dgn:not(.dgc),.dgw.pre .dgl,.dgw.pre .dg-r li,.dgw.pre .dg-cta{opacity:0}
+.dgw.pre .dgc{opacity:.3}
+.dgw.sal .dg-r li,.dgw.sal .dgn:not(.dgc),.dgw.sal .dg-cta{opacity:0;transition:opacity .3s ease-out}
+@keyframes dgin24{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes enciende{from{opacity:.3;filter:brightness(.55)}55%{filter:brightness(1.5)}to{opacity:1;filter:none}}
+.dgw.ent #dgL{animation:dgin24 .5s cubic-bezier(.2,.7,.2,1) both}
+.dgw.ent .dg2>:nth-child(2){transform-origin:left;animation:dgdraw .5s cubic-bezier(.4,0,.2,1) .15s both}
+.dgw.ent .dgc{animation:enciende .55s ease-out .6s both}
+.dgw.ent .dg2>:nth-child(4){transform-origin:left;animation:dgdraw .5s cubic-bezier(.4,0,.2,1) .95s both}
+.dgw.ent #dgZ{animation:dgin24 .5s cubic-bezier(.2,.7,.2,1) 1.35s both}
+.dgw.ent .dg-r li{animation:dgin24 .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(1.6s + var(--i,0)*.18s)}
+.dgw.ent .dg-r li::after{animation:dgdraw .5s cubic-bezier(.4,0,.2,1) both;animation-delay:calc(1.6s + var(--i,0)*.18s)}
+.dgw.ent .dg-cta{animation:dgin24 .5s cubic-bezier(.2,.7,.2,1) 2.45s both}
+@media (max-width:760px){
+ .dgw.ent .dg2>:nth-child(2),.dgw.ent .dg2>:nth-child(4){transform-origin:top;animation-name:dgdrawy}
+ .dgw.ent .dg-r li::after{animation-name:dgdrawy}
+}
+/* opción elegida grande, las demás atenuadas */
+.dg-b button{opacity:.6}
+.dg-b button[aria-pressed="true"]{opacity:1;--s:1.06;z-index:1;position:relative}
+@media (hover:none){.dg-b button[aria-pressed="true"]{--s:1.06}}
+/* entrada al desplazarse */
+.rv{opacity:0;translate:0 28px;transition:opacity .6s cubic-bezier(.2,.7,.2,1) var(--rd,0s),translate .6s cubic-bezier(.2,.7,.2,1) var(--rd,0s)}
+.rv.rv-in{opacity:1;translate:none}
+/* Modelos: pantallas que salen se desvanecen y las demás se reacomodan con movimiento */
+.tm-v.cf{opacity:1!important}
+.tm-i{transition:flex-basis .5s var(--ease),opacity .35s ease,margin .5s var(--ease),scale .45s var(--ease),transform .2s cubic-bezier(.2,.7,.2,1)}
+.tm-i.fuera{scale:.8;transition:flex-basis .5s var(--ease),opacity .3s ease,margin .5s var(--ease),scale .4s var(--ease),visibility 0s linear .5s}
+@keyframes tmin{from{opacity:0;translate:0 24px}to{opacity:1;translate:none}}
+.tm-i.dir:not(.fuera){animation:tmin .5s var(--ease) both}
+/* desenfoque real del resto */
+.pm-abierto [data-v="modelos"] :is(h2,.intro),.pm-abierto .como.osc{filter:blur(8px);opacity:.45}
+.pm-abierto .filtro:not(:hover):not(:focus-within),.pm-abierto .tira-m:not(:hover):not(:focus-within){filter:blur(6px);opacity:.55}
+.menu-ab main,.menu-ab .fpie{filter:blur(8px);opacity:.5}
+/* WhatsApp: respuesta clara al tocar */
+.btn,.wa-fijo,.barra .wa,.cot{transition:scale .14s ease-out,background-color .14s,filter .14s}
+.btn:active,.wa-fijo:active,.barra .wa:active,.cot:active,a[href*="wa.me"]:active{scale:.97;filter:brightness(1.25)}
+@media (prefers-reduced-motion:reduce){
+ .js .portada.osc h1>span,.js .portada.osc h1>em,.js .portada.osc .sub,.js .portada.osc .cta,.js .portada.osc .demo,.tm-i.dir:not(.fuera),.dgw.ent *{animation:none!important}
+ .rv{opacity:1;translate:none;transition:none}
+ .dgw.pre *{opacity:1!important}
+ .tm-i.fuera{scale:1}
+ .btn:active,.wa-fijo:active,.barra .wa:active,.cot:active,a[href*="wa.me"]:active{scale:1;filter:none}
+}
+/* ===== A6 v3: cuatro bloques autocontenidos ===== */
+.bq{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;max-width:1080px;margin:clamp(14px,3vw,28px) auto 0}
+.bl{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:clamp(18px,2.6vw,32px);border:2px solid transparent;transition:border-color .25s,scale .15s ease-out,filter .35s ease,opacity .35s ease}
+.bl h3{margin:0;font:800 clamp(1.35rem,2.3vw,1.95rem)/1.1 var(--sans);letter-spacing:-.03em}
+.bl .bd{margin:0;font:400 clamp(1rem,1.3vw,1.1rem)/1.45 var(--sans)}
+.bl .ms{margin:0;display:flex;flex-wrap:nowrap;gap:.45em;align-items:center;white-space:nowrap;font:600 clamp(12px,1.05vw,13px)/1.2 var(--sans);letter-spacing:-.01em}
+.bl .ms i{font-style:normal;opacity:.6}
+.bl .btn{margin-top:auto;align-self:flex-start}
+.bl-sis{grid-row:1/4;background:#e6edf8;color:#0c131f;justify-content:flex-end;gap:16px;min-height:clamp(380px,40vw,520px)}
+.bl-sis h3{font-size:clamp(2.1rem,4.6vw,3.9rem);line-height:1.02;letter-spacing:-.045em;max-width:9em;color:#0f1a2b}
+.bl-sis .bd{color:#1d2b45;font-size:clamp(1.05rem,1.5vw,1.25rem);max-width:30em}
+.bl-sis .ms{color:#3a4a68}
+.bl-sis .btn{margin-top:8px}
+.bl-app{background:#1b3d7a;color:#fff}.bl-app .bd{color:#dbe6fa}.bl-app .ms{color:#a9c0ee}
+.bl-app .btn{background:#fff!important;color:#1b3d7a!important;border-color:#fff!important}
+.bl-marca{background:#142a52;color:#fff}.bl-marca .bd{color:#c5d3ee}.bl-marca .ms{color:#8fa8d8}
+.bl-marcas{background:#0f1d38;border-color:#24324a;color:#fff}.bl-marcas .bd{color:#b6c4dd}.bl-marcas .ms{color:#7f98c8}
+.bl-marca .btn,.bl-marcas .btn{background:#5b8def!important;color:#0c131f!important;border-color:#5b8def!important}
+.bl-app:hover,.bl-marca:hover,.bl-marcas:hover,.bl:focus-within{border-color:#5b8def}
+.bl-sis:hover{border-color:#1b3d7a}
+.bl:active{scale:.985;border-color:#5b8def}.bl-sis:active{border-color:#1b3d7a}
+@media (hover:hover) and (pointer:fine){.bq:hover .bl:not(:hover){filter:blur(2.5px);opacity:.5}}
+@media (max-width:760px){
+ .bq{grid-template-columns:1fr;gap:12px}
+ .bl-sis{grid-row:auto;min-height:0}
+ .bl-sis h3{font-size:clamp(1.9rem,8.4vw,2.5rem)}
+ .bl .ms{font-size:12px;gap:.35em}
+}
+.bq-img{position:fixed;left:0;top:0;width:150px;z-index:45;pointer-events:none;opacity:0;scale:.92;transition:opacity .25s ease,scale .25s var(--ease)}
+.bq-img.on{opacity:1;scale:1}
+.bq-img img{width:150px;height:auto;aspect-ratio:1/2.05;object-fit:cover;object-position:top;border:1px solid #5b8def;background:#fff;display:block}
+@media not all and (hover:hover){.bq-img,.cur-p{display:none}}
+.cur-p{position:fixed;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;background:#5b8def;pointer-events:none;z-index:80;opacity:0;transition:width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease),opacity .2s,background .25s}
+.cur-p.vivo{opacity:1}.cur-p.grande{width:48px;height:48px;margin:-24px 0 0 -24px;background:rgba(91,141,239,.28)}
+/* marca gigante en el pie */
+.gigante{margin:10px 0 6px;font:800 clamp(56px,15vw,230px)/.88 var(--sans);letter-spacing:-.06em;color:rgba(27,61,122,.16);white-space:nowrap;overflow:hidden;padding-top:.1em;user-select:none}
+html[data-pantalla="inicio"] .gigante{color:rgba(91,141,239,.2)}
+/* video de fondo preparado */
+/* título que viaja desde el menú */
+.vuela{position:fixed;left:0;top:0;z-index:90;margin:0;pointer-events:none;transform-origin:0 0;transition:transform .6s var(--ease),opacity .3s}
+.oculto{visibility:hidden}
+.barra .enl a{display:inline-block;transform-origin:50% 100%;transition:transform .18s ease-out}
+@media (prefers-reduced-motion:reduce){.bl,.bq-img,.cur-p,.vuela{transition:none!important}.bq:hover .bl:not(:hover){filter:none;opacity:1}.bl:active{scale:1}.gigante{transform:none}}
+/* ===== A6: fondo animado del inicio (SVG, bucle 7 s, una sola animación continua) ===== */
+.hb-w{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hb{position:absolute;right:0;bottom:0;width:100%;height:100%;display:block}
+.hb-g{fill:none;stroke:#5b8def;stroke-width:1.6;opacity:.5}
+.hb .d1,.hb .d2,.hb .d3{stroke-dasharray:1;stroke-dashoffset:1;animation:hbd1 7s linear infinite backwards}
+.hb .d2{animation-name:hbd2}.hb .d3{animation-name:hbd3}
+.hb .hb-ln{stroke-width:2.4}
+.hb .hb-bar{fill:rgba(91,141,239,.42);stroke:none;transform-box:fill-box;transform-origin:50% 100%;animation:hbb 7s linear infinite backwards}
+@keyframes hbd1{0%{stroke-dashoffset:1;opacity:1}24%{stroke-dashoffset:0}82%{stroke-dashoffset:0;opacity:1}96%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:1;opacity:0}}
+@keyframes hbd2{0%,14%{stroke-dashoffset:1;opacity:1}40%{stroke-dashoffset:0}82%{stroke-dashoffset:0;opacity:1}96%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:1;opacity:0}}
+@keyframes hbd3{0%,34%{stroke-dashoffset:1;opacity:1}62%{stroke-dashoffset:0}82%{stroke-dashoffset:0;opacity:1}96%{stroke-dashoffset:0;opacity:0}100%{stroke-dashoffset:1;opacity:0}}
+@keyframes hbb{0%,30%{transform:scaleY(0);opacity:1}52%{transform:scaleY(1)}82%{transform:scaleY(1);opacity:1}96%{transform:scaleY(1);opacity:0}100%{transform:scaleY(0);opacity:0}}
+.hb-w.p *{animation-play-state:paused!important}
+@media (max-width:900px){.hb-w{top:auto;height:62%}.hb-g{opacity:.38}}
+@media (prefers-reduced-motion:reduce){.hb .d1,.hb .d2,.hb .d3,.hb .hb-bar{animation:none!important;stroke-dashoffset:0;transform:none;opacity:1}}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18;z-index:0;pointer-events:none}
+.hero-video[hidden]{display:none}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -931,6 +1045,8 @@ html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]
 
 <main>
 <section class="portada osc" id="inicio" data-v="inicio" aria-labelledby="t-in">
+  <!-- VIDEO DE FONDO (desactivado): para activarlo, poner la ruta en data-src, un poster en poster=, y quitar hidden. Sin src no se descarga nada. -->
+  <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="" data-src="" aria-hidden="true" hidden></video>
   <div class="txt">
     <h1 id="t-in" data-t data-k><span>Tu negocio, ahora también es digital.</span><em>Apps, web, publicidad y <b>e-commerce</b>, con un solo equipo.</em></h1>
     <p class="sub">Apps, sistemas y marketing a la medida: desde una agenda para tu local hasta la operación completa de tu empresa.</p>
@@ -946,14 +1062,9 @@ html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]
   </div>
 
 </section>
-<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Cómo trabajamos según lo que necesites">
+<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Qué podemos construir contigo">
   <h2 class="flujo-t" data-k>De la idea al <em>negocio funcionando.</em></h2>
-  <div class="dgw" id="dgw">
-    <div class="dg-sel" role="group" aria-label="Qué necesitas"><span class="dg-q">Qué necesitas</span><div class="dg-b"><button type="button" data-val="app" aria-pressed="false">Una app para atender clientes</button><button type="button" data-val="sis" aria-pressed="true">Un sistema para toda la operación</button><button type="button" data-val="marca" aria-pressed="false">Una marca que se encuentre</button><button type="button" data-val="marcas" aria-pressed="false">Varias marcas, una estrategia</button></div></div>
-    <div class="dg2" aria-hidden="true"><div class="dgn on" id="dgL"></div><i class="dgl"></i><div class="dgn dgc on">BTo Innova</div><i class="dgl"></i><div class="dgn on" id="dgZ"></div></div>
-    <ol class="dg-r" id="dgR" aria-live="polite"><li><b>Conversamos</b><span></span></li><li><b>Te mostramos cómo quedaría</b><span></span></li><li><b>Construimos</b><span></span></li><li><b>En marcha y acompañamos</b><span></span></li></ol>
-    <p class="dg-cta"><a class="btn" id="dgCta" href="#" rel="noopener"></a></p>
-  </div>
+  <div class="bq" id="bq"><article class="bl bl-sis" data-img="img/inventario-v7.webp?v=11k"><h3>Un sistema para toda la operación</h3><p class="bd">Un solo sistema: usuarios y roles, reportes por unidad e integración con lo que ya usas</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20un%20sistema%20para%20toda%20la%20operaci%C3%B3n%20de%20mi%20empresa.%20Somos%3A%20" rel="noopener">Cotizar este sistema</a></article><article class="bl bl-app" data-img="img/restaurante-v1.webp?v=12a"><h3>Una app para atender clientes</h3><p class="bd">Agenda, pedidos o reparto, a tu medida y con tu marca</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20para%20atender%20a%20mis%20clientes.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar esta app</a></article><article class="bl bl-marca" data-img="img/planeador-desktop.webp?v=11b"><h3>Una marca que se encuentre</h3><p class="bd">Tu web, tus redes y tu ficha en buscadores</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20que%20mi%20marca%20se%20encuentre%20en%20internet.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar el posicionamiento de mi marca</a></article><article class="bl bl-marcas" data-img="img/planeador-movil.webp?v=11b"><h3>Varias marcas, una estrategia</h3><p class="bd">Web, campañas y redes de cada marca, con coherencia entre ellas</p><p class="ms"><span>Conversamos</span><i aria-hidden="true">→</i><span>Te mostramos</span><i aria-hidden="true">→</i><span>Construimos</span><i aria-hidden="true">→</i><span>En marcha</span></p><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20una%20estrategia%20com%C3%BAn%20para%20varias%20marcas.%20Somos%3A%20" rel="noopener">Cotizar la estrategia de mis marcas</a></article></div>
 </section>
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
 <section class="pagina" data-v="soluciones" aria-labelledby="t-so">
@@ -1232,7 +1343,7 @@ html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]
 </section>
 
 </main>
-<footer class="fpie"><div class="fin"><p class="leg"><span class="ley">BTo Innova SpA · RUT 78.533.592-9 · Desarrollo de software, marketing digital y e-commerce · </span><span class="loc">Ñuñoa, Chile</span><span class="mail"><a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a></span></p><p class="leg lnk"><a href="#privacidad">Privacidad</a> · <a href="#terminos">Términos de uso</a></p></div></footer>
+<footer class="fpie"><p class="gigante" aria-hidden="true">BTo Innova</p><div class="fin"><p class="leg"><span class="ley">BTo Innova SpA · RUT 78.533.592-9 · Desarrollo de software, marketing digital y e-commerce · </span><span class="loc">Ñuñoa, Chile</span><span class="mail"><a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a></span></p><p class="leg lnk"><a href="#privacidad">Privacidad</a> · <a href="#terminos">Términos de uso</a></p></div></footer>
 <script src="pantallas.js?v=11b"></script>
 <script>
 (function(){var d=document.getElementById('demo'),h=document.getElementById('inicio')||d.parentNode;if(!d||!h||matchMedia('(prefers-reduced-motion:reduce)').matches||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
@@ -1245,7 +1356,7 @@ function luz(){bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribu
 var SH={app:'Una app',sis:'Un sistema',marca:'Una marca',marcas:'Varias marcas'},RZ={app:'Tu app funcionando, con tu marca',sis:'Un sistema con usuarios, roles y reportes por unidad',marca:'Tu marca visible donde te buscan',marcas:'Varias marcas con una línea común y medición mensual'};
 function pinta(){var d=D[cur];document.getElementById('dgL').textContent=SH[cur];document.getElementById('dgZ').textContent=RZ[cur];li.forEach(function(x,i){x.querySelector('span').textContent=d.t[i]});cta.textContent=d.c;cta.href=d.w}
 var rd=matchMedia('(prefers-reduced-motion:reduce)').matches;li.forEach(function(x,i){x.style.setProperty('--i',i)});
-function elige(k){if(k===cur)return;cur=k;luz();if(rd){pinta();return}w.classList.remove('ent');w.classList.add('sal');clearTimeout(tm);tm=setTimeout(function(){pinta();w.classList.remove('sal');void w.offsetWidth;w.classList.add('ent')},170)}
+function elige(k){if(k===cur)return;cur=k;luz();if(rd){pinta();return}w.classList.remove('ent');w.classList.add('sal');clearTimeout(tm);tm=setTimeout(function(){pinta();w.classList.remove('sal');void w.offsetWidth;w.classList.add('ent')},330)}
 bs.forEach(function(b){b.addEventListener('click',function(){elige(b.getAttribute('data-val'))})});
 [].slice.call(w.querySelectorAll('svg g.nd[data-s]')).forEach(function(g){g.addEventListener('click',function(){elige(g.getAttribute('data-s'))})});
 luz();pinta();
@@ -1318,6 +1429,7 @@ bs.forEach(function(b){b.addEventListener('click',function(){var e=b.getAttribut
 m.querySelector('.est-ver').style.visibility=e==='ver'?'visible':'hidden';[].slice.call(m.querySelectorAll('.est-r')).forEach(function(x){x.hidden=x.getAttribute('data-e')!==e});
 c.textContent=T[e][0];m.setAttribute('aria-label','Diseño de ejemplo: app de rentabilidad del viaje con ruta, ganancia neta, ingreso y costos. El color del marco indica el resultado: '+T[e][1])})})})();
 </script>
+<div class="bq-img" id="bqImg" aria-hidden="true"><img alt="" width="150" height="308"></div><div class="cur-p" id="curP" aria-hidden="true"></div>
 <a class="wa-fijo" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n.%20Me%20dedico%20a%3A%20" rel="noopener" aria-label="Cotizar por WhatsApp">Cotizar por WhatsApp</a>
 <script>
 (function(){var m=document.getElementById('modelos');if(!m)return;var fil=document.getElementById('filtro'),t=document.getElementById('tira');if(!t)return;
@@ -1391,6 +1503,57 @@ if('MutationObserver' in window){
 var pm=document.getElementById('panelM');if(pm)new MutationObserver(function(){root.classList.toggle('pm-abierto',pm.classList.contains('open'))}).observe(pm,{attributes:true,attributeFilter:['class']});
 var nv=document.getElementById('navP');if(nv)new MutationObserver(function(){root.classList.toggle('menu-ab',nv.classList.contains('abierto'))}).observe(nv,{attributes:true,attributeFilter:['class']})}
 })();
+</script>
+<script>
+(function(){try{
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches;if(red)return;
+var w=document.getElementById('dgw');
+/* diagrama: se dibuja al entrar en pantalla (la primera vez) */
+if(w&&'IntersectionObserver' in window){w.classList.add('pre');var go=function(){w.classList.remove('pre');void w.offsetWidth;w.classList.add('ent')};
+var o=new IntersectionObserver(function(es){if(es[0].isIntersecting){o.disconnect();go()}},{threshold:.3});o.observe(w);setTimeout(function(){if(w.classList.contains('pre')){o.disconnect();go()}},6000)}
+/* entrada al desplazarse: sección y pantallas de app, una vez */
+if('IntersectionObserver' in window){var T=[].slice.call(document.querySelectorAll('.sol .txt,.sol .vis,.marca-pl .mp-t,.marca-pl .mp-v,.emp .fila:not(.osc),.franja,.contacto .cta,.bl'));
+T.forEach(function(e){e.classList.add('rv')});
+var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--rd',(n++*0.09).toFixed(2)+'s');e.target.classList.add('rv-in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+T.forEach(function(e){io.observe(e)});
+setTimeout(function(){T.forEach(function(e){e.classList.add('rv-in')})},9000)}
+}catch(err){[].slice.call(document.querySelectorAll('.rv')).forEach(function(e){e.classList.add('rv-in')});var d=document.getElementById('dgw');if(d)d.classList.remove('pre')}})();
+</script>
+<script>
+(function(){try{
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* botón fijo de WhatsApp: se oculta mientras otro botón de WhatsApp está a la vista */
+var vistos=new Set();
+if('IntersectionObserver' in window){var io0=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vistos.add(e.target);else vistos.delete(e.target)});document.documentElement.classList.toggle('wa-otro',vistos.size>0)},{threshold:.6});
+[].slice.call(document.querySelectorAll('a[href*="wa.me"]')).forEach(function(a){if(a.classList.contains('wa-fijo')||a.closest('.barra'))return;io0.observe(a)})}
+/* video de fondo (solo si se le pone data-src) */
+var hv=document.getElementById('heroVideo');if(hv&&hv.getAttribute('data-src')&&!red){hv.src=hv.getAttribute('data-src');hv.hidden=false;if(hv.play)hv.play().catch(function(){})}
+if(red)return;
+/* lupa del menú (como El Planeador v4) */
+var nav=[].slice.call(document.querySelectorAll('.barra .enl a'));
+if(fino&&nav.length){var br=document.querySelector('.barra');br.addEventListener('pointermove',function(e){nav.forEach(function(a){var b=a.getBoundingClientRect(),d=Math.abs(e.clientX-(b.left+b.width/2));a.style.transform='scale('+(1+Math.max(0,1-d/160)*.28).toFixed(3)+')'})});br.addEventListener('pointerleave',function(){nav.forEach(function(a){a.style.transform=''})})}
+/* título que viaja del menú a la sección (shared element) */
+var ult=null;
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.barra .enl a[href^="#"]');if(!a)return;var r=a.getBoundingClientRect();ult={t:a.textContent.trim(),x:r.left,y:r.top,h:r.height,v:a.getAttribute('href').slice(1)}},true);
+document.addEventListener('pantalla',function(ev){if(!ult||ult.v!==ev.detail||ev.detail==='inicio'){ult=null;return}
+var u=ult;ult=null;var h2=document.querySelector('[data-v="'+ev.detail+'"] [data-t]');if(!h2)return;
+var cs=getComputedStyle(h2),rh=h2.getBoundingClientRect(),sp=document.createElement('span');
+sp.className='vuela';sp.textContent=h2.textContent.replace(/\s+/g,' ').trim();sp.style.font=cs.fontWeight+' '+cs.fontSize+'/'+cs.lineHeight+' '+cs.fontFamily;sp.style.letterSpacing=cs.letterSpacing;sp.style.color=cs.color;sp.style.width=rh.width+'px';
+var s0=u.h/(parseFloat(cs.lineHeight)||parseFloat(cs.fontSize));sp.style.transition='none';sp.style.transform='translate3d('+u.x+'px,'+u.y+'px,0) scale('+s0+')';
+document.body.appendChild(sp);h2.classList.add('oculto');
+requestAnimationFrame(function(){requestAnimationFrame(function(){sp.style.transition='';sp.style.transform='translate3d('+rh.left+'px,'+rh.top+'px,0) scale(1)'})});
+setTimeout(function(){h2.classList.remove('oculto');sp.style.opacity='0';setTimeout(function(){sp.remove()},320)},700)});
+/* imagen que sigue al cursor sobre los bloques, y cursor propio (solo escritorio) */
+var q=document.getElementById('bq'),fl=document.getElementById('bqImg'),fi=fl&&fl.querySelector('img');
+if(fino&&q&&fl){var fx=0,fy=0,tx=0,ty=0,an=false;function sigue(){fx+=(tx-fx)*.18;fy+=(ty-fy)*.18;fl.style.transform='translate3d('+fx+'px,'+fy+'px,0)';if(Math.abs(tx-fx)>.5||Math.abs(ty-fy)>.5)requestAnimationFrame(sigue);else an=false}
+q.addEventListener('pointermove',function(e){tx=e.clientX+36;ty=e.clientY-120;if(!an){an=true;requestAnimationFrame(sigue)}});
+[].slice.call(q.querySelectorAll('.bl')).forEach(function(b){b.addEventListener('pointerenter',function(){fi.src=b.getAttribute('data-img');fl.classList.add('on')})});
+q.addEventListener('pointerleave',function(){fl.classList.remove('on')});addEventListener('scroll',function(){fl.classList.remove('on')},{passive:true})}
+var cu=document.getElementById('curP');
+if(fino&&cu){addEventListener('pointermove',function(e){cu.style.transform='translate3d('+e.clientX+'px,'+e.clientY+'px,0)';cu.classList.add('vivo')},{passive:true});
+document.addEventListener('pointerover',function(e){cu.classList.toggle('grande',!!(e.target.closest&&e.target.closest('a,button')))});
+document.addEventListener('pointerleave',function(){cu.classList.remove('vivo')})}
+}catch(err){}})();
 </script>
 </body>
 </html>
