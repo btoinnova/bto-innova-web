@@ -859,6 +859,56 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
 }
 html.wa-otro .wa-fijo{display:none!important}
 @media (prefers-reduced-motion:reduce){.dgw,.dg-r,.dg-cta,.dg *{transition:none!important}}
+/* ===== fondo continuo: una sola luz y una sola cuadrícula para toda la zona oscura del inicio ===== */
+html[data-pantalla="inicio"] body{background-color:#0c131f;background-image:radial-gradient(900px circle at 100% 0%,rgba(59,111,212,.5),transparent 62%),radial-gradient(820px circle at 0% 55%,rgba(27,61,122,.55),transparent 65%),radial-gradient(900px circle at 100% 100%,rgba(27,61,122,.4),transparent 65%),linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:auto,auto,auto,72px 72px,72px 72px;background-position:0 0,0 0,0 0,0 0,0 0}
+html[data-pantalla="inicio"] main>[data-v="inicio"].osc{background:transparent!important;border:0!important}
+html[data-pantalla="inicio"] main>[data-v="inicio"].osc::before{display:none}
+html[data-pantalla="inicio"] .fpie{--tinta:#eef2f8;--mut:#a9b5c7;--linea:#24324a;--acento:#5b8def;background:transparent!important;border-top:0!important;color:var(--mut)}
+html[data-pantalla="inicio"] .fpie a{color:var(--tinta)}
+/* zonas claras: el pie hereda la luz final de cada zona, sin escalón */
+html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]) .fpie{background:transparent!important}
+.dg2{display:flex;align-items:center;max-width:860px;margin:0 auto}
+.dgn{flex:1 1 0;min-height:64px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 14px;border:1.5px solid var(--acento);background:#1d3358;color:#fff;font:600 clamp(.95rem,1.3vw,1.05rem)/1.3 var(--sans);transition:opacity .14s}
+.dgc{background:var(--acento);color:#0c131f;flex:0 0 clamp(120px,16vw,170px)}
+.dgl{flex:0 0 clamp(28px,5vw,64px);height:0;border-top:3px solid var(--acento)}
+.dgw.cam .dgn:not(.dgc){opacity:.2}
+@media (max-width:760px){.dg2{flex-direction:column;max-width:340px}.dgn{width:100%;flex:none}.dgc{flex:none}.dgl{flex:none;width:0;height:22px;border-top:0;border-left:3px solid var(--acento)}}
+/* ===== A6: animaciones sobrias (transform / opacity / filter) ===== */
+.dgw.sal .dg-r li,.dgw.sal .dgn:not(.dgc),.dgw.sal .dg-cta{opacity:0;transition:opacity .15s ease-out}
+.dgw.cam .dg-r,.dgw.cam .dg-cta,.dgw.cam .dgn:not(.dgc){opacity:1}
+.dg-r li{border-top:0}
+.dg-r li::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--acento);transform-origin:left}
+.dgw.ent .dg-r li{animation:dgin .32s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*90ms + 60ms)}
+.dgw.ent .dg-r li::after{animation:dgdraw .4s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*110ms + 80ms)}
+.dgw.ent .dgn:not(.dgc),.dgw.ent .dg-cta{animation:dgin .3s cubic-bezier(.2,.7,.2,1) both;animation-delay:.12s}
+.dgw.ent .dgl{transform-origin:left;animation:dgdraw .3s cubic-bezier(.2,.7,.2,1) both}
+@keyframes dgin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes dgdraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes dgdrawy{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media (max-width:760px){
+ .dg-r li{border-left:0}
+ .dg-r li::after{right:auto;bottom:0;width:2px;height:auto;transform-origin:top}
+ .dg-r li:last-child::after{display:none}
+ .dgw.ent .dg-r li::after{animation-name:dgdrawy}
+ .dgw.ent .dgl{transform-origin:top;animation-name:dgdrawy}
+}
+.tm-v{transition:opacity .25s ease-out;padding-block:14px 12px}
+.tm-v.cf{opacity:0;transition:none}
+.dg-b button,.tm-i{transform:scale(var(--s,1))}
+.dg-b button{transition:background .2s,border-color .2s,color .2s,transform .2s cubic-bezier(.2,.7,.2,1)}
+.tm-i{transition:flex-basis .28s var(--ease),opacity .22s ease,margin .28s var(--ease),transform .2s cubic-bezier(.2,.7,.2,1)}
+@media (hover:none){.tm-i.act{--s:1.05}.dg-b button[aria-pressed="true"]{--s:1.04}}
+/* desenfoque del resto: detalle de modelo y menú móvil */
+[data-v="modelos"] :is(h2,.intro),.como.osc,.fpie,main{transition:filter .3s ease-out,opacity .3s ease-out}
+.pm-abierto [data-v="modelos"] :is(h2,.intro),.pm-abierto .como.osc{filter:blur(3px);opacity:.5}
+.pm-abierto .filtro:not(:hover):not(:focus-within),.pm-abierto .tira-m:not(:hover):not(:focus-within){filter:blur(2px);opacity:.65}
+.pm-abierto .filtro,.pm-abierto .tira-m{transition:filter .3s ease-out,opacity .3s ease-out}
+.menu-ab main,.menu-ab .fpie{filter:blur(3px);opacity:.55}
+@media (prefers-reduced-motion:reduce){
+ .dgw *,.dgw.ent *,.dgw.ent *::after,.tm-v,.dg-b button,.tm-i,[data-v="modelos"] :is(h2,.intro),.como.osc,.fpie,main{animation:none!important;transition:none!important}
+ .pm-abierto [data-v="modelos"] :is(h2,.intro),.pm-abierto .como.osc,.pm-abierto .filtro,.pm-abierto .tira-m,.menu-ab main,.menu-ab .fpie{filter:none!important;opacity:1!important}
+ .dg-b button,.tm-i{transform:none!important}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -900,7 +950,7 @@ html.wa-otro .wa-fijo{display:none!important}
   <h2 class="flujo-t" data-k>De la idea al <em>negocio funcionando.</em></h2>
   <div class="dgw" id="dgw">
     <div class="dg-sel" role="group" aria-label="Qué necesitas"><span class="dg-q">Qué necesitas</span><div class="dg-b"><button type="button" data-val="app" aria-pressed="false">Una app para atender clientes</button><button type="button" data-val="sis" aria-pressed="true">Un sistema para toda la operación</button><button type="button" data-val="marca" aria-pressed="false">Una marca que se encuentre</button><button type="button" data-val="marcas" aria-pressed="false">Varias marcas, una estrategia</button></div></div>
-    <svg class="dg" viewBox="0 0 520 250" role="img" aria-label="Cuatro alcances, desde una app hasta varias marcas, llegan al mismo equipo de BTo Innova"><path class="ln" data-s="app" d="M200 32 C270 32 270 125 330 125"/><path class="ln" data-s="sis" d="M200 94 C270 94 270 125 330 125"/><path class="ln" data-s="marca" d="M200 156 C270 156 270 125 330 125"/><path class="ln" data-s="marcas" d="M200 218 C270 218 270 125 330 125"/><g class="nd" data-s="app"><rect x="10" y="8" width="190" height="48"/><text x="105" y="38">Una app</text></g><g class="nd" data-s="sis"><rect x="10" y="70" width="190" height="48"/><text x="105" y="100">Un sistema</text></g><g class="nd" data-s="marca"><rect x="10" y="132" width="190" height="48"/><text x="105" y="162">Una marca</text></g><g class="nd" data-s="marcas"><rect x="10" y="194" width="190" height="48"/><text x="105" y="224">Varias marcas</text></g><g class="nd nd-c on"><rect x="330" y="97" width="180" height="56"/><text x="420" y="131">BTo Innova</text></g></svg>
+    <div class="dg2" aria-hidden="true"><div class="dgn on" id="dgL"></div><i class="dgl"></i><div class="dgn dgc on">BTo Innova</div><i class="dgl"></i><div class="dgn on" id="dgZ"></div></div>
     <ol class="dg-r" id="dgR" aria-live="polite"><li><b>Conversamos</b><span></span></li><li><b>Te mostramos cómo quedaría</b><span></span></li><li><b>Construimos</b><span></span></li><li><b>En marcha y acompañamos</b><span></span></li></ol>
     <p class="dg-cta"><a class="btn" id="dgCta" href="#" rel="noopener"></a></p>
   </div>
@@ -1192,8 +1242,10 @@ h.addEventListener('pointerleave',function(){d.style.setProperty('--mx',0);d.sty
 <script>
 (function(){var w=document.getElementById('dgw');if(!w)return;var D={"app": {"t": ["Nos cuentas cómo trabajas hoy", "Te mostramos tu app antes de construirla", "Agenda, pedidos o reparto, a tu medida y con tu marca", "La dejamos funcionando y te acompañamos"], "c": "Cotizar esta app", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20para%20atender%20a%20mis%20clientes.%20Me%20dedico%20a%3A%20"}, "sis": {"t": ["Levantamos cómo opera cada sucursal o unidad", "Prototipo navegable para tus áreas, antes de construir", "Un solo sistema: usuarios y roles, reportes por unidad e integración con lo que ya usas", "Capacitación al equipo, soporte y mejoras"], "c": "Cotizar este sistema", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20un%20sistema%20para%20toda%20la%20operaci%C3%B3n%20de%20mi%20empresa.%20Somos%3A%20"}, "marca": {"t": ["Vemos dónde te buscan tus clientes", "Propuesta de web y anuncios para aprobar", "Tu web, tus redes y tu ficha en buscadores", "Seguimiento y ajustes"], "c": "Cotizar el posicionamiento de mi marca", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20que%20mi%20marca%20se%20encuentre%20en%20internet.%20Me%20dedico%20a%3A%20"}, "marcas": {"t": ["Diagnóstico de cada marca y definición de una línea común", "Estrategia y piezas para aprobar", "Web, campañas y redes de cada marca, con coherencia entre ellas", "Medición mensual y ajustes por marca"], "c": "Cotizar la estrategia de mis marcas", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20una%20estrategia%20com%C3%BAn%20para%20varias%20marcas.%20Somos%3A%20"}},cur='sis',li=[].slice.call(w.querySelectorAll('#dgR li')),cta=document.getElementById('dgCta'),tm=0,bs=[].slice.call(w.querySelectorAll('.dg-b button'));
 function luz(){bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-val')===cur?'true':'false')});[].slice.call(w.querySelectorAll('svg [data-s]')).forEach(function(e){e.classList.toggle('on',e.getAttribute('data-s')===cur)})}
-function pinta(){var d=D[cur];li.forEach(function(x,i){x.querySelector('span').textContent=d.t[i]});cta.textContent=d.c;cta.href=d.w}
-function elige(k){if(k===cur)return;cur=k;luz();w.classList.add('cam');clearTimeout(tm);tm=setTimeout(function(){pinta();w.classList.remove('cam')},140)}
+var SH={app:'Una app',sis:'Un sistema',marca:'Una marca',marcas:'Varias marcas'},RZ={app:'Tu app funcionando, con tu marca',sis:'Un sistema con usuarios, roles y reportes por unidad',marca:'Tu marca visible donde te buscan',marcas:'Varias marcas con una línea común y medición mensual'};
+function pinta(){var d=D[cur];document.getElementById('dgL').textContent=SH[cur];document.getElementById('dgZ').textContent=RZ[cur];li.forEach(function(x,i){x.querySelector('span').textContent=d.t[i]});cta.textContent=d.c;cta.href=d.w}
+var rd=matchMedia('(prefers-reduced-motion:reduce)').matches;li.forEach(function(x,i){x.style.setProperty('--i',i)});
+function elige(k){if(k===cur)return;cur=k;luz();if(rd){pinta();return}w.classList.remove('ent');w.classList.add('sal');clearTimeout(tm);tm=setTimeout(function(){pinta();w.classList.remove('sal');void w.offsetWidth;w.classList.add('ent')},170)}
 bs.forEach(function(b){b.addEventListener('click',function(){elige(b.getAttribute('data-val'))})});
 [].slice.call(w.querySelectorAll('svg g.nd[data-s]')).forEach(function(g){g.addEventListener('click',function(){elige(g.getAttribute('data-s'))})});
 luz();pinta();
@@ -1239,9 +1291,10 @@ b.addEventListener('keydown',function(e){var t=null;if(e.key==='ArrowDown')t=as[
 var red=matchMedia('(prefers-reduced-motion:reduce)').matches;
 function items(){return [].slice.call(document.querySelectorAll('.tm-i'))}
 function rubros(it){return ' '+(it.getAttribute('data-r')||'')+' '}
+function cf(){var tv=document.querySelector('.tm-v');if(!tv||red)return;tv.classList.add('cf');requestAnimationFrame(function(){requestAnimationFrame(function(){tv.classList.remove('cf')})})}
 function limpia(){cs.forEach(function(x){x.setAttribute('aria-pressed','false');x.classList.remove('sel')});var vv=document.querySelector('.tm-v');if(vv)vv.classList.remove('filtrado');items().forEach(function(i){i.classList.remove('dir');i.classList.remove('fuera');i.removeAttribute('aria-hidden');i.tabIndex=0})}
 cs.forEach(function(c){c.addEventListener('click',function(){var k=c.getAttribute('data-r'),act=c.getAttribute('aria-pressed')==='true';
-limpia();
+limpia();cf();
 if(!k||act){if(window.cerrarModelo)window.cerrarModelo();fm.textContent='';var v=document.querySelector('.tm-v');if(v)v.scrollTo({left:0,behavior:red?'auto':'smooth'});return}
 c.setAttribute('aria-pressed','true');c.classList.add('sel');
 var it=items(),ok=it.filter(function(i){return rubros(i).indexOf(' '+k+' ')>-1});
@@ -1325,6 +1378,19 @@ b.addEventListener('click',function(){var o=n.classList.toggle('abierto');b.setA
 n.addEventListener('click',function(e){if(e.target.closest('a'))cierra()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('abierto')){cierra();b.focus()}});
 addEventListener('resize',function(){if(innerWidth>720)cierra()});})();
+</script>
+<script>
+(function(){var red=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches;
+var root=document.documentElement;
+function lupa(box,sel,max){if(red||!fino||!box)return;var x=0,raf=0;
+box.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;x=e.clientX;if(raf)return;raf=requestAnimationFrame(function(){raf=0;[].slice.call(box.querySelectorAll(sel)).forEach(function(el){if(el.offsetParent===null)return;var r=el.getBoundingClientRect(),c=r.left+r.width/2,d=Math.abs(x-c)/r.width;el.style.setProperty('--s',(1+max*Math.exp(-d*d*1.6)).toFixed(3))})})});
+box.addEventListener('pointerleave',function(){[].slice.call(box.querySelectorAll(sel)).forEach(function(el){el.style.removeProperty('--s')})})}
+lupa(document.querySelector('#dgw .dg-b'),'button',.07);
+lupa(document.querySelector('#tira'),'.tm-i',.07);
+if('MutationObserver' in window){
+var pm=document.getElementById('panelM');if(pm)new MutationObserver(function(){root.classList.toggle('pm-abierto',pm.classList.contains('open'))}).observe(pm,{attributes:true,attributeFilter:['class']});
+var nv=document.getElementById('navP');if(nv)new MutationObserver(function(){root.classList.toggle('menu-ab',nv.classList.contains('abierto'))}).observe(nv,{attributes:true,attributeFilter:['class']})}
+})();
 </script>
 </body>
 </html>

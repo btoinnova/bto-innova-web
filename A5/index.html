@@ -795,6 +795,14 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
 .tm-c{font:600 14px var(--mono);color:var(--mut);min-width:4.8em;text-align:center}
 .pm-c.solo{grid-template-columns:1fr}.pm-c.solo .ap{max-width:760px}
 @media (max-width:640px){.tm-v{--tw:62%}.tm-i:not(.act){opacity:.5}.tm-i.fuera{opacity:0}}
+/* ===== fondo continuo: una sola luz y una sola cuadrícula para toda la zona oscura del inicio ===== */
+html[data-pantalla="inicio"] body{background-color:#0c131f;background-image:radial-gradient(900px circle at 100% 0%,rgba(59,111,212,.5),transparent 62%),radial-gradient(820px circle at 0% 55%,rgba(27,61,122,.55),transparent 65%),radial-gradient(900px circle at 100% 100%,rgba(27,61,122,.4),transparent 65%),linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:auto,auto,auto,72px 72px,72px 72px;background-position:0 0,0 0,0 0,0 0,0 0}
+html[data-pantalla="inicio"] main>[data-v="inicio"].osc{background:transparent!important;border:0!important}
+html[data-pantalla="inicio"] main>[data-v="inicio"].osc::before{display:none}
+html[data-pantalla="inicio"] .fpie{--tinta:#eef2f8;--mut:#a9b5c7;--linea:#24324a;--acento:#5b8def;background:transparent!important;border-top:0!important;color:var(--mut)}
+html[data-pantalla="inicio"] .fpie a{color:var(--tinta)}
+/* zonas claras: el pie hereda la luz final de cada zona, sin escalón */
+html[data-pantalla]:not([data-pantalla="inicio"]):not([data-pantalla="contacto"]) .fpie{background:transparent!important}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
