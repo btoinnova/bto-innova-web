@@ -815,14 +815,50 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
 .show-p button:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
 @keyframes showfill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (max-width:760px){
- .portada.osc{min-height:auto!important;padding-bottom:20px!important}
- .show{padding-top:8px}
+  .show{padding-top:8px}
  .show-v{--iw:min(60vw,236px)}
  .sl{grid-template-columns:1fr;justify-items:center;text-align:center;gap:18px;min-height:calc(var(--iw)*2.05 + 120px);align-content:start}
  .sl img{order:0}
  .sf{font-size:clamp(1.7rem,7.4vw,2.2rem);max-width:12em}
  .show-p{margin-inline:auto}
 }
+/* ===== A6 v3: una elección por alcance y un recorrido ===== */
+.dgw{max-width:1000px;margin:0 auto;transition:opacity .14s}
+.dgw.cam .dg-r,.dgw.cam .dg-cta{opacity:.2}
+.dg-q{display:block;font:500 12.5px var(--mono);letter-spacing:.05em;color:var(--mut);text-transform:uppercase;margin-bottom:8px}
+.dg-b{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:clamp(12px,2.5vw,24px)}
+.dg-b button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;min-height:60px;padding:8px 12px;border:1px solid #3a4a68;color:var(--tinta);font:600 clamp(.92rem,1.3vw,1.02rem)/1.25 var(--sans);transition:background .2s,border-color .2s,color .2s}
+.dg-b button:hover{border-color:var(--acento)}
+.dg-b button[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:#0c131f}
+.dg-b button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.dg{display:block;width:100%;height:auto;margin:0 auto;max-width:640px}
+.dg .nd{cursor:pointer}
+.dg .nd rect{fill:transparent;stroke:#3a4a68;stroke-width:1.5;transition:stroke .3s,fill .3s}
+.dg .nd text{fill:var(--mut);font:600 17px var(--sans);text-anchor:middle;transition:fill .3s}
+.dg .nd.on rect{stroke:var(--acento);stroke-width:2;fill:#1d3358}
+.dg .nd.on text{fill:#fff}
+.dg .nd-c rect{fill:var(--acento);stroke:var(--acento)}.dg .nd-c text{fill:#0c131f}
+.dg .ln{fill:none;stroke:#3a4a68;stroke-width:2;stroke-dasharray:3 6;transition:stroke .35s,stroke-width .35s}
+.dg .ln.on{stroke:var(--acento);stroke-width:3;stroke-dasharray:none}
+.dg-r{list-style:none;margin:clamp(20px,3.5vw,36px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2.5vw,32px);transition:opacity .14s}
+.dg-r li{position:relative;padding-top:22px;border-top:2px solid var(--acento)}
+.dg-r li::before{content:"";position:absolute;left:0;top:-6px;width:10px;height:10px;background:var(--acento)}
+.dg-r b{display:block;font:700 clamp(1rem,1.5vw,1.2rem)/1.2 var(--sans);color:var(--tinta);margin-bottom:6px}
+.dg-r span{display:block;font:400 clamp(.95rem,1.3vw,1.05rem)/1.45 var(--sans);color:var(--mut);min-height:6.6em}
+.dg-cta{margin:clamp(20px,3vw,32px) 0 0;transition:opacity .14s}
+@media (max-width:760px){
+ .dg-b{grid-template-columns:1fr 1fr}
+ .dg .nd text{font-size:17px}
+ .dg-r{grid-template-columns:1fr;gap:0;margin-top:22px}
+ .dg-r li{border-top:0;border-left:2px solid var(--acento);padding:0 0 22px 22px}
+ .dg-r li:last-child{border-left-color:transparent;padding-bottom:6px}
+ .dg-r li::before{left:-6px;top:4px}
+ .dg-r span{min-height:0;font-size:16px}
+ .dg-cta .btn{display:flex;justify-content:center;text-align:center}
+ .flujo-sec{padding-bottom:calc(30px + env(safe-area-inset-bottom))}
+}
+html.wa-otro .wa-fijo{display:none!important}
+@media (prefers-reduced-motion:reduce){.dgw,.dg-r,.dg-cta,.dg *{transition:none!important}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"El Planeador"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -847,7 +883,7 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
 <section class="portada osc" id="inicio" data-v="inicio" aria-labelledby="t-in">
   <div class="txt">
     <h1 id="t-in" data-t data-k><span>Tu negocio, ahora también es digital.</span><em>Apps, web, publicidad y <b>e-commerce</b>, con un solo equipo.</em></h1>
-    <p class="sub">Diseñamos apps y sistemas a la medida de clínicas, peluquerías, almacenes, restaurantes y flotas chilenas.</p>
+    <p class="sub">Apps, sistemas y marketing a la medida: desde una agenda para tu local hasta la operación completa de tu empresa.</p>
     <div class="cta"><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cuéntanos tu negocio por WhatsApp</a><a class="vermas" href="#modelos">o mira los modelos de app ↓</a></div>
   </div>
   <div class="demo" id="demo" role="group" aria-label="Capturas reales de la web de El Planeador, código de esta web y una maqueta de pago en línea">
@@ -860,10 +896,13 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
   </div>
 
 </section>
-<section class="show osc" id="flujo-sec" data-v="inicio" aria-label="Una app funcionando en tu negocio">
-  <div class="show-in" id="show" role="region" aria-roledescription="carrusel" aria-label="Momentos de una app en uso">
-    <div class="show-v" id="showV" tabindex="0"><div class="sl" role="group" aria-roledescription="momento" aria-label="1 de 4"><img src="img/restaurante-v1.webp?v=12a" width="640" height="1353" alt="Diseño de ejemplo: app de restaurante con el menú por categorías y el pedido del cliente" fetchpriority="high"><p class="sf">Tu cliente pide desde su celular</p></div><div class="sl" role="group" aria-roledescription="momento" aria-label="2 de 4"><img src="img/reparto-v1.webp?v=12a" width="640" height="1273" alt="Diseño de ejemplo: app de reparto con la ruta del día en el mapa y la parada actual"><p class="sf">Te llega el pedido al instante</p></div><div class="sl" role="group" aria-roledescription="momento" aria-label="3 de 4"><img src="img/ecommerce-v5.webp?v=11h" width="640" height="1334" alt="Diseño de ejemplo: app de tienda en línea con productos, carrito y menú inferior"><p class="sf">Se cobra y queda registrado</p></div><div class="sl" role="group" aria-roledescription="momento" aria-label="4 de 4"><img src="img/inventario-v7.webp?v=11k" width="640" height="1318" alt="Diseño de ejemplo: app de inventario con productos, stock bajo y ventas del día"><p class="sf">Ves cuánto vendiste hoy</p></div></div>
-    <div class="show-p" id="showP"><button type="button" aria-label="Momento 1"></button><button type="button" aria-label="Momento 2"></button><button type="button" aria-label="Momento 3"></button><button type="button" aria-label="Momento 4"></button></div>
+<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Cómo trabajamos según lo que necesites">
+  <h2 class="flujo-t" data-k>De la idea al <em>negocio funcionando.</em></h2>
+  <div class="dgw" id="dgw">
+    <div class="dg-sel" role="group" aria-label="Qué necesitas"><span class="dg-q">Qué necesitas</span><div class="dg-b"><button type="button" data-val="app" aria-pressed="false">Una app para atender clientes</button><button type="button" data-val="sis" aria-pressed="true">Un sistema para toda la operación</button><button type="button" data-val="marca" aria-pressed="false">Una marca que se encuentre</button><button type="button" data-val="marcas" aria-pressed="false">Varias marcas, una estrategia</button></div></div>
+    <svg class="dg" viewBox="0 0 520 250" role="img" aria-label="Cuatro alcances, desde una app hasta varias marcas, llegan al mismo equipo de BTo Innova"><path class="ln" data-s="app" d="M200 32 C270 32 270 125 330 125"/><path class="ln" data-s="sis" d="M200 94 C270 94 270 125 330 125"/><path class="ln" data-s="marca" d="M200 156 C270 156 270 125 330 125"/><path class="ln" data-s="marcas" d="M200 218 C270 218 270 125 330 125"/><g class="nd" data-s="app"><rect x="10" y="8" width="190" height="48"/><text x="105" y="38">Una app</text></g><g class="nd" data-s="sis"><rect x="10" y="70" width="190" height="48"/><text x="105" y="100">Un sistema</text></g><g class="nd" data-s="marca"><rect x="10" y="132" width="190" height="48"/><text x="105" y="162">Una marca</text></g><g class="nd" data-s="marcas"><rect x="10" y="194" width="190" height="48"/><text x="105" y="224">Varias marcas</text></g><g class="nd nd-c on"><rect x="330" y="97" width="180" height="56"/><text x="420" y="131">BTo Innova</text></g></svg>
+    <ol class="dg-r" id="dgR" aria-live="polite"><li><b>Conversamos</b><span></span></li><li><b>Te mostramos cómo quedaría</b><span></span></li><li><b>Construimos</b><span></span></li><li><b>En marcha y acompañamos</b><span></span></li></ol>
+    <p class="dg-cta"><a class="btn" id="dgCta" href="#" rel="noopener"></a></p>
   </div>
 </section>
 <section class="franja osc" data-v="inicio" aria-label="Datos de la empresa"><ul><li><b>BTo Innova SpA</b> · RUT 78.533.592-9</li><li>Ñuñoa, Chile</li><li><b>8</b> modelos de app</li><li><b>1</b> marca publicada</li></ul></section>
@@ -1137,7 +1176,7 @@ html[data-pantalla="empresa"] body{background:linear-gradient(90deg,#b9cbe6 0,#d
     <aside class="punto osc bleed" aria-labelledby="t-punto">
       <h3 id="t-punto">Ningún modelo es el final: es el punto de partida.</h3>
       <ol class="pasos3"><li><span>01</span>Conversamos tu negocio</li><li><span>02</span>Ajustamos el diseño a tu medida</li><li><span>03</span>La construimos y la operamos contigo</li></ol>
-      <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20ajustar%20una%20modelo%20de%20app%20a%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Cuéntanos tu negocio</a>
+      <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20ajustar%20un%20modelo%20de%20app%20a%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Cuéntanos tu negocio</a>
     </aside>
   </div>
 </section>
@@ -1151,24 +1190,17 @@ var pend=false,e0;h.addEventListener('pointermove',function(e){e0=e;if(!pend){pe
 h.addEventListener('pointerleave',function(){d.style.setProperty('--mx',0);d.style.setProperty('--my',0)})})();
 </script>
 <script>
-(function(){var v=document.getElementById('showV'),w=document.getElementById('show');if(!v||!w)return;
-var S=[].slice.call(v.children),bs=[].slice.call(document.querySelectorAll('#showP button')),n=S.length,cur=-1,red=matchMedia('(prefers-reduced-motion:reduce)').matches,hold=0,fuera=false,tocando=false;
-function pausa(){w.classList.toggle('pausa',hold>0||fuera||tocando||document.hidden)}
-function mark(i){if(i===cur)return;cur=i;bs.forEach(function(b,k){b.classList.toggle('on',k===i);b.classList.toggle('hecho',k<i);b.setAttribute('aria-current',k===i?'true':'false')});S.forEach(function(x,k){x.setAttribute('aria-hidden',k===i?'false':'true')})}
-function go(i){v.scrollTo({left:i*v.clientWidth,behavior:red?'auto':'smooth'})}
-var raf=0;v.addEventListener('scroll',function(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;mark(Math.max(0,Math.min(n-1,Math.round(v.scrollLeft/v.clientWidth))))})},{passive:true});
-bs.forEach(function(b,k){b.addEventListener('click',function(){go(k)})});
-w.addEventListener('animationend',function(e){if(e.animationName==='showfill'&&!red)go((cur+1)%n)});
-v.addEventListener('pointerdown',function(){tocando=true;pausa()});
-['pointerup','pointercancel','pointerleave'].forEach(function(t){v.addEventListener(t,function(){tocando=false;pausa()})});
-v.addEventListener('touchstart',function(){tocando=true;pausa()},{passive:true});v.addEventListener('touchend',function(){tocando=false;pausa()},{passive:true});
-w.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){hold++;pausa()}});w.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse'){hold=Math.max(0,hold-1);pausa()}});
-w.addEventListener('focusin',function(){hold++;pausa()});w.addEventListener('focusout',function(){hold=Math.max(0,hold-1);pausa()});
-document.addEventListener('visibilitychange',pausa);
-if('IntersectionObserver' in window)new IntersectionObserver(function(es){fuera=!es[0].isIntersecting;pausa()},{threshold:.35}).observe(w);
-document.addEventListener('pantalla',function(){go(0);cur=-1;mark(0)});
-addEventListener('resize',function(){v.scrollLeft=Math.max(0,cur)*v.clientWidth});
-if(red)w.classList.add('red');mark(0);pausa();
+(function(){var w=document.getElementById('dgw');if(!w)return;var D={"app": {"t": ["Nos cuentas cómo trabajas hoy", "Te mostramos tu app antes de construirla", "Agenda, pedidos o reparto, a tu medida y con tu marca", "La dejamos funcionando y te acompañamos"], "c": "Cotizar esta app", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20para%20atender%20a%20mis%20clientes.%20Me%20dedico%20a%3A%20"}, "sis": {"t": ["Levantamos cómo opera cada sucursal o unidad", "Prototipo navegable para tus áreas, antes de construir", "Un solo sistema: usuarios y roles, reportes por unidad e integración con lo que ya usas", "Capacitación al equipo, soporte y mejoras"], "c": "Cotizar este sistema", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20un%20sistema%20para%20toda%20la%20operaci%C3%B3n%20de%20mi%20empresa.%20Somos%3A%20"}, "marca": {"t": ["Vemos dónde te buscan tus clientes", "Propuesta de web y anuncios para aprobar", "Tu web, tus redes y tu ficha en buscadores", "Seguimiento y ajustes"], "c": "Cotizar el posicionamiento de mi marca", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20que%20mi%20marca%20se%20encuentre%20en%20internet.%20Me%20dedico%20a%3A%20"}, "marcas": {"t": ["Diagnóstico de cada marca y definición de una línea común", "Estrategia y piezas para aprobar", "Web, campañas y redes de cada marca, con coherencia entre ellas", "Medición mensual y ajustes por marca"], "c": "Cotizar la estrategia de mis marcas", "w": "https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20una%20estrategia%20com%C3%BAn%20para%20varias%20marcas.%20Somos%3A%20"}},cur='sis',li=[].slice.call(w.querySelectorAll('#dgR li')),cta=document.getElementById('dgCta'),tm=0,bs=[].slice.call(w.querySelectorAll('.dg-b button'));
+function luz(){bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-val')===cur?'true':'false')});[].slice.call(w.querySelectorAll('svg [data-s]')).forEach(function(e){e.classList.toggle('on',e.getAttribute('data-s')===cur)})}
+function pinta(){var d=D[cur];li.forEach(function(x,i){x.querySelector('span').textContent=d.t[i]});cta.textContent=d.c;cta.href=d.w}
+function elige(k){if(k===cur)return;cur=k;luz();w.classList.add('cam');clearTimeout(tm);tm=setTimeout(function(){pinta();w.classList.remove('cam')},140)}
+bs.forEach(function(b){b.addEventListener('click',function(){elige(b.getAttribute('data-val'))})});
+[].slice.call(w.querySelectorAll('svg g.nd[data-s]')).forEach(function(g){g.addEventListener('click',function(){elige(g.getAttribute('data-s'))})});
+luz();pinta();
+/* botón fijo de WhatsApp: se oculta mientras otro botón de WhatsApp está a la vista */
+var vistos=new Set();
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)vistos.add(e.target);else vistos.delete(e.target)});document.documentElement.classList.toggle('wa-otro',vistos.size>0)},{threshold:.6});
+[].slice.call(document.querySelectorAll('a[href*="wa.me"]')).forEach(function(a){if(a.classList.contains('wa-fijo')||a.closest('.barra'))return;io.observe(a)})}
 })();
 </script>
 <script>
