@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTo Innova · Tu negocio, ahora también es digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & BASE VARIABLES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border-radius: 0 !important; /* Sharp rect corners strictly */
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --c-blue: #1b3d7a;
+      --c-graphite: #16191e;
+      --c-white: #ffffff;
+      --c-bg: #edf1f6;
+      --c-accent: #ff5a36;
+      --f-main: 'Space Grotesk', sans-serif;
+      --f-mono: 'JetBrains Mono', monospace;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      background-color: var(--c-bg);
+      color: var(--c-graphite);
+      font-family: var(--f-main);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ACCESSIBILITY FOCUS */
+    *:focus-visible {
+      outline: 3px solid var(--c-accent) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* CUSTOM CURSOR (DESKTOP) */
+    #custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background-color: var(--c-accent);
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+      display: none;
+    }
+
+    @media (pointer: fine) {
+      #custom-cursor {
+        display: block;
+      }
+      body {
+        cursor: none;
+      }
+      a, button, [role="switch"], [role="button"], input {
+        cursor: none;
+      }
+    }
+
+    #custom-cursor.hovered {
+      width: 36px;
+      height: 36px;
+      background-color: var(--c-blue);
+      opacity: 0.8;
+    }
+
+    /* CURTAIN TRANSITION */
+    #transition-curtain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100svh;
+      background-color: var(--c-blue);
+      z-index: 9999;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    #transition-curtain.sweep-down {
+      animation: sweepDown 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    @keyframes sweepDown {
+      0% { transform: translateY(-100%); }
+      50% { transform: translateY(0%); }
+      100% { transform: translateY(100%); }
+    }
+
+    /* HEADER NAVIGATION */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 70px;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background-color: transparent;
+      border-bottom: 2px solid rgba(22, 25, 30, 0.1);
+    }
+
+    .brand-logo {
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      color: var(--c-blue);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-logo span {
+      color: var(--c-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-family: var(--f-mono);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--c-graphite);
+      text-transform: uppercase;
+      padding: 0.5rem 0.75rem;
+      position: relative;
+    }
+
+    .nav-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background-color: var(--c-accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-btn.active::after,
+    .nav-btn:hover::after {
+      width: 100%;
+    }
+
+    .nav-btn.active {
+      color: var(--c-blue);
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: var(--c-graphite);
+      color: var(--c-white);
+      border: none;
+      padding: 0.5rem 1rem;
+      font-family: var(--f-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* MAIN VIEWPORT & SCREENS */
+    .app-viewport {
+      width: 100vw;
+      height: 100vh;
+      height: 100svh;
+      position: relative;
+    }
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100svh;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.01s 0.4s;
+      padding-top: 70px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .screen.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transition: opacity 0.01s 0.4s;
+    }
+
+    /* SCREEN 0: INICIO */
+    #screen-inicio {
+      background-color: var(--c-bg);
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    #screen-inicio.digital-mode {
+      background-color: var(--c-graphite);
+      color: var(--c-white);
+    }
+
+    #screen-inicio.digital-mode .main-headline {
+      color: var(--c-white);
+    }
+
+    #screen-inicio.digital-mode .switch-label {
+      color: var(--c-white);
+    }
+
+    .headline-container {
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .main-headline {
+      font-size: clamp(2rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--c-blue);
+      margin: 0 auto;
+    }
+
+    /* INTERACTION STAGE: SVG + SWITCH */
+    .stage-container {
+      flex: 1;
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .svg-stage {
+      width: 100%;
+      max-width: 650px;
+      height: 260px;
+      border: 3px solid var(--c-graphite);
+      background-color: var(--c-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #screen-inicio.digital-mode .svg-stage {
+      border-color: var(--c-accent);
+      background-color: #0f1115;
+    }
+
+    /* SWITCH CONTROL */
+    .switch-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .switch-label {
+      font-family: var(--f-mono);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--c-graphite);
+      letter-spacing: 0.05em;
+    }
+
+    .switch-label.active {
+      color: var(--c-accent) !important;
+    }
+
+    .switch-track {
+      width: 320px;
+      height: 54px;
+      background-color: var(--c-graphite);
+      border: 3px solid var(--c-graphite);
+      position: relative;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .switch-handle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 154px;
+      height: 48px;
+      background-color: var(--c-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-white);
+      font-family: var(--f-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      will-change: transform;
+    }
+
+    .switch-handle-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      margin-left: 6px;
+    }
+
+    /* WHATSAPP ACTION BUTTON */
+    .cta-whatsapp-wrapper {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-whatsapp-giant {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background-color: var(--c-accent);
+      color: var(--c-white);
+      font-family: var(--f-main);
+      font-weight: 900;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 3px solid var(--c-graphite);
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+    }
+
+    .btn-whatsapp-giant.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .btn-whatsapp-giant:hover {
+      background-color: var(--c-blue);
+      border-color: var(--c-white);
+    }
+
+    /* SCREEN 1: SERVICIOS */
+    #screen-servicios {
+      background-color: var(--c-graphite);
+      padding: 70px 0 0 0;
+    }
+
+    .services-grid {
+      display: flex;
+      width: 100%;
+      height: calc(100vh - 70px);
+      height: calc(100svh - 70px);
+      overflow: hidden;
+    }
+
+    .service-panel {
+      flex: 1;
+      height: 100%;
+      border-right: 2px solid rgba(255, 255, 255, 0.15);
+      background-color: var(--c-graphite);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: flex 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, opacity 0.4s ease;
+    }
+
+    .service-panel:last-child {
+      border-right: none;
+    }
+
+    .services-grid:hover .service-panel {
+      flex: 0.8;
+      filter: blur(3px);
+      opacity: 0.5;
+    }
+
+    .services-grid:hover .service-panel:hover {
+      flex: 1.6;
+      filter: blur(0px);
+      opacity: 1;
+      background-color: #1c2027;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .panel-num {
+      font-family: var(--f-mono);
+      font-size: 1rem;
+      color: var(--c-accent);
+      font-weight: 700;
+    }
+
+    .panel-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--c-white);
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .panel-tag {
+      display: inline-block;
+      align-self: flex-start;
+      background-color: var(--c-blue);
+      color: var(--c-white);
+      font-family: var(--f-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.6rem;
+      text-transform: lowercase;
+      margin-top: 0.5rem;
+    }
+
+    .panel-illustration {
+      width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    .panel-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .panel-phrase {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--c-bg);
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .panel-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: transparent;
+      border: 2px solid var(--c-accent);
+      color: var(--c-white);
+      padding: 0.6rem 1.2rem;
+      font-family: var(--f-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      width: fit-content;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .panel-link-btn:hover {
+      background-color: var(--c-accent);
+      color: var(--c-white);
+    }
+
+    /* SCREEN 2: CONTACTO */
+    #screen-contacto {
+      background-color: var(--c-blue);
+      color: var(--c-white);
+      justify-content: space-between;
+      padding-bottom: 0;
+      overflow: hidden;
+    }
+
+    .contact-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      gap: 2rem;
+      z-index: 2;
+    }
+
+    .contact-headline {
+      font-size: clamp(2rem, 4.5vw, 3.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.05;
+      max-width: 900px;
+    }
+
+    .contact-whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: var(--c-accent);
+      color: var(--c-white);
+      font-family: var(--f-main);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.2rem 3rem;
+      border: 3px solid var(--c-white);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .contact-whatsapp-btn:hover {
+      background-color: var(--c-white);
+      color: var(--c-blue);
+      transform: scale(1.03);
+    }
+
+    .contact-phone-num {
+      font-family: var(--f-mono);
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 0.05em;
+    }
+
+    /* CROPPED WATERMARK FOOTER */
+    .contact-footer-area {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cropped-brand-watermark {
+      font-size: clamp(6rem, 22vw, 24rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.7;
+      letter-spacing: -0.05em;
+      color: rgba(255, 255, 255, 0.08);
+      white-space: nowrap;
+      user-select: none;
+      pointer-events: none;
+      margin-bottom: -0.15em;
+    }
+
+    .legal-footer-bar {
+      width: 100%;
+      background-color: var(--c-graphite);
+      color: rgba(255, 255, 255, 0.7);
+      font-family: var(--f-mono);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 3;
+    }
+
+    /* RESPONSIVE DESIGN (MOBILE 375px) */
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        background-color: var(--c-graphite);
+        flex-direction: column;
+        gap: 0;
+        border-bottom: 3px solid var(--c-accent);
+      }
+
+      .nav-links.mobile-open {
+        display: flex;
+      }
+
+      .nav-btn {
+        color: var(--c-white);
+        padding: 1.2rem 2rem;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      #screen-inicio {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .switch-track {
+        width: 240px;
+        height: 48px;
+      }
+
+      .switch-handle {
+        width: 114px;
+        height: 42px;
+        font-size: 0.75rem;
+      }
+
+      .switch-label {
+        font-size: 0.85rem;
+      }
+
+      .svg-stage {
+        height: 200px;
+      }
+
+      .btn-whatsapp-giant {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+      }
+
+      .services-grid {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .services-grid:hover .service-panel {
+        flex: 1;
+        filter: none;
+        opacity: 1;
+      }
+
+      .services-grid:hover .service-panel:hover {
+        flex: 1;
+        background-color: var(--c-graphite);
+      }
+
+      .service-panel {
+        border-right: none;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        padding: 1.5rem 1.2rem;
+        min-height: 220px;
+      }
+
+      .panel-title {
+        font-size: 2rem;
+      }
+
+      .panel-illustration {
+        height: 120px;
+      }
+
+      .panel-phrase {
+        font-size: 1rem;
+      }
+
+      .contact-whatsapp-btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+      }
+    }
+
+    /* REDUCED MOTION OVERRIDERS */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      #transition-curtain {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="custom-cursor" aria-hidden="true"></div>
+
+  <!-- ACCESSIBILITY ANNOUNCER -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite">Pestaña 1 de 3: Inicio</div>
+
+  <!-- CURTAIN SCREEN TRANSITION -->
+  <div id="transition-curtain" aria-hidden="true"></div>
+
+  <!-- HEADER NAV -->
+  <header class="header">
+    <a href="#" class="brand-logo" onclick="navigateTo(0); return false;">
+      BTo<span>.</span>Innova
+    </a>
+
+    <button class="mobile-menu-toggle" id="menu-toggle-btn" aria-label="Abrir menú de navegación">
+      MENÚ
+    </button>
+
+    <nav aria-label="Navegación principal">
+      <ul class="nav-links" id="nav-links-list">
+        <li><button class="nav-btn active" onclick="navigateTo(0)">INICIO</button></li>
+        <li><button class="nav-btn" onclick="navigateTo(1)">SERVICIOS</button></li>
+        <li><button class="nav-btn" onclick="navigateTo(2)">CONTACTO</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="app-viewport">
+
+    <!-- PANTALLA 0: INICIO -->
+    <section class="screen active" id="screen-inicio" aria-label="Pantalla de inicio">
+      <div class="headline-container">
+        <h1 class="main-headline">Tu negocio, ahora también es digital</h1>
+      </div>
+
+      <div class="stage-container">
+        <!-- MECHANICAL SVG MORPH STAGE -->
+        <div class="svg-stage" id="svg-stage">
+          <svg width="100%" height="100%" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            
+            <!-- ANALOG SCENE (Fades / morphs out) -->
+            <g id="analog-scene">
+              <!-- Counter table -->
+              <rect x="40" y="180" width="520" height="40" fill="#1b3d7a" opacity="0.15" />
+              <line x1="40" y1="180" x2="560" y2="180" stroke="#16191e" stroke-width="4" />
+              
+              <!-- Paper notebook -->
+              <g id="svg-notebook" transform="translate(90, 110)">
+                <rect x="0" y="0" width="110" height="70" fill="#ffffff" stroke="#16191e" stroke-width="3" />
+                <line x1="15" y1="15" x2="95" y2="15" stroke="#1b3d7a" stroke-width="3" stroke-dasharray="4 2" />
+                <line x1="15" y1="30" x2="80" y2="30" stroke="#16191e" stroke-width="2" />
+                <line x1="15" y1="45" x2="90" y2="45" stroke="#16191e" stroke-width="2" />
+                <!-- Bookmark string -->
+                <line x1="55" y1="0" x2="55" y2="78" stroke="#ff5a36" stroke-width="3" />
+              </g>
+
+              <!-- Physical Display Cabinet -->
+              <g id="svg-cabinet" transform="translate(240, 70)">
+                <rect x="0" y="0" width="130" height="110" fill="#ffffff" stroke="#16191e" stroke-width="3" />
+                <line x1="0" y1="55" x2="130" y2="55" stroke="#16191e" stroke-width="2" />
+                <!-- Glass door handles -->
+                <rect x="58" y="45" width="4" height="20" fill="#ff5a36" />
+                <rect x="68" y="45" width="4" height="20" fill="#ff5a36" />
+                <!-- Items inside -->
+                <circle cx="30" cy="35" r="14" fill="#1b3d7a" />
+                <rect x="80" y="25" width="25" height="20" fill="#16191e" />
+                <polygon points="30,80 45,100 15,100" fill="#16191e" />
+              </g>
+
+              <!-- Paper Sign -->
+              <g id="svg-paper-sign" transform="translate(420, 60)">
+                <polygon points="0,0 100,0 90,110 10,110" fill="#ffffff" stroke="#16191e" stroke-width="3" />
+                <!-- Hanging tape -->
+                <rect x="35" y="-10" width="30" height="15" fill="#ff5a36" opacity="0.8" />
+                <text x="50" y="45" font-family="Space Grotesk" font-weight="700" font-size="14" fill="#16191e" text-anchor="middle">OFERTA</text>
+                <text x="50" y="70" font-family="JetBrains Mono" font-weight="700" font-size="16" fill="#1b3d7a" text-anchor="middle">HOY</text>
+              </g>
+            </g>
+
+            <!-- DIGITAL SCENE (Morphs in) -->
+            <g id="digital-scene" opacity="0">
+              <!-- Digital Platform Grid -->
+              <line x1="40" y1="180" x2="560" y2="180" stroke="#ff5a36" stroke-width="4" />
+              
+              <!-- App / Smartphone (from notebook) -->
+              <g id="svg-phone" transform="translate(90, 60)">
+                <rect x="0" y="0" width="75" height="120" fill="#16191e" stroke="#ffffff" stroke-width="3" />
+                <!-- App Screen -->
+                <rect x="5" y="12" width="65" height="96" fill="#1b3d7a" />
+                <!-- App List Items -->
+                <rect x="10" y="22" width="55" height="12" fill="#ffffff" />
+                <rect x="10" y="40" width="55" height="12" fill="#ffffff" />
+                <!-- Online Payment Button inside App -->
+                <rect x="10" y="75" width="55" height="20" fill="#ff5a36" />
+                <text x="37" y="89" font-family="JetBrains Mono" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">PAGAR</text>
+              </g>
+
+              <!-- Browser / Website (from cabinet) -->
+              <g id="svg-browser" transform="translate(210, 50)">
+                <rect x="0" y="0" width="180" height="130" fill="#ffffff" stroke="#ffffff" stroke-width="3" />
+                <!-- Top Browser Bar -->
+                <rect x="0" y="0" width="180" height="24" fill="#16191e" />
+                <circle cx="12" cy="12" r="4" fill="#ff5a36" />
+                <circle cx="26" cy="12" r="4" fill="#edf1f6" />
+                <circle cx="40" cy="12" r="4" fill="#edf1f6" />
+                <!-- Website Content -->
+                <rect x="15" y="38" width="150" height="35" fill="#1b3d7a" />
+                <rect x="15" y="83" width="70" height="35" fill="#16191e" />
+                <rect x="95" y="83" width="70" height="35" fill="#ff5a36" />
+              </g>
+
+              <!-- Social Media Post & Growing Graph (from paper sign) -->
+              <g id="svg-social-graph" transform="translate(430, 50)">
+                <rect x="0" y="0" width="110" height="130" fill="#16191e" stroke="#ffffff" stroke-width="3" />
+                <!-- Social Header -->
+                <circle cx="22" cy="22" r="9" fill="#ff5a36" />
+                <line x1="38" y1="22" x2="85" y2="22" stroke="#ffffff" stroke-width="3" />
+                <!-- Growing Bar Graph -->
+                <rect x="18" y="95" width="16" height="20" fill="#1b3d7a" id="graph-bar-1" />
+                <rect x="44" y="75" width="16" height="40" fill="#1b3d7a" id="graph-bar-2" />
+                <rect x="70" y="50" width="16" height="65" fill="#ff5a36" id="graph-bar-3" />
+                <!-- Broadcast Signal Waves -->
+                <path d="M 5,5 Q -10,-10 5,-25" fill="none" stroke="#ff5a36" stroke-width="3" />
+                <path d="M 105,5 Q 120,-10 105,-25" fill="none" stroke="#ff5a36" stroke-width="3" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <!-- RECTILINEAR LEVER SWITCH -->
+        <div class="switch-wrapper">
+          <span class="switch-label active" id="label-analogico">Analógico</span>
+          
+          <div class="switch-track" 
+               id="lever-track" 
+               role="switch" 
+               aria-checked="false" 
+               tabindex="0" 
+               aria-label="Cambiar entre modo Analógico y Digital">
+            <div class="switch-handle" id="lever-handle">
+              <span>ARRASTRA</span>
+              <svg class="switch-handle-icon" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+              </svg>
+            </div>
+          </div>
+
+          <span class="switch-label" id="label-digital">Digital</span>
+        </div>
+      </div>
+
+      <!-- WHATSAPP DIRECT ACTION -->
+      <div class="cta-whatsapp-wrapper">
+        <a href="https://wa.me/56923971471" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-whatsapp-giant" 
+           id="btn-inicio-wa">
+          <span>Escríbenos por WhatsApp</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- PANTALLA 1: SERVICIOS -->
+    <section class="screen" id="screen-servicios" aria-label="Pantalla de servicios">
+      <div class="services-grid">
+        
+        <!-- PANEL 1: APPS -->
+        <article class="service-panel">
+          <div class="panel-header">
+            <span class="panel-num">01 //</span>
+            <h2 class="panel-title">APPS</h2>
+            <span class="panel-tag">a medida, con cobro en línea</span>
+          </div>
+
+          <div class="panel-illustration">
+            <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="25" y="10" width="90" height="120" stroke="#ffffff" stroke-width="4" fill="#16191e"/>
+              <rect x="35" y="25" width="70" height="70" fill="#1b3d7a"/>
+              <rect x="45" y="105" width="50" height="12" fill="#ff5a36"/>
+              <circle cx="70" cy="60" r="18" fill="#ff5a36"/>
+              <path d="M63 60L68 65L77 55" stroke="#ffffff" stroke-width="3"/>
+            </svg>
+          </div>
+
+          <div class="panel-footer">
+            <p class="panel-phrase">Aplicaciones potentes para tu operación</p>
+          </div>
+        </article>
+
+        <!-- PANEL 2: WEBS -->
+        <article class="service-panel">
+          <div class="panel-header">
+            <span class="panel-num">02 //</span>
+            <h2 class="panel-title">WEBS</h2>
+            <span class="panel-tag">que te encuentren</span>
+          </div>
+
+          <div class="panel-illustration">
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="20" width="140" height="100" stroke="#ffffff" stroke-width="4" fill="#16191e"/>
+              <line x1="10" y1="42" x2="150" y2="42" stroke="#ffffff" stroke-width="2"/>
+              <circle cx="22" cy="31" r="3" fill="#ff5a36"/>
+              <circle cx="32" cy="31" r="3" fill="#ffffff"/>
+              <circle cx="42" cy="31" r="3" fill="#ffffff"/>
+              <rect x="25" y="55" width="60" height="50" fill="#1b3d7a"/>
+              <rect x="95" y="55" width="40" height="10" fill="#ff5a36"/>
+              <rect x="95" y="73" width="40" height="8" fill="#ffffff"/>
+              <rect x="95" y="87" width="25" height="8" fill="#ffffff"/>
+            </svg>
+          </div>
+
+          <div class="panel-footer">
+            <p class="panel-phrase">Sitios ágiles que convierten visitas</p>
+          </div>
+        </article>
+
+        <!-- PANEL 3: MARKETING -->
+        <article class="service-panel">
+          <div class="panel-header">
+            <span class="panel-num">03 //</span>
+            <h2 class="panel-title">MARKETING</h2>
+            <span class="panel-tag">marca y publicidad</span>
+          </div>
+
+          <div class="panel-illustration">
+            <svg width="160" height="140" viewBox="0 0 160 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="20,110 50,70 80,90 140,30 140,110" fill="#1b3d7a" opacity="0.6"/>
+              <polyline points="20,110 50,70 80,90 140,30" stroke="#ff5a36" stroke-width="4" fill="none"/>
+              <rect x="132" y="22" width="16" height="16" fill="#ff5a36"/>
+              <circle cx="50" cy="70" r="5" fill="#ffffff"/>
+              <circle cx="80" cy="90" r="5" fill="#ffffff"/>
+            </svg>
+          </div>
+
+          <div class="panel-footer">
+            <p class="panel-phrase">Estrategia digital para crecer hoy</p>
+            <a href="https://wa.me/56923971471?text=Hola,%20me%20interesa%20BTo%20Digital" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="panel-link-btn">
+              <span>BTo Digital</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PANTALLA 2: CONTACTO -->
+    <section class="screen" id="screen-contacto" aria-label="Pantalla de contacto">
+      <div class="contact-content">
+        <h2 class="contact-headline">¿Listo para dar el salto digital con BTo Innova?</h2>
+        
+        <a href="https://wa.me/56923971471" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="contact-whatsapp-btn">
+          <span>Escríbenos por WhatsApp</span>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+          </svg>
+        </a>
+
+        <p class="contact-phone-num">+56 9 2397 1471</p>
+      </div>
+
+      <div class="contact-footer-area">
+        <div class="cropped-brand-watermark">BTo Innova</div>
+        <footer class="legal-footer-bar">
+          BTo Innova SpA · RUT 78.533.592-9 · Ñuñoa, Chile
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    /* STATE MANAGEMENT & CONSTANTS */
+    let currentScreen = 0;
+    const totalScreens = 3;
+    let isTransitioning = false;
+    const LOCK_DURATION = 900; // ms
+
+    const screens = [
+      document.getElementById('screen-inicio'),
+      document.getElementById('screen-servicios'),
+      document.getElementById('screen-contacto')
+    ];
+    const navButtons = document.querySelectorAll('.nav-btn');
+    ariaAnnouncer = document.getElementById('a11y-announcer');
+    const curtain = document.getElementById('transition-curtain');
+    const screenNames = ['Inicio', 'Servicios', 'Contacto'];
+
+    /* NAVIGATION LOGIC WITH CURTAIN SWEEP */
+    function navigateTo(targetIndex) {
+      if (targetIndex === currentScreen || isTransitioning) return;
+      if (targetIndex < 0 || targetIndex >= totalScreens) return;
+
+      isTransitioning = true;
+      closeMobileMenu();
+
+      // Trigger curtain animation
+      curtain.classList.remove('sweep-down');
+      // Force reflow
+      void curtain.offsetWidth;
+      curtain.classList.add('sweep-down');
+
+      // Mid-point screen switch
+      setTimeout(() => {
+        screens[currentScreen].classList.remove('active');
+        navButtons[currentScreen].classList.remove('active');
+
+        currentScreen = targetIndex;
+
+        screens[currentScreen].classList.add('active');
+        navButtons[currentScreen].classList.add('active');
+
+        ariaAnnouncer.textContent = `Pestaña ${currentScreen + 1} de ${totalScreens}: ${screenNames[currentScreen]}`;
+      }, 400);
+
+      // Unlock transition
+      setTimeout(() => {
+        isTransitioning = false;
+      }, LOCK_DURATION);
+    }
+
+    /* MOUSE WHEEL CONTROL (1 TICK = 1 SCREEN) */
+    window.addEventListener('wheel', (e) => {
+      if (isTransitioning) return;
+      if (e.deltaY > 20) {
+        navigateTo(currentScreen + 1);
+      } else if (e.deltaY < -20) {
+        navigateTo(currentScreen - 1);
+      }
+    }, { passive: true });
+
+    /* KEYBOARD ARROW CONTROL */
+    window.addEventListener('keydown', (e) => {
+      if (isTransitioning) return;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        navigateTo(currentScreen + 1);
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        navigateTo(currentScreen - 1);
+      }
+    });
+
+    /* TOUCH SWIPE CONTROL FOR MOBILE */
+    let touchStartY = 0;
+    let touchStartX = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (isTransitioning) return;
+      const touchEndY = e.changedTouches[0].clientY;
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffY = touchStartY - touchEndY;
+      const diffX = touchStartX - touchEndX;
+
+      // Ensure vertical swipe predominates over horizontal drag
+      if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 50) {
+        if (diffY > 0) {
+          navigateTo(currentScreen + 1);
+        } else {
+          navigateTo(currentScreen - 1);
+        }
+      }
+    }, { passive: true });
+
+    /* MOBILE MENU TOGGLE */
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const navLinksList = document.getElementById('nav-links-list');
+
+    menuToggleBtn.addEventListener('click', () => {
+      const isOpen = navLinksList.classList.toggle('mobile-open');
+      menuToggleBtn.textContent = isOpen ? 'CERRAR' : 'MENÚ';
+    });
+
+    function closeMobileMenu() {
+      navLinksList.classList.remove('mobile-open');
+      menuToggleBtn.textContent = 'MENÚ';
+    }
+
+    /* CUSTOM CURSOR INTERACTION */
+    const customCursor = document.getElementById('custom-cursor');
+    if (window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('pointermove', (e) => {
+        customCursor.style.top = `${e.clientY}px`;
+        customCursor.style.left = `${e.clientX}px`;
+      });
+
+      const interactiveSelectors = 'a, button, [role="switch"], .service-panel';
+      document.querySelectorAll(interactiveSelectors).forEach(el => {
+        el.addEventListener('pointerenter', () => customCursor.classList.add('hovered'));
+        el.addEventListener('pointerleave', () => customCursor.classList.remove('hovered'));
+      });
+    }
+
+    /* SCREEN 0: ANALOG TO DIGITAL SCRUB & LEVER CONTROLLER */
+    const track = document.getElementById('lever-track');
+    const handle = document.getElementById('lever-handle');
+    const labelAnalog = document.getElementById('label-analogico');
+    const labelDigital = document.getElementById('label-digital');
+    const screenInicio = document.getElementById('screen-inicio');
+    const btnInicioWa = document.getElementById('btn-inicio-wa');
+
+    // SVG Element Layers
+    const analogScene = document.getElementById('analog-scene');
+    const digitalScene = document.getElementById('digital-scene');
+
+    let isDragging = false;
+    let progress = 0; // 0.0 = Analog, 1.0 = Digital
+
+    function getMaxTranslate() {
+      return track.clientWidth - handle.clientWidth;
+    }
+
+    function updateScrub(val) {
+      // Clamp 0 to 1
+      progress = Math.max(0, Math.min(1, val));
+      const maxT = getMaxTranslate();
+      const currentX = progress * maxT;
+
+      // Move Lever Handle
+      handle.style.transform = `translateX(${currentX}px)`;
+
+      // Update Switch Labels
+      if (progress > 0.5) {
+        labelDigital.classList.add('active');
+        labelAnalog.classList.remove('active');
+        track.setAttribute('aria-checked', 'true');
+      } else {
+        labelAnalog.classList.add('active');
+        labelDigital.classList.remove('active');
+        track.setAttribute('aria-checked', 'false');
+      }
+
+      // Scrub SVG Scenes Mechanics
+      analogScene.style.opacity = 1 - progress;
+      analogScene.style.transform = `scale(${1 - progress * 0.1}) translateY(${progress * 15}px)`;
+      
+      digitalScene.style.opacity = progress;
+      digitalScene.style.transform = `scale(${0.9 + progress * 0.1}) translateY(${(1 - progress) * -15}px)`;
+
+      // Full Digital Activation
+      if (progress >= 0.9) {
+        screenInicio.classList.add('digital-mode');
+        btnInicioWa.classList.add('visible');
+      } else {
+        screenInicio.classList.remove('digital-mode');
+        btnInicioWa.classList.remove('visible');
+      }
+    }
+
+    // Pointer Events for Lever Dragging
+    track.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      track.setPointerCapture(e.pointerId);
+      handlePointerMove(e);
+    });
+
+    track.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      handlePointerMove(e);
+    });
+
+    track.addEventListener('pointerup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      // Snap to nearest state
+      const targetProgress = progress > 0.5 ? 1 : 0;
+      animateLeverTo(targetProgress);
+    });
+
+    track.addEventListener('pointercancel', () => {
+      isDragging = false;
+      animateLeverTo(progress > 0.5 ? 1 : 0);
+    });
+
+    function handlePointerMove(e) {
+      const rect = track.getBoundingClientRect();
+      const clickX = e.clientX - rect.left - (handle.clientWidth / 2);
+      const maxT = getMaxTranslate();
+      const newProgress = clickX / maxT;
+      updateScrub(newProgress);
+    }
+
+    // Smooth Snap Animation
+    function animateLeverTo(target) {
+      const start = progress;
+      const startTime = performance.now();
+      const duration = 250; // ms
+
+      function step(now) {
+        const elapsed = now - startTime;
+        const p = Math.min(elapsed / duration, 1);
+        const currentP = start + (target - start) * p;
+        updateScrub(currentP);
+
+        if (p < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Keyboard Access for Switch
+    track.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        animateLeverTo(progress > 0.5 ? 0 : 1);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        animateLeverTo(1);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        animateLeverTo(0);
+      }
+    });
+
+    // Window resize recalculation for handle positioning
+    window.addEventListener('resize', () => {
+      updateScrub(progress > 0.5 ? 1 : 0);
+    });
+
+    // Check reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      updateScrub(0);
+    }
+  </script>
+</body>
+</html>
