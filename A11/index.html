@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BTo Innova · Software y Marketing Digital</title>
+<meta name="description" content="Desarrollo de software a medida, aplicaciones, páginas web y marketing digital en Ñuñoa, Santiago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+    :root {
+        --azul: #1b3d7a;
+        --papel: #edf1f6;
+        --blanco: #ffffff;
+        --oscuro: #16191e;
+        --azul-luz: #a9c1ee;
+        
+        --syne: "Syne", system-ui, sans-serif;
+        --cuerpo: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+        --mono: "IBM Plex Mono", monospace;
+        
+        --m: clamp(16px, 4vw, 64px);
+        --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100svh;
+        overflow: hidden;
+        background: var(--oscuro);
+        color: var(--blanco);
+        font: 400 clamp(0.95rem, 1.1vw, 1.125rem)/1.5 var(--cuerpo);
+        -webkit-font-smoothing: antialiased;
+        user-select: none;
+    }
+    img { display: block; max-width: 100%; border-radius: 0; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p, ul, ol { margin: 0; padding: 0; }
+    button { border: none; background: none; font: inherit; color: inherit; cursor: pointer; padding: 0; border-radius: 0; }
+
+    :focus-visible { outline: 2px solid var(--azul-luz); outline-offset: 3px; }
+
+    .saltar {
+        position: fixed; left: 16px; top: -60px; z-index: 1000;
+        background: var(--azul-luz); color: var(--oscuro);
+        padding: 10px 16px; font: 600 13px/1 var(--mono);
+        transition: top 0.2s ease;
+    }
+    .saltar:focus { top: 16px; }
+
+    /* BARRA SUPERIOR FIJA */
+    .barra {
+        position: fixed; top: 0; left: 0; right: 0; height: 76px;
+        z-index: 100; display: flex; justify-content: space-between; align-items: center;
+        padding-inline: var(--m); background: var(--oscuro);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+    .barra.tema-claro {
+        background: var(--papel); color: var(--oscuro);
+        border-bottom-color: rgba(22, 25, 30, 0.15);
+    }
+
+    .marca { display: flex; flex-direction: column; gap: 2px; }
+    .marca b { font: 800 1.35rem/1 var(--syne); letter-spacing: -0.02em; text-transform: uppercase; }
+    .marca span { font: 500 11px/1.2 var(--mono); opacity: 0.75; letter-spacing: 0.02em; }
+
+    .nav-desk { display: flex; gap: clamp(12px, 2.5vw, 32px); font: 500 13px/1 var(--mono); align-items: center; }
+    .nav-desk a {
+        padding: 6px 0; position: relative;
+        transform-origin: 50% 100%; transition: transform .18s ease-out, color .25s ease;
+    }
+    .nav-desk a::after {
+        content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px;
+        background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s var(--ease);
+    }
+    .nav-desk a:hover::after, .nav-desk a.activo::after { transform: scaleX(1); transform-origin: left; }
+    .nav-desk a.activo { font-weight: 600; color: var(--azul-luz); }
+    .barra.tema-claro .nav-desk a.activo { color: var(--azul); }
+
+    .indicador {
+        font: 600 13px/1 var(--mono); padding: 6px 12px;
+        border: 1px solid currentColor; opacity: 0.85; margin-left: 12px;
+    }
+
+    /* BOTÓN Y MENÚ HAMBURGUESA MOVIL */
+    .btn-hamb { display: none; flex-direction: column; justify-content: space-between; width: 28px; height: 18px; z-index: 120; }
+    .btn-hamb span { width: 100%; height: 2px; background: currentColor; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .btn-hamb.abierto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .btn-hamb.abierto span:nth-child(2) { opacity: 0; }
+    .btn-hamb.abierto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .menu-movil {
+        position: fixed; inset: 0; z-index: 110; background: var(--oscuro); color: var(--blanco);
+        display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .menu-movil.abierto { opacity: 1; pointer-events: auto; }
+    .menu-movil a { font: 700 2rem/1 var(--syne); }
+    .menu-movil a.activo { color: var(--azul-luz); }
+
+    /* CONTENEDOR DE PANTALLAS (SLIDES) */
+    .slides-wrapper {
+        position: absolute; inset: 0; width: 100vw; height: 100svh; overflow: hidden;
+    }
+
+    .slide {
+        position: absolute; inset: 0; width: 100vw; height: 100svh;
+        display: flex; flex-direction: column; justify-content: space-between;
+        padding: 96px var(--m) 40px; opacity: 0; pointer-events: none;
+        z-index: 1; transition: opacity 0.4s ease; overflow: hidden;
+    }
+    .slide.activo { opacity: 1; pointer-events: auto; z-index: 10; }
+
+    /* OVERLAY SOBRE FOTOS */
+    .capa-foto-oscura {
+        position: absolute; inset: 0; z-index: 2;
+        background: rgba(22, 25, 30, 0.45);
+    }
+    .foto-fondo {
+        position: absolute; inset: 0; width: 100%; height: 100%;
+        object-fit: cover; z-index: 1;
+    }
+
+    /* SLIDE 1: INICIO */
+    #inicio { background: var(--oscuro); color: var(--blanco); justify-content: flex-end; }
+    .inicio-contenido { position: relative; z-index: 3; width: 100%; margin-bottom: clamp(20px, 4vh, 60px); }
+    .titular-gigante {
+        font: 800 clamp(2.2rem, 6.2vw, 5.8rem)/0.98 var(--syne);
+        letter-spacing: -0.04em; text-transform: none; color: var(--blanco);
+        max-width: 18em; text-wrap: balance;
+    }
+    .inicio-pie {
+        display: flex; justify-content: space-between; align-items: flex-end;
+        gap: 24px; margin-top: clamp(20px, 3vh, 48px); flex-wrap: wrap;
+    }
+    .inicio-sub { font: 500 clamp(1rem, 1.4vw, 1.35rem)/1.4 var(--cuerpo); color: var(--papel); max-width: 32em; }
+    .btn-accion {
+        display: inline-flex; align-items: center; gap: 12px;
+        padding: 16px 28px; background: var(--blanco); color: var(--oscuro);
+        font: 600 13px/1 var(--mono); text-transform: uppercase; letter-spacing: 0.04em;
+        border: 1px solid var(--blanco); transition: background 0.25s ease, color 0.25s ease;
+    }
+    .btn-accion:hover { background: var(--azul); color: var(--blanco); border-color: var(--azul); }
+
+    /* FRANJA TEXTO EN MOVIMIENTO */
+    .franja { position: relative; z-index: 3; width: 100vw; margin-left: calc(var(--m) * -1); overflow: hidden; background: var(--azul); color: var(--blanco); margin-bottom: clamp(16px, 2vh, 32px); }
+    .franja-pista { display: flex; width: max-content; padding: 12px 0; animation: marcha 38s linear infinite; }
+    @keyframes marcha { to { transform: translate3d(-50%, 0, 0); } }
+    .franja-pista span { font: 800 clamp(1.1rem, 2.2vw, 1.8rem)/1 var(--syne); letter-spacing: -0.02em; white-space: nowrap; padding-right: 2rem; }
+    .franja-pista span:nth-child(even) { color: var(--azul-luz); }
+
+    /* SLIDE 2: SERVICIOS */
+    #servicios { background: var(--papel); color: var(--oscuro); }
+    .sec-header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--oscuro); padding-bottom: 16px; }
+    .sec-titulo { font: 800 clamp(1.8rem, 4vw, 3.2rem)/1 var(--syne); letter-spacing: -0.03em; }
+    .sec-sub { font: 500 13px/1 var(--mono); opacity: 0.7; }
+
+    .lista-servicios {
+        list-style: none; display: flex; flex-direction: column; justify-content: center;
+        flex: 1; margin-block: 20px; border-bottom: 1px solid rgba(22, 25, 30, 0.2);
+    }
+    .fila-servicio {
+        display: grid; grid-template-columns: 80px 1fr auto; align-items: center; gap: 16px;
+        padding: clamp(14px, 2.2vh, 28px) 0; border-top: 1px solid rgba(22, 25, 30, 0.2);
+        transition: filter 0.35s ease, opacity 0.35s ease; cursor: pointer;
+    }
+    .fila-servicio .num { font: 600 13px/1 var(--mono); color: var(--azul); }
+    .fila-servicio .tit { font: 700 clamp(1.4rem, 3.2vw, 2.6rem)/1.05 var(--syne); letter-spacing: -0.02em; }
+    .fila-servicio .desc { font: 400 clamp(0.85rem, 1vw, 1rem)/1.3 var(--cuerpo); opacity: 0.8; max-width: 24em; text-align: right; }
+    .fila-servicio a.link-ext { text-decoration: underline; color: var(--azul); font-weight: 600; }
+
+    /* BLUR INTERACTIVO EN SERVICIOS */
+    @media (hover: hover) and (pointer: fine) {
+        .lista-servicios:hover .fila-servicio { opacity: 0.4; filter: blur(3px); }
+        .lista-servicios .fila-servicio:hover { opacity: 1; filter: blur(0); }
+    }
+
+    /* FOTO FLOTANTE CURSOR */
+    .s-flota {
+        position: fixed; left: 0; top: 0; width: clamp(220px, 22vw, 340px); aspect-ratio: 16 / 10;
+        pointer-events: none; z-index: 50; opacity: 0; transform: translate3d(-50%, -50%, 0) scale(0.9);
+        transition: opacity 0.3s ease, transform 0.35s var(--ease); overflow: hidden; border: 2px solid var(--oscuro);
+    }
+    .s-flota img { width: 100%; height: 100%; object-fit: cover; }
+    .s-flota.activa { opacity: 1; transform: translate3d(-50%, -50%, 0) scale(1); }
+
+    /* SLIDE 3: CÓMO */
+    #como { background: var(--azul); color: var(--blanco); }
+    .como-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; flex: 1; align-items: center; margin-block: 20px; }
+    .tarjeta-paso {
+        background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(169, 193, 238, 0.3);
+        padding: clamp(20px, 3.5vh, 40px) 24px; display: flex; flex-direction: column; justify-content: space-between;
+        height: 100%; max-height: 420px; transition: background 0.3s ease, border-color 0.3s ease;
+    }
+    .tarjeta-paso:hover, .tarjeta-paso.activa-paso { background: rgba(255, 255, 255, 0.14); border-color: var(--azul-luz); }
+    .paso-num { font: 800 clamp(2.5rem, 5vw, 4.5rem)/1 var(--syne); color: var(--azul-luz); }
+    .paso-txt { font: 700 clamp(1.2rem, 2vw, 1.8rem)/1.1 var(--syne); margin-top: 24px; color: var(--blanco); }
+
+    .como-ctrls { display: flex; justify-content: space-between; align-items: center; }
+    .como-nota { font: 500 12px/1.4 var(--mono); color: var(--azul-luz); }
+
+    /* SLIDE 4: EMPRESA */
+    #empresa { background: var(--papel); color: var(--oscuro); }
+    .empresa-body { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(24px, 4vw, 56px); flex: 1; align-items: center; margin-block: 20px; }
+    .empresa-foto-wrap { position: relative; width: 100%; height: 100%; max-height: 520px; overflow: hidden; border: 1px solid var(--oscuro); }
+    .empresa-foto-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .corte-geo { clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%); }
+    .empresa-info { display: flex; flex-direction: column; gap: 24px; }
+    .empresa-info h3 { font: 700 clamp(1.6rem, 3vw, 2.5rem)/1.1 var(--syne); letter-spacing: -0.02em; }
+    .empresa-info p { font-size: clamp(1rem, 1.2vw, 1.25rem); opacity: 0.85; max-width: 28em; }
+    .tag-ubicacion { display: inline-flex; align-items: center; gap: 8px; font: 600 12px/1 var(--mono); padding: 8px 14px; background: var(--oscuro); color: var(--papel); align-self: flex-start; }
+
+    /* SLIDE 5: CONTACTO */
+    #contacto { background: var(--oscuro); color: var(--blanco); justify-content: space-between; }
+    .contacto-centro { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; flex: 1; gap: 24px; max-width: 52em; }
+    .contacto-centro h2 { font: 800 clamp(2.2rem, 5.5vw, 4.8rem)/0.98 var(--syne); letter-spacing: -0.04em; }
+    .btn-wsp-gigante {
+        display: inline-flex; align-items: center; gap: 16px;
+        padding: clamp(16px, 2.5vh, 26px) clamp(24px, 4vw, 48px);
+        background: var(--azul); color: var(--blanco);
+        font: 700 clamp(1.1rem, 2vw, 1.8rem)/1 var(--syne);
+        border: 2px solid var(--azul-luz); transition: background 0.3s ease, color 0.3s ease;
+    }
+    .btn-wsp-gigante:hover { background: var(--azul-luz); color: var(--oscuro); }
+
+    .pie-marca-gigante {
+        font: 800 clamp(3.5rem, 12vw, 13rem)/0.8 var(--syne);
+        letter-spacing: -0.06em; color: rgba(255, 255, 255, 0.08);
+        text-transform: uppercase; white-space: nowrap; overflow: hidden;
+        margin-left: calc(var(--m) * -1); margin-right: calc(var(--m) * -1);
+        pointer-events: none;
+    }
+    .pie-legal {
+        display: flex; justify-content: space-between; align-items: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 16px;
+        font: 500 12px/1.4 var(--mono); color: var(--azul-luz); flex-wrap: wrap; gap: 12px;
+    }
+
+    /* CORTINA DE TRANSICIÓN */
+    .cortina {
+        position: fixed; inset: 0; z-index: 500; background: var(--azul);
+        transform: scaleY(0); transform-origin: top; pointer-events: none;
+    }
+    .cortina.barre-baja { animation: barridoBajar 0.9s var(--ease) forwards; }
+    .cortina.barre-sube { transform-origin: bottom; animation: barridoSubir 0.9s var(--ease) forwards; }
+
+    @keyframes barridoBajar {
+        0% { transform: scaleY(0); transform-origin: top; }
+        45% { transform: scaleY(1); transform-origin: top; }
+        55% { transform: scaleY(1); transform-origin: bottom; }
+        100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @keyframes barridoSubir {
+        0% { transform: scaleY(0); transform-origin: bottom; }
+        45% { transform: scaleY(1); transform-origin: bottom; }
+        55% { transform: scaleY(1); transform-origin: top; }
+        100% { transform: scaleY(0); transform-origin: top; }
+    }
+
+    /* CURSOR PROPIO */
+    .cursor-dot {
+        position: fixed; top: 0; left: 0; width: 10px; height: 10px; margin: -5px 0 0 -5px;
+        background: var(--azul-luz); border-radius: 0; pointer-events: none; z-index: 999;
+        opacity: 0; transition: width .25s var(--ease), height .25s var(--ease), margin .25s var(--ease), background .25s ease;
+        mix-blend-mode: difference;
+    }
+    .cursor-dot.vivo { opacity: 1; }
+    .cursor-dot.grande { width: 48px; height: 48px; margin: -24px 0 0 -24px; background: var(--blanco); }
+    @media not all and (hover: hover) { .cursor-dot { display: none !important; } }
+
+    /* RESPONSIVE SMARTPHONES 375PX */
+    @media (max-width: 860px) {
+        .nav-desk { display: none; }
+        .btn-hamb { display: flex; }
+        
+        .fila-servicio { grid-template-columns: 40px 1fr; gap: 8px; }
+        .fila-servicio .desc { grid-column: 1 / -1; text-align: left; margin-top: 4px; }
+        
+        .como-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+        .tarjeta-paso { padding: 16px; }
+        .paso-txt { margin-top: 12px; font-size: 1.1rem; }
+
+        .empresa-body { grid-template-columns: 1fr; gap: 20px; }
+        .empresa-foto-wrap { max-height: 240px; }
+        
+        .inicio-pie { flex-direction: column; align-items: flex-start; gap: 16px; }
+        .s-flota { display: none !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .franja-pista { animation: none; }
+        .cortina { display: none !important; }
+        .slide { transition: none !important; }
+        .cursor-dot { display: none !important; }
+    }
+</style>
+</head>
+<body>
+
+<a class="saltar" href="#inicio">Saltar al contenido</a>
+
+<!-- BARRA FIJA DE NAVEGACIÓN -->
+<header class="barra" id="barra">
+    <a class="marca" href="#inicio" onclick="irASlide(0); return false;" aria-label="BTo Innova inicio">
+        <b>BTo Innova</b>
+        <span>Software &amp; Marketing Digital</span>
+    </a>
+    <nav class="nav-desk" aria-label="Navegación principal">
+        <a href="#inicio" onclick="irASlide(0); return false;" class="activo">Inicio</a>
+        <a href="#servicios" onclick="irASlide(1); return false;">Servicios</a>
+        <a href="#como" onclick="irASlide(2); return false;">Cómo</a>
+        <a href="#empresa" onclick="irASlide(3); return false;">Empresa</a>
+        <a href="#contacto" onclick="irASlide(4); return false;">Contacto</a>
+        <span class="indicador" id="indicador" aria-live="polite">1/5</span>
+    </nav>
+    <button type="button" class="btn-hamb" id="btnHamb" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</header>
+
+<!-- MENÚ MÓVIL DESPLEGABLE -->
+<div class="menu-movil" id="menuMovil" aria-hidden="true">
+    <a href="#inicio" onclick="irASlide(0); cerrarMenu(); return false;">Inicio</a>
+    <a href="#servicios" onclick="irASlide(1); cerrarMenu(); return false;">Servicios</a>
+    <a href="#como" onclick="irASlide(2); cerrarMenu(); return false;">Cómo</a>
+    <a href="#empresa" onclick="irASlide(3); cerrarMenu(); return false;">Empresa</a>
+    <a href="#contacto" onclick="irASlide(4); cerrarMenu(); return false;">Contacto</a>
+</div>
+
+<!-- SLIDES MASTER (5 PANTALLAS FIJAS) -->
+<main class="slides-wrapper" id="mainContent">
+
+    <!-- PANTALLA 1: INICIO -->
+    <section class="slide activo" id="inicio" aria-label="Pantalla 1 de 5: Inicio">
+        <div class="capa-foto-oscura" aria-hidden="true"></div>
+        <img class="foto-fondo" src="img/cafe-1.jpg" alt="Dueña de cafetería atendiendo su negocio" width="1800" height="1013" fetchpriority="high" decoding="async">
+        
+        <div class="inicio-contenido">
+            <h1 class="titular-gigante" id="titularPrincipal">Tu negocio, ahora también es digital</h1>
+            <div class="inicio-pie">
+                <p class="inicio-sub">Software a medida, sitios web de alto impacto y estrategias de marketing digital.</p>
+                <a class="btn-accion" href="https://wa.me/56923971471?text=Hola%2C%20quiero%20conversar%20sobre%20software%20y%20marketing%20digital." target="_blank" rel="noopener">
+                    Escribir por WhatsApp <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="franja" aria-hidden="true">
+            <div class="franja-pista">
+                <span>Software a medida</span><span>Páginas Web</span><span>Marketing Digital</span><span>Cobro en Línea</span>
+                <span>Software a medida</span><span>Páginas Web</span><span>Marketing Digital</span><span>Cobro en Línea</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANTALLA 2: SERVICIOS -->
+    <section class="slide" id="servicios" aria-label="Pantalla 2 de 5: Servicios">
+        <div class="sec-header">
+            <h2 class="sec-titulo">Servicios</h2>
+            <span class="sec-sub">Soluciones integrales de ingeniería y marca</span>
+        </div>
+
+        <ul class="lista-servicios" id="listaServicios">
+            <li class="fila-servicio" data-foto="img/ejecutivo-1.jpg">
+                <span class="num">01</span>
+                <h3 class="tit">Apps y software a medida</h3>
+                <p class="desc">Sistemas que automatizan la operación de tu empresa.</p>
+            </li>
+            <li class="fila-servicio" data-foto="img/comercio-1.jpg">
+                <span class="num">02</span>
+                <h3 class="tit">Páginas web</h3>
+                <p class="desc">Diseño rápido, moderno y enfocado en ventas.</p>
+            </li>
+            <li class="fila-servicio" data-foto="img/cafe-1.jpg">
+                <span class="num">03</span>
+                <h3 class="tit">Marketing digital</h3>
+                <p class="desc">A través de <a href="https://btodigital.cl" class="link-ext" target="_blank" rel="noopener">BTo Digital</a>: posicionamiento y anuncios.</p>
+            </li>
+            <li class="fila-servicio" data-foto="img/taller-2.jpg">
+                <span class="num">04</span>
+                <h3 class="tit">Cobro en línea</h3>
+                <p class="desc">Integramos recaudación directa por tus servicios.</p>
+            </li>
+        </ul>
+
+        <div class="s-flota" id="servFlota" aria-hidden="true">
+            <img src="img/ejecutivo-1.jpg" alt="" id="servFlotaImg" width="1800" height="1013">
+        </div>
+
+        <div style="font: 500 12px/1 var(--mono); opacity: 0.6;">Pasa el cursor para previsualizar</div>
+    </section>
+
+    <!-- PANTALLA 3: CÓMO -->
+    <section class="slide" id="como" aria-label="Pantalla 3 de 5: Cómo trabajamos">
+        <div class="sec-header" style="border-bottom-color: rgba(255,255,255,0.2);">
+            <h2 class="sec-titulo">Cómo trabajamos</h2>
+            <span class="sec-sub" style="color: var(--azul-luz);">Proceso claro en 4 pasos</span>
+        </div>
+
+        <div class="como-grid">
+            <article class="tarjeta-paso activa-paso">
+                <span class="paso-num">01</span>
+                <h3 class="paso-txt">Conversamos</h3>
+            </article>
+            <article class="tarjeta-paso">
+                <span class="paso-num">02</span>
+                <h3 class="paso-txt">Diseñamos</h3>
+            </article>
+            <article class="tarjeta-paso">
+                <span class="paso-num">03</span>
+                <h3 class="paso-txt">Construimos</h3>
+            </article>
+            <article class="tarjeta-paso">
+                <span class="paso-num">04</span>
+                <h3 class="paso-txt">Acompañamos</h3>
+            </article>
+        </div>
+
+        <div class="como-ctrls">
+            <span class="como-nota">Sin fricción, directo contigo.</span>
+            <span class="como-nota">Navega haciendo clic o deslizando</span>
+        </div>
+    </section>
+
+    <!-- PANTALLA 4: EMPRESA -->
+    <section class="slide" id="empresa" aria-label="Pantalla 4 de 5: Empresa">
+        <div class="sec-header">
+            <h2 class="sec-titulo">Empresa</h2>
+            <span class="sec-sub">BTo Innova SpA</span>
+        </div>
+
+        <div class="empresa-body">
+            <div class="empresa-foto-wrap corte-geo">
+                <img src="img/oficio-2.jpg" alt="Persona de oficio trabajando en taller" width="1600" height="1067" loading="lazy" decoding="async">
+            </div>
+            <div class="empresa-info">
+                <div class="tag-ubicacion">Ñuñoa · Santiago de Chile</div>
+                <h3>Tecnología y marketing con estándar internacional.</h3>
+                <p>Desarrollamos soluciones digitales sólidas que transforman la gestión y presencia comercial de pymes y empresas.</p>
+                <p>Equipos ágiles, código eficiente y diseño enfocado en la conversión real de clientes.</p>
+            </div>
+        </div>
+
+        <div style="font: 500 12px/1 var(--mono); opacity: 0.6;">BTo Innova · Soluciones de Software y Comunicación</div>
+    </section>
+
+    <!-- PANTALLA 5: CONTACTO -->
+    <section class="slide" id="contacto" aria-label="Pantalla 5 de 5: Contacto">
+        <div class="sec-header" style="border-bottom-color: rgba(255,255,255,0.15);">
+            <h2 class="sec-titulo">Contacto</h2>
+            <span class="sec-sub" style="color: var(--azul-luz);">Inicia tu proyecto</span>
+        </div>
+
+        <div class="contacto-centro">
+            <h2>¿Listo para digitalizar tu negocio?</h2>
+            <a class="btn-wsp-gigante" href="https://wa.me/56923971471?text=Hola%2C%20quiero%20conversar%20sobre%20mi%20proyecto." target="_blank" rel="noopener">
+                <span>WhatsApp +56 9 2397 1471</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+
+        <div>
+            <div class="pie-marca-gigante" aria-hidden="true">BTo Innova</div>
+            <footer class="pie-legal">
+                <span>BTo Innova SpA · RUT 78.533.592-9 · Ñuñoa, Chile</span>
+                <span>Software &amp; Digital Marketing</span>
+            </footer>
+        </div>
+    </section>
+
+</main>
+
+<!-- CORTINA DE TRANSICIÓN -->
+<div class="cortina" id="cortina" aria-hidden="true"></div>
+
+<!-- CURSOR PERSONALIZADO -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<script>
+(function() {
+    'use strict';
+
+    var TOTAL_SLIDES = 5;
+    var slideActual = 0;
+    var bloqueado = false;
+    var tiempoBloqueo = 900; // ms
+    var reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var slides = document.querySelectorAll('.slide');
+    var navLinks = document.querySelectorAll('.nav-desk a');
+    var menuLinks = document.querySelectorAll('.menu-movil a');
+    var indicador = document.getElementById('indicador');
+    var barra = document.getElementById('barra');
+    var cortina = document.getElementById('cortina');
+
+    // Cambiar tema de la barra según slide (Claro vs Oscuro)
+    function actualizarTemaBarra(index) {
+        if (index === 1 || index === 3) {
+            barra.classList.add('tema-claro');
+        } else {
+            barra.classList.remove('tema-claro');
+        }
+    }
+
+    // Ir a un Slide específico con Cortina de transición
+    window.irASlide = function(destino) {
+        if (destino < 0 || destino >= TOTAL_SLIDES || destino === slideActual || bloqueado) return;
+        bloqueado = true;
+
+        var direccionAbajo = destino > slideActual;
+
+        if (!reducido) {
+            cortina.className = 'cortina ' + (direccionAbajo ? 'barre-baja' : 'barre-sube');
+        }
+
+        setTimeout(function() {
+            slides[slideActual].classList.remove('activo');
+            navLinks[slideActual].classList.remove('activo');
+            menuLinks[slideActual].classList.remove('activo');
+
+            slideActual = destino;
+
+            slides[slideActual].classList.add('activo');
+            navLinks[slideActual].classList.add('activo');
+            menuLinks[slideActual].classList.add('activo');
+
+            indicador.textContent = (slideActual + 1) + '/' + TOTAL_SLIDES;
+            actualizarTemaBarra(slideActual);
+        }, reducido ? 0 : 400);
+
+        setTimeout(function() {
+            if (!reducido) cortina.className = 'cortina';
+            bloqueado = false;
+        }, tiempoBloqueo);
+    };
+
+    // Evento Rueda del ratón (debounced 900ms)
+    window.addEventListener('wheel', function(e) {
+        if (Math.abs(e.deltaY) < 15) return;
+        if (e.deltaY > 0) {
+            irASlide(slideActual + 1);
+        } else {
+            irASlide(slideActual - 1);
+        }
+    }, { passive: true });
+
+    // Eventos de Teclado
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === 'ArrowRight') {
+            irASlide(slideActual + 1);
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'ArrowLeft') {
+            irASlide(slideActual - 1);
+        }
+    });
+
+    // Gestos táctiles (Swipe)
+    var touchY0 = 0;
+    window.addEventListener('touchstart', function(e) {
+        if (e.touches && e.touches.length > 0) {
+            touchY0 = e.touches[0].clientY;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchend', function(e) {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        var touchY1 = e.changedTouches[0].clientY;
+        var diff = touchY0 - touchY1;
+        if (Math.abs(diff) > 45) {
+            if (diff > 0) {
+                irASlide(slideActual + 1);
+            } else {
+                irASlide(slideActual - 1);
+            }
+        }
+    }, { passive: true });
+
+    // Menú hamburguesa móvil
+    var btnHamb = document.getElementById('btnHamb');
+    var menuMovil = document.getElementById('menuMovil');
+
+    btnHamb.addEventListener('click', function() {
+        var abierto = btnHamb.classList.toggle('abierto');
+        menuMovil.classList.toggle('abierto', abierto);
+        btnHamb.setAttribute('aria-expanded', abierto);
+        menuMovil.setAttribute('aria-hidden', !abierto);
+    });
+
+    window.cerrarMenu = function() {
+        btnHamb.classList.remove('abierto');
+        menuMovil.classList.remove('abierto');
+        btnHamb.setAttribute('aria-expanded', 'false');
+        menuMovil.setAttribute('aria-hidden', 'true');
+    };
+
+    // Cursor flotante e Imagen seguidora en Servicios
+    var servFlota = document.getElementById('servFlota');
+    var servFlotaImg = document.getElementById('servFlotaImg');
+    var listaServicios = document.getElementById('listaServicios');
+
+    if (servFlota && listaServicios && matchMedia('(hover: hover)').matches) {
+        var fx = 0, fy = 0, tx = 0, ty = 0, anim = false;
+
+        function sigueCursor() {
+            fx += (tx - fx) * 0.18;
+            fy += (ty - fy) * 0.18;
+            servFlota.style.left = fx + 'px';
+            servFlota.style.top = fy + 'px';
+            if (Math.abs(tx - fx) > 0.5 || Math.abs(ty - fy) > 0.5) {
+                requestAnimationFrame(sigueCursor);
+            } else {
+                anim = false;
+            }
+        }
+
+        listaServicios.addEventListener('pointermove', function(e) {
+            tx = e.clientX + 30;
+            ty = e.clientY;
+            if (!anim) {
+                anim = true;
+                requestAnimationFrame(sigueCursor);
+            }
+        });
+
+        document.querySelectorAll('.fila-servicio').forEach(function(fila) {
+            fila.addEventListener('pointerenter', function() {
+                var foto = fila.getAttribute('data-foto');
+                if (foto && servFlotaImg) {
+                    servFlotaImg.src = foto;
+                    servFlota.classList.add('activa');
+                }
+            });
+        });
+
+        listaServicios.addEventListener('pointerleave', function() {
+            servFlota.classList.remove('activa');
+        });
+    }
+
+    // Magnification de menú superior
+    var navDeskLinks = document.querySelectorAll('.nav-desk a');
+    if (!reducido && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        barra.addEventListener('pointermove', function(e) {
+            navDeskLinks.forEach(function(a) {
+                var box = a.getBoundingClientRect();
+                var dist = Math.abs(e.clientX - (box.left + box.width / 2));
+                var scale = 1 + Math.max(0, 1 - dist / 140) * 0.22;
+                a.style.transform = 'scale(' + scale.toFixed(3) + ')';
+            });
+        });
+        barra.addEventListener('pointerleave', function() {
+            navDeskLinks.forEach(function(a) { a.style.transform = ''; });
+        });
+    }
+
+    // Cursor propio
+    var cursorDot = document.getElementById('cursorDot');
+    if (cursorDot && matchMedia('(hover: hover) and (pointer: fine)').matches && !reducido) {
+        window.addEventListener('pointermove', function(e) {
+            cursorDot.style.transform = 'translate3d(' + e.clientX + 'px,' + e.clientY + 'px,0)';
+            cursorDot.classList.add('vivo');
+        }, { passive: true });
+
+        document.querySelectorAll('a, button, .fila-servicio, .tarjeta-paso').forEach(function(el) {
+            el.addEventListener('pointerenter', function() { cursorDot.classList.add('grande'); });
+            el.addEventListener('pointerleave', function() { cursorDot.classList.remove('grande'); });
+        });
+
+        document.addEventListener('pointerleave', function() {
+            cursorDot.classList.remove('vivo');
+        });
+    }
+
+    // Tarjetas en CÓMO (click para destacar)
+    var pasotabs = document.querySelectorAll('.tarjeta-paso');
+    pasotabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            pasotabs.forEach(function(t) { t.classList.remove('activa-paso'); });
+            tab.classList.add('activa-paso');
+        });
+    });
+
+})();
+</script>
+</body>
+</html>
