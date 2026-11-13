@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="es-CL">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#edf1f6">
+<meta name="color-scheme" content="light">
+<title>BTo Innova soluciones — Tu negocio, ahora también es digital</title>
+<meta name="description" content="Tu negocio, ahora también es digital. Software, apps y marketing digital, con un solo equipo. BTo Innova soluciones (BTo Innova SpA). Diseñamos soluciones tecnológicas a medida.">
+<link rel="icon" href="img/favicon.ico?v=11b">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preload" href="fonts/HankenGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Hanken Grotesk";font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/HankenGrotesk.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:100 800;font-display:swap;src:url(fonts/JetBrainsMono.woff2) format("woff2")}
+:root{--papel:#edf1f6;--tinta:#0f1a2b;--mut:#4e5a6c;--linea:#cdd6e2;--acento:#1b3d7a;--acento-h:#15305f;--acbg:#e6edf8;--serif:"Hanken Grotesk",system-ui,sans-serif;--sans:"Hanken Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Consolas,monospace;--m:clamp(20px,5vw,80px);--ease:cubic-bezier(.2,.7,.2,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--papel);color:var(--tinta);font:400 1.05rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{min-height:100svh;display:flex;flex-direction:column}main{flex:1}.js main{min-height:100svh}
+h1,h2,h3,p,figure,ul{margin:0}ul{padding:0;list-style:none}
+a{color:inherit}img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+[tabindex="-1"]:focus{outline:none}
+.js [data-v]:not(.act){display:none!important}
+
+/* barra */
+.barra{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:12px var(--m);background:var(--papel);color:var(--tinta);border-bottom:1px solid var(--linea);view-transition-name:barra}
+.logo{display:inline-flex;align-items:center}
+.logo img{height:46px;width:auto}
+.barra .enl{display:flex;gap:clamp(14px,2.6vw,34px);align-items:center;font:500 14px/1 var(--sans);color:var(--tinta);margin-left:auto;margin-right:clamp(16px,3vw,36px)}
+.barra .enl a{text-decoration:none;padding:8px 0;border-bottom:1px solid transparent;transition:border-color .25s}
+.barra .enl a:hover,.barra .enl a[aria-current="page"]{border-color:currentColor}
+.barra .wa{background:var(--acento);color:#fff;padding:11px 16px;border:0;border-radius:0;text-decoration:none;font:500 14px/1 var(--sans)}
+.barra .wa:hover{background:var(--acento-h)}
+@media (max-width:720px){.barra{flex-wrap:wrap;gap:8px 12px}.logo{order:1;margin-right:auto}.barra .wa{order:2}.barra .enl{order:3;width:100%;margin:0;justify-content:space-between;font-size:13px;border-top:1px solid var(--linea);padding-top:6px}.logo img{height:38px}}
+
+/* PORTADA: el producto, visible */
+.portada{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,70px);align-items:center;min-height:calc(100svh - 72px);padding:clamp(36px,6vh,70px) var(--m) clamp(56px,8vh,90px)}
+.sello{font:500 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acento);margin-bottom:22px}
+.portada h1{font:800 clamp(2.1rem,4.7vw,4.6rem)/1 var(--serif);letter-spacing:-.04em}
+.portada h1>span{display:block}
+.portada h1 em{font-weight:500;letter-spacing:-.02em;display:block;text-wrap:balance;font-size:.6em;line-height:1.1;color:var(--acento);margin-top:.08em}
+.portada b{font-weight:inherit;white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:22px}
+.chips li{font:500 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border:1px solid var(--tinta)}
+.portada .sub{margin-top:24px;max-width:30em;font-size:clamp(1.02rem,1.3vw,1.2rem);color:var(--mut)}
+.cta{display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;margin-top:28px}
+.btn{display:inline-block;background:var(--acento);color:#fff;padding:15px 24px;text-decoration:none;font:600 15px/1 var(--sans);border-radius:0;transition:background .25s,transform .25s var(--ease)}
+.btn:hover{background:var(--acento-h);transform:translateY(-2px)}
+.vermas{color:var(--tinta);font:500 15px/1 var(--sans);text-decoration:none;border-bottom:1px solid var(--tinta);padding-bottom:4px}
+@media (max-width:900px){.portada{grid-template-columns:1fr}.demo{margin-bottom:34px}}
+
+/* demostración: producto visible */
+.demo{--mx:0;--my:0;position:relative;aspect-ratio:1.18/1;width:100%}
+.demo>*{position:absolute;margin:0;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.demo img{display:block;width:100%;height:auto}
+.demo .lap{left:0;top:7%;width:80%;background:#fff;border:1px solid #0003;box-shadow:0 30px 50px -28px #000a;transform:translate(calc(var(--mx)*6px),calc(var(--my)*4px))}
+.demo .lap .bar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:#e9ecf1;border-bottom:1px solid #0002}
+.demo .lap .bar i{width:7px;height:7px;border-radius:50%;background:#b9c0cc}
+.demo .lap .bar span{margin-left:8px;font:500 10px/1.2 ui-monospace,Consolas,monospace;color:#4a5568}
+.demo .cod{left:5%;bottom:2%;width:46%;border:1px solid #0004;box-shadow:0 24px 40px -22px #000d;transform:translate(calc(var(--mx)*14px),calc(var(--my)*9px))}
+.demo .tel{right:0;bottom:0;width:24%;border:4px solid #14161b;box-shadow:0 26px 44px -22px #000d;background:#fff;transform:translate(calc(var(--mx)*20px),calc(var(--my)*12px))}
+.demo .pay{right:14%;top:0;width:30%;background:#fff;color:#14161b;padding:12px 14px 14px;border:1px solid #0003;box-shadow:0 22px 40px -22px #000c;display:grid;gap:7px;transform:translate(calc(var(--mx)*12px),calc(var(--my)*8px))}
+.demo .pay span{font:500 10px/1.2 ui-monospace,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;color:#4a5568}
+.demo .pay i{display:block;height:7px;background:#dfe3ea}.demo .pay .l2{width:70%}
+.demo .pay b{display:block;height:9px;background:#e6e9ef;overflow:hidden}
+.demo .pay u{display:block;height:100%;background:var(--acento);transform-origin:left;animation:dpb 4s ease-in-out infinite}
+.demo .pay em{font:600 11px/1 system-ui,sans-serif;font-style:normal;background:#14161b;color:#fff;padding:8px;text-align:center}
+.demo .pay svg{position:absolute;right:10px;top:10px;width:18px;height:18px;fill:none;stroke:var(--acento);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:30;animation:dpv 4s ease-in-out infinite}
+@keyframes dpb{0%{transform:scaleX(.05)}60%,100%{transform:scaleX(1)}}
+@keyframes dpv{0%,55%{stroke-dashoffset:30}75%,100%{stroke-dashoffset:0}}
+.demo .nota{left:0;bottom:-26px;font:500 11px/1.3 ui-monospace,Consolas,monospace;opacity:.7}
+@media (prefers-reduced-motion:reduce){.demo .pay u,.demo .pay svg{animation:none}.demo .pay u{transform:none}.demo .pay svg{stroke-dashoffset:0}}
+/* SOLUCIONES: editorial, sin tarjetas */
+.pagina{padding:clamp(48px,9vh,100px) var(--m) clamp(40px,8vh,80px)}
+.pagina h2{font:800 clamp(2.2rem,5.6vw,5rem)/1.02 var(--serif);letter-spacing:-.04em;max-width:12em}
+.pagina h2 em{font-weight:500;color:var(--acento)}
+.lista{margin-top:clamp(40px,7vh,90px);border-top:1px solid var(--tinta)}
+.lista li{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(18px,4vw,64px);padding:clamp(22px,3.4vw,38px) 0;border-bottom:1px solid var(--linea);transition:padding-left .4s var(--ease)}
+.lista li:hover{padding-left:14px}
+.lista h3{font:700 clamp(1.7rem,3vw,2.6rem)/1.05 var(--serif);letter-spacing:-.02em}
+.lista p{color:var(--mut);max-width:34em}
+.lista small{display:block;margin-top:8px;font:500 12px/1.4 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--acento)}
+@media (max-width:760px){.lista li{grid-template-columns:1fr;gap:8px}}
+.pie{margin-top:clamp(50px,8vh,100px);display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:space-between;color:var(--mut);font-size:.92rem}
+.pie strong{color:var(--tinta);font-weight:600}
+.cierre{font:600 1.2rem/1.3 var(--serif);color:var(--tinta)}
+
+.fpie{background:#fff;border-top:1px solid var(--linea);padding:28px var(--m)}
+.fpie .fin{display:flex;flex-wrap:wrap;align-items:center;gap:18px 40px;justify-content:space-between;color:var(--mut);font-size:.92rem}
+.fpie img{height:50px;width:auto}.fpie strong{color:var(--tinta)}.fpie p{margin:0}.fpie .ch{font:600 1.15rem/1.3 var(--serif);color:var(--tinta)}
+/* cambio de pantalla */
+::view-transition-old(root){animation:fuera .3s var(--ease) both}
+::view-transition-new(root){animation:entra .55s var(--ease) .05s both}
+@keyframes fuera{to{opacity:0;transform:scale(.985);filter:blur(6px)}}
+@keyframes entra{from{opacity:0;transform:translateY(28px)}}
+::view-transition-group(titulo){animation-duration:.62s;animation-timing-function:var(--ease)}
+::view-transition-group(barra){animation-duration:0s}
+main,footer{transition:opacity .28s ease}
+body.cambia main{opacity:0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+.cot{display:inline-block;margin-top:16px;font:500 13px/1 system-ui,sans-serif;color:var(--acento);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px}
+.cot:hover{opacity:.75}
+.lista li{row-gap:0;align-content:start}
+.lista .cot{grid-column:2;justify-self:start;margin-top:6px}
+@media (max-width:760px){.lista .cot{grid-column:1;margin-top:4px}}
+
+/* MARCAS */
+.marcas{margin-top:clamp(36px,6vh,70px);display:grid;gap:clamp(36px,6vh,64px)}
+.marca{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,4vw,64px);align-items:center;padding-top:clamp(22px,3vw,36px);border-top:1px solid var(--tinta)}
+.marca h3{font:700 clamp(2rem,4vw,3.4rem)/1 var(--serif);letter-spacing:-.025em;margin:10px 0 14px}
+.marca p{color:var(--mut);max-width:30em}
+.est{display:inline-block;font:500 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--tinta)}
+.est.on{background:var(--tinta);color:var(--papel)}
+.marca .visita{display:inline-block;margin-top:18px}
+.marca .cap{margin:0;position:relative;aspect-ratio:1.5/1}
+.marca .cap img{position:absolute;height:auto;border:1px solid #0003;box-shadow:0 26px 44px -26px #000a;background:#fff}
+.marca .cap .d{left:0;top:0;width:82%}.marca .cap .m{right:0;bottom:0;width:22%;border:4px solid #14161b}
+.marca .cap figcaption{position:absolute;left:0;bottom:-24px;font:500 11px/1.3 ui-monospace,Consolas,monospace;opacity:.7}
+.marca.pend{border-top-color:var(--linea)}.marca.pend .est{border-color:var(--linea);color:var(--mut)}
+.marca .sin{display:block;margin-top:12px;font-size:.92rem;color:var(--mut)}
+@media (max-width:760px){.marca{grid-template-columns:1fr}.marca .cap{margin-bottom:30px}}
+/* EMPRESA */
+.ficha{margin-top:clamp(36px,6vh,70px);border-top:1px solid var(--tinta)}
+.ficha div{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:clamp(14px,3vw,48px);padding:clamp(18px,2.6vw,28px) 0;border-bottom:1px solid var(--linea)}
+.ficha dt{font:500 12px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--acento)}
+.ficha dd{margin:0;font:700 clamp(1.3rem,2.4vw,2rem)/1.2 var(--serif)}
+.intro{margin-top:22px;max-width:34em;color:var(--mut);font-size:1.1rem}
+@media (max-width:640px){.ficha div{grid-template-columns:1fr;gap:4px}}
+/* CONTACTO */
+.vias{margin-top:clamp(36px,6vh,70px);border-top:1px solid var(--tinta)}
+.vias a{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:clamp(14px,3vw,48px);align-items:baseline;padding:clamp(20px,3vw,34px) 0;border-bottom:1px solid var(--linea);text-decoration:none;transition:padding-left .4s var(--ease)}
+.vias a:hover{padding-left:14px}
+.vias span{font:500 12px/1.6 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--acento)}
+.vias strong{font:700 clamp(1.4rem,3.4vw,2.8rem)/1.1 var(--serif);letter-spacing:-.02em;overflow-wrap:anywhere}
+@media (max-width:640px){.vias a{grid-template-columns:1fr;gap:4px}}
+em{font-style:normal}
+/* identidad propia de BTo: grotesca sólida + mono de apoyo, azul tinta + acento verde señal */
+.sello,.est,.lista small,.ficha dt,.vias span,.cot,.vermas{font-family:var(--mono)}
+.sello{font-size:12px;letter-spacing:.12em}
+.est,.ficha dt,.vias span,.lista small{letter-spacing:.06em}
+.vermas,.cot{font-size:13px;letter-spacing:0}
+.btn,.barra .wa{font-family:var(--sans)}
+.lista h3,.marca h3{letter-spacing:-.03em}
+.ficha dd,.vias strong{font-weight:600;letter-spacing:-.025em}
+
+/* contacto: una sola jerarquía */
+.contacto{min-height:calc(100svh - 72px - 112px);display:flex;flex-direction:column;justify-content:center;gap:clamp(36px,7vh,72px)}
+.contacto h2{max-width:11em;font-size:clamp(2.6rem,8vw,7.4rem)}
+.accion{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding-top:clamp(24px,4vh,40px);border-top:1px solid var(--tinta)}
+.btn.grande{font-size:clamp(1.05rem,2.2vw,1.5rem);padding:clamp(18px,3vw,28px) clamp(26px,4vw,48px)}
+@media (max-width:640px){.btn.grande{width:100%;text-align:center}}
+.fpie .fin{gap:14px 24px}.fpie img{height:34px}
+.leg{font:400 12px/1.6 var(--mono);color:var(--mut)}
+.fpie .leg a{color:var(--mut)}
+@media (max-width:760px){.fpie .fin{flex-direction:column;align-items:flex-start;gap:14px}}
+[data-pantalla="contacto"] .fpie .mail{display:none}
+[data-pantalla="contacto"] .fpie .ley{display:none}
+[data-pantalla="empresa"] .fpie .ley{display:none}
+.fpie .mail::before{content:" · "}[data-pantalla="empresa"] .fpie .mail::before{content:""}
+
+/* flujo vivo (diagrama original de la v4, en azul marino) */
+.flujo-sec{border-top:1px solid var(--linea);padding:clamp(40px,8vh,90px) var(--m);scroll-margin-top:90px}
+.flujo{position:relative;max-width:860px;margin:0 auto}
+.flujo svg{width:100%;height:auto;overflow:visible;touch-action:pan-y}
+.flujo .g{transform:translate(calc(var(--mx,0)*var(--d)*1px),calc(var(--my,0)*var(--d)*1px));transition:transform .25s var(--ease)}
+.flujo .nd{cursor:pointer;outline:none}
+.flujo .nd .c{fill:#fff;stroke:var(--acento);stroke-width:1.6;transition:fill .25s,stroke-width .25s}
+.flujo .nd .h{fill:none;stroke:var(--acento);stroke-width:1;opacity:.25;transform-box:fill-box;transform-origin:center;animation:resp 3.2s ease-in-out infinite}
+.flujo .nd:nth-of-type(2) .h{animation-delay:-1s}.flujo .nd:nth-of-type(3) .h{animation-delay:-2s}
+@keyframes resp{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.14);opacity:.08}}
+.flujo .nd:hover .c,.flujo .nd:focus-visible .c,.flujo .nd.on .c{fill:var(--acbg);stroke-width:2.6}
+.flujo .nd:focus-visible .c{stroke-dasharray:5 3}
+.flujo .ico{fill:none;stroke:var(--acento);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.flujo .t{fill:var(--tinta);font:600 15px var(--sans);text-anchor:middle}
+.flujo .ts{fill:var(--mut);font:500 12.5px var(--mono);text-anchor:middle;letter-spacing:.04em}
+.flujo .cam{fill:none;stroke:var(--linea);stroke-width:2;stroke-dasharray:2 7;stroke-linecap:round}
+.flujo .cam.v{stroke:var(--acento);opacity:.55}
+.flujo .part{fill:var(--acento)}
+.flujo .cli{fill:var(--mut);opacity:.7}
+.flujo .sat circle.s{fill:#fff;stroke:var(--mut);stroke-width:1.4;transition:stroke .25s}
+.flujo .sat:hover circle.s{stroke:var(--acento)}
+.flujo .sat text{fill:var(--tinta);font:500 13px var(--mono)}
+.flujo .sat .ts{fill:var(--mut)}
+.flujo .sat .dot{fill:var(--mut)}.flujo .sat .dot.ok{fill:var(--acento)}
+.flujo .pago{fill:none;stroke:var(--acento);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+.flujo .pago.go{animation:pago .9s ease-out}
+@keyframes pago{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(1.7)}}
+.capf{min-height:3.4em;margin-top:6px;text-align:center;color:var(--mut);font-size:1rem}
+.capf b{color:var(--acento);font-weight:700;font-size:clamp(1.2rem,2.6vw,1.8rem);letter-spacing:-.03em}
+.capf b.m{color:var(--tinta)}
+@media (prefers-reduced-motion:reduce){.flujo .nd .h{animation:none}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* SOLUCIONES: filas editoriales, ritmo alterno */
+.sol{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(36px,6vw,72px) 0;border-top:1px solid var(--tinta)}
+.sol:first-of-type{margin-top:clamp(36px,6vh,70px)}
+.sol.inv .vis{order:-1}
+.sol .n{font:500 clamp(2.4rem,5vw,4rem)/1 var(--mono);color:var(--acento);letter-spacing:-.04em}
+.sol h3{font:800 clamp(1.8rem,3.4vw,3rem)/1.05 var(--sans);letter-spacing:-.035em;margin:10px 0 14px}
+.sol .que{font:500 clamp(1.1rem,1.6vw,1.35rem)/1.4 var(--sans);color:var(--tinta);max-width:26em}
+.datos{margin:22px 0 0;display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:12px 18px;color:var(--mut)}
+.datos dt{font:500 12px/1.9 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--acento)}
+.datos dd{margin:0}
+.inc{display:grid;gap:6px}
+.inc li{padding-left:18px;position:relative;color:var(--tinta)}
+.inc li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;background:var(--acento)}
+.ej{display:inline-block;margin-top:20px;font:500 12px/1.3 var(--mono);letter-spacing:.03em;padding:7px 10px;border:1px solid var(--tinta)}
+.ej.fill{background:var(--tinta);color:var(--papel)}
+.ley2{margin-top:18px;font-size:.85rem;color:var(--mut);max-width:32em}
+.sol .cot{display:block;margin-top:18px;width:max-content}
+.vis{margin:0;background:var(--acbg);padding:clamp(20px,4vw,44px);display:flex;flex-direction:column;gap:12px;align-items:stretch;min-height:clamp(240px,30vw,380px);justify-content:center}
+.vis figcaption{font:500 11px/1.3 var(--mono);opacity:.7}
+.cod2{background:#0b1426;color:#cfe0ff;padding:16px 18px 18px;border:1px solid #0003;box-shadow:0 24px 40px -24px #000a}
+.cod2 i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#3a4a68;margin-right:5px}
+.cod2 pre{margin:12px 0 0;font:500 clamp(11px,1.3vw,14px)/1.7 var(--mono);white-space:pre-wrap}
+.nav2{background:#fff;border:1px solid #0003;box-shadow:0 24px 40px -24px #000a}
+.nav2 .bar{display:flex;align-items:center;gap:5px;padding:7px 10px;background:#e9ecf1;border-bottom:1px solid #0002}
+.nav2 .bar i{width:7px;height:7px;border-radius:50%;background:#b9c0cc}
+.nav2 .bar span{margin-left:8px;font:500 10px/1.2 var(--mono);color:#4a5568}
+.nav2 img{width:100%;height:auto}
+.tienda{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.prod{background:#fff;border:1px solid #0002;padding:10px;display:grid;gap:7px;box-shadow:0 18px 30px -22px #000a}
+.prod i{display:block;aspect-ratio:4/3;background:var(--linea)}
+.prod b{display:block;height:7px;background:#dfe3ea}.prod b.c{width:55%;background:var(--acento)}
+.pay2{grid-column:1/-1;background:#fff;border:1px solid #0002;padding:12px 14px;display:grid;gap:8px;box-shadow:0 18px 30px -22px #000a}
+.pay2 span{font:500 10px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#4a5568}
+.pay2 b{display:block;height:8px;background:#e6e9ef;overflow:hidden}.pay2 u{display:block;height:100%;width:62%;background:var(--acento)}
+.pay2 em{font:600 12px/1 var(--sans);font-style:normal;background:#14161b;color:#fff;padding:9px;text-align:center}
+.como{margin-top:clamp(20px,4vw,40px);padding-top:clamp(28px,5vw,56px);border-top:1px solid var(--tinta)}
+.como h3{font:800 clamp(1.8rem,3.4vw,3rem)/1.05 var(--sans);letter-spacing:-.035em}
+.como ol{margin:clamp(24px,4vw,40px) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+.como li{border-top:1px solid var(--linea);padding-top:14px}
+.como li span{font:500 12px/1 var(--mono);color:var(--acento)}
+.como li b{display:block;margin:10px 0 6px;font:700 1.15rem/1.2 var(--sans);letter-spacing:-.02em}
+.como li p{color:var(--mut);font-size:.95rem}
+@media (max-width:900px){.sol{grid-template-columns:1fr}.sol.inv .vis{order:0}.como ol{grid-template-columns:1fr 1fr}.datos{grid-template-columns:1fr;gap:4px}.datos dd{margin-bottom:10px}}
+@media (max-width:520px){.como ol{grid-template-columns:1fr}}
+
+/* EMPRESA: filas editoriales */
+.emp .lead{margin-top:22px;max-width:30em;font:600 clamp(1.3rem,2.6vw,2.1rem)/1.25 var(--sans);letter-spacing:-.025em;color:var(--tinta)}
+.fila{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:clamp(14px,3vw,48px);padding:clamp(26px,4vw,48px) 0;border-top:1px solid var(--tinta)}
+.fila:first-of-type{margin-top:clamp(36px,6vh,70px)}
+.fila>h3{font:500 12px/1.9 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento)}
+.tres{display:grid;gap:18px}
+.tres li{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:14px 24px;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--linea)}
+.tres b{font:700 clamp(1.2rem,2vw,1.6rem)/1.15 var(--sans);letter-spacing:-.025em}
+.tres span{color:var(--mut)}
+.fila .cot{display:block;margin-top:18px;width:max-content}
+.marcas2 p{max-width:32em}.marcas2 .det2{margin-top:16px;color:var(--mut);font-size:.95rem}
+.marcas2 svg{display:block;width:100%;max-width:560px;height:auto;margin-top:22px;overflow:visible}
+.marcas2 .ln{fill:none;stroke:var(--acento);stroke-width:1.6;stroke-dasharray:2 6;stroke-linecap:round}
+.marcas2 rect{fill:#fff;stroke:var(--tinta);stroke-width:1.4}
+.marcas2 .nb0{fill:var(--acbg);stroke:var(--acento)}.marcas2 .nb1{fill:var(--tinta)}
+.marcas2 .tt{fill:var(--tinta);font:700 14px var(--sans);text-anchor:middle}
+.marcas2 .ts{fill:var(--mut);font:500 10px var(--mono);text-anchor:middle;letter-spacing:.05em}
+.marcas2 .w{fill:var(--papel)}
+.princ{display:grid;gap:14px}
+.princ li{padding-bottom:14px;border-bottom:1px solid var(--linea);color:var(--mut)}
+.princ b{color:var(--tinta);font:700 clamp(1.1rem,1.8vw,1.4rem)/1.2 var(--sans);letter-spacing:-.02em;margin-right:8px}
+.ficha2 div{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr);gap:clamp(10px,2vw,32px);padding:12px 0;border-bottom:1px solid var(--linea)}
+.ficha2 dt{font:500 12px/1.8 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.ficha2 dd{margin:0;font:600 clamp(1.05rem,1.7vw,1.4rem)/1.3 var(--sans);letter-spacing:-.02em}
+.ficha2 a{color:var(--tinta)}
+[data-pantalla="empresa"] .fpie .ley,[data-pantalla="empresa"] .fpie .mail{display:none}
+.ubic{font:500 12px/1.4 var(--mono);color:var(--mut)}
+.legal-p{max-width:40em}.legal-p p{margin-top:16px;color:var(--mut)}.legal-p h3{margin-top:36px;font:800 1.4rem/1.2 var(--sans);letter-spacing:-.02em}
+.fpie .fin{flex-wrap:wrap}.fpie .lnk{width:100%}
+@media (max-width:760px){.fila{grid-template-columns:1fr}.tres li{grid-template-columns:1fr;gap:4px}.ficha2 div{grid-template-columns:1fr;gap:2px}}
+
+/* ===== SEGUNDA PASADA: contraste, ritmo, movimiento ===== */
+.osc{--tinta:#eef2f8;--mut:#a9b5c7;--linea:#24324a;--acento:#5b8def;--acento-h:#86a9f4;--acbg:#1d3358;--panel:#142033;background-color:#0c131f;color:var(--tinta);position:relative;isolation:isolate;
+ background-image:linear-gradient(#ffffff0b 1px,transparent 1px),linear-gradient(90deg,#ffffff0b 1px,transparent 1px);background-size:72px 72px}
+.osc::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(420px circle at var(--cx,50%) var(--cy,30%),#3b6fd422,transparent 60%)}
+.osc .btn{color:#0c131f}
+.osc .vermas{color:var(--tinta);border-color:var(--tinta)}
+.osc .cot{color:var(--acento)}
+.osc h2 em,.osc h3 em{color:var(--acento)}
+.flujo .nd .c,.flujo .sat circle.s{fill:var(--panel,#fff)}
+/* momento gigante */
+.gigante{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(48px,10vh,120px) var(--m);overflow:hidden}
+.gigante .duo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.32;filter:url(#duo)}
+.gg{font:800 clamp(3rem,10.4vw,11rem)/.95 var(--sans);letter-spacing:-.055em}
+.gg em{font-weight:800;color:var(--acento)}
+.banda{margin:clamp(24px,4vw,44px) 0 0;aspect-ratio:21/7;overflow:hidden;background:#0c131f}
+.banda img,.duo{filter:url(#duo)}
+.banda img{width:100%;height:100%;object-fit:cover;display:block}
+.emp .lead{margin-top:clamp(24px,4vw,40px)}
+/* kinetic type */
+.k{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.k>i{display:inline-block;font-style:inherit;transform:translateY(108%);transition:transform .8s cubic-bezier(.2,.8,.2,1) calc(var(--w)*65ms)}
+.k-on .k>i{transform:none}
+.k-on.k-done .k{overflow:visible}
+/* cortina de pantalla */
+.cortina{position:fixed;inset:0;z-index:25;background:#1b3d7a;transform:translateX(-101%);pointer-events:none}
+.cortina.in{transform:none;transition:transform .4s cubic-bezier(.7,0,.2,1)}
+.cortina.out{transform:translateX(101%);transition:transform .55s cubic-bezier(.7,0,.2,1)}
+/* demostración viva por pilar */
+.cod2 pre span{display:block;opacity:0;animation:tecla 7s steps(1) infinite;animation-delay:calc(var(--l)*.9s)}
+@keyframes tecla{0%{opacity:0}4%,88%{opacity:1}94%,100%{opacity:0}}
+.cod2 pre span:last-child::after{content:"";display:inline-block;width:.55em;height:1em;background:#5b8def;vertical-align:-.15em;margin-left:2px;animation:parp 1s steps(2) infinite}
+@keyframes parp{50%{opacity:0}}
+.nav2{position:relative}
+.nav2 .cur{position:absolute;width:14px;height:14px;left:16%;top:78%;border-left:2px solid #14161b;border-top:2px solid #14161b;background:#fff;transform:rotate(-45deg) scale(.9);animation:ir 6s ease-in-out infinite}
+@keyframes ir{0%,8%{left:16%;top:78%}45%,70%{left:82%;top:57%}100%{left:16%;top:78%}}
+.nav2::after{content:"";position:absolute;left:79%;top:52%;width:38px;height:22px;border:2px solid var(--acento);opacity:0;animation:clic 6s ease-in-out infinite}
+@keyframes clic{0%,44%{opacity:0;transform:scale(.8)}52%{opacity:.9;transform:scale(1.15)}66%,100%{opacity:0;transform:scale(1.4)}}
+.tienda .prod:nth-child(1){animation:sel 6s ease-in-out infinite}
+.tienda .prod:nth-child(2){animation:sel 6s ease-in-out infinite 1.2s}
+@keyframes sel{0%,10%,60%,100%{outline:2px solid transparent}18%,50%{outline:2px solid var(--acento)}}
+.pay2 u{width:100%;transform-origin:left;animation:llena 6s ease-in-out infinite}
+@keyframes llena{0%,30%{transform:scaleX(.05)}70%,100%{transform:scaleX(1)}}
+.pay2 em{animation:pulsa 6s ease-in-out infinite}
+@keyframes pulsa{0%,70%{background:#14161b}78%,92%{background:var(--acento)}100%{background:#14161b}}
+/* líneas que se dibujan */
+.como li{border-top:0;position:relative}
+.como li::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--acento);transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1) calc(var(--i,0)*.15s)}
+.k-on .como li::before,.como.k-on li::before{transform:none}
+/* marcas: piezas vivas */
+.marca{transition:background-color .4s,padding .4s var(--ease)}
+.marca:hover{background:#0c131f;color:#eef2f8;padding-inline:clamp(14px,2vw,28px);--tinta:#eef2f8;--mut:#a9b5c7;--acento:#5b8def}
+.marca:hover .est{border-color:#eef2f8}.marca:hover .est.on{background:#eef2f8;color:#0c131f}
+.marca .cap img{transition:transform .6s var(--ease)}
+.marca:hover .cap .d{transform:translate(-8px,-6px)}.marca:hover .cap .m{transform:translate(10px,8px)}
+/* magnetic */
+.btn,.barra .wa{transition:background .25s,transform .25s var(--ease)}
+@media (prefers-reduced-motion:reduce){.k>i{transform:none!important;transition:none}.cortina{display:none}.cod2 pre span{opacity:1;animation:none}.nav2 .cur,.nav2::after{display:none}.pay2 u{animation:none}.como li::before{transform:none;transition:none}}
+.como.osc{margin-top:clamp(40px,6vw,72px);padding:clamp(36px,6vw,72px) 0;box-shadow:0 0 0 100vmax #0c131f;clip-path:inset(0 -100vmax)}
+.pagina:has(.como){padding-bottom:0}
+@media (max-width:640px){.gigante .duo{opacity:.14}.gigante{min-height:80svh}.gg{font-size:clamp(2.6rem,14vw,4rem)}}
+
+/* ===== HERO OSCURO a pantalla completa ===== */
+.portada.osc{display:block;min-height:calc(100svh - 72px);padding:clamp(40px,7vh,80px) var(--m) clamp(40px,6vh,70px);overflow:hidden}
+.portada.osc .txt{position:relative;z-index:2}
+.portada.osc h1{font:800 clamp(3rem,10.6vw,12rem)/.94 var(--serif);letter-spacing:-.05em;max-width:none}
+.portada.osc h1>span{display:block}
+.portada.osc h1 em{display:block;font-size:.24em;font-weight:600;letter-spacing:-.015em;line-height:1.25;margin-top:.55em;max-width:22em;color:var(--acento)}
+.portada.osc .sub{margin-top:18px;max-width:28em;color:var(--mut)}
+.portada.osc .demo{position:absolute;z-index:1;right:var(--m);bottom:4%;width:min(34vw,540px);transform:perspective(1400px) rotateY(-11deg) rotateX(3deg);transform-origin:80% 60%}
+.portada.osc .demo>*:not(.flow):not(.nota){animation:flota 6s ease-in-out infinite}
+.portada.osc .demo .cod{animation-delay:-1.5s}.portada.osc .demo .tel{animation-delay:-3s}.portada.osc .demo .pay{animation-delay:-4.5s}
+@keyframes flota{50%{translate:0 -9px}}
+.demo .flow{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.demo .flow path{fill:none;stroke:var(--acento);stroke-width:.7;stroke-dasharray:1.2 2.4;animation:fluye 1.6s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes fluye{to{stroke-dashoffset:-14}}
+.portada.osc .demo .nota{color:#a9b5c7}
+@media (max-width:900px){.portada.osc .demo{position:relative;right:auto;bottom:auto;width:100%;max-width:520px;margin:34px auto 38px;transform:none}.portada.osc h1{font-size:clamp(2.6rem,14.5vw,5rem)}.portada.osc h1 em{font-size:.3em}}
+@media (prefers-reduced-motion:reduce){.portada.osc .demo>*{animation:none!important}.demo .flow path{animation:none}.portada.osc .demo{transform:none}}
+.bleed{box-shadow:0 0 0 100vmax #0c131f;clip-path:inset(0 -100vmax)}
+.fila.osc{padding-inline:0}
+.marca.osc{padding:clamp(28px,4vw,48px) 0}
+.marca.osc:hover{padding-inline:0}
+.mtile{display:inline-grid;place-items:center;width:84px;height:84px;background:#edf1f6;margin-bottom:16px}
+.mtile img{width:56px;height:56px}
+.mtile+.est{display:block;width:max-content}
+.mtransp{display:inline-block;margin-bottom:16px}
+.mtransp img{display:block;width:clamp(140px,16vw,190px);height:auto}
+.mtransp+.est{display:block;width:max-content}
+.osc .est.on{background:var(--tinta);color:#0c131f;border-color:var(--tinta)}
+.js [data-k] em{display:inline-block;opacity:0;transform:translateY(14px);transition:opacity .9s ease .55s,transform .9s var(--ease) .55s}
+.portada.osc h1 em{display:block}
+.js .k-on em{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js [data-k] em{opacity:1;transform:none;transition:none}}
+/* hero: visual grande y completo, con aire entre bloques */
+.portada.osc{--hs:clamp(2.8rem,8.6vw,11rem)}
+.portada.osc h1{font-size:var(--hs)}
+.portada.osc h1 em{font-size:.25em;line-height:1.3;margin-top:.8em;padding-bottom:.1em}
+.portada.osc .sub{margin-top:30px}
+.portada.osc .cta{margin-top:38px}
+.portada.osc .demo{top:calc(clamp(40px,7vh,80px) + 1.88*var(--hs) + 6px);bottom:auto;width:min(38vw,600px);transform:perspective(1600px) rotateY(-8deg) rotateX(2deg)}
+@media (max-width:900px){.portada.osc{--hs:clamp(2.6rem,14.5vw,5rem)}.portada.osc .demo{top:auto;width:100%}.portada.osc h1 em{font-size:.32em}}
+.etq2{margin-bottom:14px;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--acento);padding-top:6px}
+.desa{border-top:1px solid var(--linea)}
+.desa li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr) auto;gap:8px clamp(14px,3vw,40px);align-items:baseline;padding:clamp(16px,2.4vw,26px) 0;border-bottom:1px solid var(--linea);transition:background-color .35s,color .35s,padding .4s var(--ease)}
+.desa b{font:700 clamp(1.2rem,2.4vw,2rem)/1.1 var(--sans);letter-spacing:-.03em}
+.desa span{color:var(--mut)}
+.desa em{font:500 11px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border:1px solid var(--linea);color:var(--mut)}
+.desa li:hover{background:#0c131f;color:#eef2f8;padding-inline:clamp(12px,2vw,24px)}
+.desa li:hover span{color:#a9b5c7}.desa li:hover em{border-color:#5b8def;color:#5b8def}
+@media (max-width:760px){.desa li{grid-template-columns:1fr auto}.desa span{grid-column:1/-1;grid-row:2}}
+/* diagrama VIVO */
+.flujo .nd .c{transform-box:fill-box;transform-origin:center;animation:late 2.6s ease-in-out infinite}
+.flujo .nd:nth-of-type(2) .c{animation-delay:-.9s}.flujo .nd:nth-of-type(3) .c{animation-delay:-1.8s}
+@keyframes late{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.flujo .nd .h{animation:anillo 2.6s ease-out infinite;opacity:.5}
+.flujo .nd:nth-of-type(2) .h{animation-delay:-.9s}.flujo .nd:nth-of-type(3) .h{animation-delay:-1.8s}
+@keyframes anillo{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.6);opacity:0}}
+.flujo .fl{fill:none;stroke:var(--acento);stroke-width:4;opacity:0;transform-box:fill-box;transform-origin:center}
+.flujo .fl.go{animation:destello .75s ease-out}
+@keyframes destello{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.7)}}
+.flujo .cam.v{transition:opacity .3s,stroke-width .3s}
+.flujo .cam.v.on{opacity:1;stroke-width:3.4}
+.flujo .part{filter:drop-shadow(0 0 4px #5b8def)}
+@media (prefers-reduced-motion:reduce){.flujo .nd .c,.flujo .nd .h,.flujo .fl.go{animation:none}}
+.desa .dev{background:#1b3d7a;color:#fff;border-color:#1b3d7a}
+.desa li:hover .dev{background:#5b8def;color:#0c131f;border-color:#5b8def}
+.desa.real li{border-left:3px solid #1b3d7a;padding-left:clamp(12px,2vw,22px)}
+.desa b{display:flex;align-items:center;gap:14px}
+.ml{width:46px;height:auto;flex:none}
+.ml.dk{background:#1f212c}
+.desa li{align-items:center}
+.marca .fono{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;justify-self:end}
+.marca .fono img{width:min(230px,60vw);height:auto;border:4px solid #14161b;background:#fff;box-shadow:0 26px 44px -26px #000a}
+.marca .fono figcaption{font:500 11px/1.3 var(--mono);opacity:.7}
+.marca.real{border-left:3px solid #1b3d7a;padding-left:clamp(14px,2.4vw,28px);border-top:1px solid var(--linea)}
+.dev2{background:#1b3d7a;color:#fff;border-color:#1b3d7a}
+.marca h3.dn{display:flex;align-items:center;gap:14px}
+@media (max-width:760px){.marca .fono{justify-self:start}}
+
+/* MARCAS como acordeón */
+.acc{border-top:1px solid var(--tinta)}
+.acc h3{margin:0}
+.ah{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:64px minmax(0,1fr) auto 28px;gap:6px clamp(12px,2.4vw,28px);align-items:center;padding:clamp(14px,2vw,22px) 0;transition:background-color .3s,padding .35s var(--ease)}
+.ah:hover{background:#e3e9f2;padding-inline:clamp(8px,1.4vw,18px)}
+.ah:focus-visible{outline:2px solid var(--acento);outline-offset:-2px}
+.al{display:grid;place-items:center;width:64px;height:48px}
+.al img{max-width:64px;max-height:48px;width:auto;height:auto}
+.al img.dk{background:#1f212c}
+.an b{display:block;font:700 clamp(1.25rem,2.6vw,2.2rem)/1.1 var(--sans);letter-spacing:-.03em}
+.an small{display:block;margin-top:4px;color:var(--mut);font:400 .95rem/1.4 var(--sans)}
+.ah em{font:500 11px/1 var(--mono);font-style:normal;letter-spacing:.06em;text-transform:uppercase;padding:6px 9px;border:1px solid var(--linea);color:var(--mut);white-space:nowrap}
+.ah em.on{background:var(--tinta);color:var(--papel);border-color:var(--tinta)}
+.ah em.dev{background:#1b3d7a;color:#fff;border-color:#1b3d7a}
+.ax{position:relative;width:18px;height:18px;justify-self:end}
+.ax::before,.ax::after{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--tinta);transition:transform .35s var(--ease)}
+.ax::after{transform:rotate(90deg)}
+.acc.open .ax::after{transform:rotate(0)}
+.acc-p{display:grid;grid-template-rows:1fr}
+.acc-i{overflow:hidden;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(18px,3vw,48px);align-items:start;padding:0 0 0 calc(64px + clamp(12px,2.4vw,28px))}
+.acc-i .ap p{color:var(--mut);max-width:30em}
+.acc-i .ap .visita{margin-top:0}
+.acc-i:has(.concepto){grid-template-columns:1fr}.acc-i .concepto{justify-self:start}
+.acc-i .cap{margin:0;position:relative;aspect-ratio:1.5/1;width:100%;max-width:560px}
+.acc-i .fono{margin:0;display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-self:end}
+.acc-i .fono img{width:min(230px,60vw);height:auto;border:4px solid #14161b;background:#fff;box-shadow:0 26px 44px -26px #000a}
+.acc-i figcaption{font:500 11px/1.3 var(--mono);opacity:.7}
+.concepto{margin:0;background:#0c131f;color:#eef2f8;padding:22px 24px;display:grid;gap:18px;max-width:520px;justify-self:end;width:100%}
+.concepto .mono{margin:0;font:500 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#a9b5c7}
+.cflow{display:flex;align-items:center;gap:12px}
+.cn{border:1px solid #5b8def;padding:12px 16px;font:600 15px/1 var(--sans)}
+.cl{flex:1;border-top:2px dotted #5b8def;animation:cfl 1.4s linear infinite;background:linear-gradient(90deg,#5b8def,#5b8def) 0 -3px/6px 4px no-repeat}
+@keyframes cfl{to{background-position:100% -3px}}
+.concepto figcaption{opacity:.8}
+.js .acc:not(.open) .acc-p{grid-template-rows:0fr;visibility:hidden}
+.js .acc-p{transition:grid-template-rows .5s var(--ease),visibility 0s linear 0s}
+.js .acc:not(.open) .acc-p{transition:grid-template-rows .5s var(--ease),visibility 0s linear .5s}
+@media (max-width:760px){.ah{grid-template-columns:48px minmax(0,1fr) 22px}.ah em{grid-column:2;grid-row:2;justify-self:start}.ax{grid-column:3;grid-row:1}.al{width:48px}.acc-i{grid-template-columns:1fr;padding-left:0}.acc-i .fono,.concepto{justify-self:start}}
+@media (prefers-reduced-motion:reduce){.js .acc-p,.js .acc:not(.open) .acc-p,.ax::before,.ax::after,.cl{transition:none;animation:none}}
+.acc{transition:padding-bottom .5s var(--ease)}
+.acc.open{padding-bottom:clamp(20px,3vw,36px)}
+@media (prefers-reduced-motion:reduce){.acc{transition:none}}
+.marcas{gap:0}
+.marcas .etq2{margin:clamp(28px,5vh,52px) 0 14px}
+.marcas>.etq2:first-child{margin-top:0}
+
+.faq details{border-bottom:1px solid var(--linea)}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:16px;font:700 clamp(1.05rem,1.8vw,1.3rem)/1.25 var(--sans);letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 1.6rem/1 var(--mono);color:var(--acento)}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.faq p{padding:0 0 16px;color:var(--mut);max-width:38em}
+/* zonas táctiles >=48px y contraste en secundarios */
+.cot,.vermas{display:inline-flex;align-items:center;min-height:48px}
+.fpie a{display:inline-flex;align-items:center;min-height:48px}
+@media (max-width:720px){.barra .enl a{display:inline-flex;align-items:center;min-height:48px;padding:0}.barra .wa{min-height:48px;display:inline-flex;align-items:center}}
+.vis figcaption,.acc-i figcaption,.demo .nota{opacity:.85}
+.logo{min-height:48px}
+.ficha2 a{display:inline-flex;align-items:center;min-height:48px}
+.acc-i .apps{margin:0;display:flex;flex-direction:column;gap:10px;align-items:flex-start;justify-self:end;width:100%;max-width:520px}
+.acc-i .apps img{width:100%;height:auto;display:block;box-shadow:0 22px 40px -26px #0006}
+@media (max-width:760px){.acc-i .apps{justify-self:start}}
+.acc-i:not(:has(.ap)){grid-template-columns:1fr}.acc-i:not(:has(.ap)) .apps{justify-self:start}
+/* capturas de BTo Digital dentro del acordeón: proporción real, sin estirar */
+.acc-i .cap{position:relative;width:100%;max-width:560px;aspect-ratio:1.5/1;margin:0}
+.acc-i .cap img{position:absolute;height:auto;max-width:none;border:1px solid #0003;box-shadow:0 26px 44px -26px #000a;background:#fff}
+.acc-i .cap .d{left:0;top:0;width:82%}
+.acc-i .cap .m{right:0;bottom:0;width:22%;border:4px solid #14161b}
+.acc-i .cap figcaption{position:absolute;left:0;bottom:-26px}
+.acc-i .cap{margin-bottom:30px}
+/* logo ancho */
+.acc-wide .ah{grid-template-columns:clamp(130px,17vw,190px) minmax(0,1fr) auto 28px}
+.acc-wide .al{width:100%;height:auto}
+.acc-wide .al img{max-width:100%;max-height:none;width:100%;height:auto}
+.acc-wide .acc-i{padding-left:calc(clamp(130px,17vw,190px) + clamp(12px,2.4vw,28px))}
+@media (max-width:760px){
+ .acc-wide .ah{grid-template-columns:minmax(0,1fr) 22px}
+ .acc-wide .al{grid-column:1/-1;grid-row:1;width:min(190px,58vw);justify-self:start}
+ .acc-wide .an{grid-column:1;grid-row:2}.acc-wide .ax{grid-column:2;grid-row:2}.acc-wide .ah em{grid-column:1;grid-row:3}
+ .acc-wide .acc-i{padding-left:0}
+}
+/* cabecera unificada de todas las fichas: columna de logo fija y mismo alineado */
+.ah{grid-template-columns:120px minmax(0,1fr) auto 28px}
+.al{width:120px;height:48px;display:flex;align-items:center;justify-content:flex-start}
+.al img{max-width:120px;max-height:48px;width:auto;height:auto}
+.mono-tile{width:48px;height:48px;border:1px solid var(--tinta);display:grid;place-items:center;font:600 14px/1 var(--mono);letter-spacing:.04em;color:var(--tinta)}
+.acc-i{padding-left:calc(120px + clamp(12px,2.4vw,28px))}
+@media (max-width:760px){.ah{grid-template-columns:96px minmax(0,1fr) 22px}.al{width:96px}.al img{max-width:96px}.acc-i{padding-left:0}}
+@media (max-width:760px){.ah em{white-space:normal;max-width:100%}}
+.ah-m{grid-template-columns:64px minmax(0,1fr) 28px!important}
+.ah-m .an b{font-size:clamp(1.1rem,2.1vw,1.7rem)}
+.sec-mod{font:800 clamp(1.6rem,3.2vw,2.6rem)/1.1 var(--sans);letter-spacing:-.035em;margin:clamp(40px,7vh,72px) 0 8px}
+.mod-baj{color:var(--mut);max-width:34em}
+.mod-est{display:inline-block;margin:14px 0 18px;font:500 12px/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:8px 11px;border:1px solid var(--tinta)}
+@media (max-width:760px){.ah-m{grid-template-columns:48px minmax(0,1fr) 22px!important}}
+.sirve{margin-top:10px;color:var(--mut);max-width:34em}.sirve b{display:block;font:500 11px/1.6 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento)}
+.acc-i{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.acc-i .ap h4{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento);margin:18px 0 6px}.acc-i .ap h4:first-child{margin-top:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tags li{border:1px solid var(--tinta);padding:5px 9px;font-size:.85rem;line-height:1.3;border-radius:0}
+.adapta{display:grid;gap:5px}.adapta li{padding-left:16px;position:relative;color:var(--mut)}.adapta li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--acento)}
+.acc-i .ap .cot{margin-top:16px}
+.filtro{margin:18px 0 8px;display:none}.js .filtro{display:block}
+.fq{font:500 12px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento);margin-bottom:10px}
+.fch{display:flex;flex-wrap:wrap;gap:8px}.fc{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 14px;display:inline-flex;align-items:center;border:1px solid var(--tinta);font:500 14px/1 var(--sans);color:var(--tinta);transition:background .2s,color .2s}
+.fc:hover{background:var(--acbg)}.fc[aria-pressed="true"]{background:var(--acento);border-color:var(--acento);color:#fff}.fc:focus-visible{outline:2px solid var(--acento);outline-offset:2px}.fc-t{border-style:dashed}
+.fm{margin-top:10px;color:var(--mut);font-size:.92rem;min-height:1.4em}
+.acc.no-match .ah{opacity:.42}.acc.match .ah{box-shadow:inset 4px 0 0 var(--acento)}
+@media (max-width:760px){.acc-i{grid-template-columns:1fr}}
+.ah .medida{font:500 11px/1 var(--mono);font-style:normal;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--acento);color:var(--acento);padding:5px 8px;margin-left:12px;border-radius:0;white-space:nowrap;vertical-align:middle;display:inline-block}
+.ah-m .an b{display:inline}.ah-m .an{display:block}
+.punto{margin-top:clamp(36px,6vh,64px);padding:clamp(36px,6vw,64px) 0}
+.punto h3{font:800 clamp(1.8rem,4.6vw,4rem)/1.05 var(--sans);letter-spacing:-.04em;max-width:16em}
+.pasos3{margin:clamp(22px,4vw,40px) 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,3vw,36px)}
+.pasos3 li{border-top:1px solid var(--acento);padding-top:12px;font:700 clamp(1.05rem,1.8vw,1.35rem)/1.25 var(--sans)}.pasos3 li span{display:block;font:500 12px/1 var(--mono);color:var(--acento);margin-bottom:8px}
+@media (max-width:760px){.pasos3{grid-template-columns:1fr}.ah .medida{margin:8px 0 0}.ah-m .an b{display:block}}
+.ejl{display:grid;gap:2px}.ejl a,.ej a{color:var(--acento);text-decoration:none;border-bottom:1px solid currentColor;display:inline-flex;align-items:center;min-height:44px}.ej a{min-height:0}
+.peq{display:block;margin-top:4px;font-size:.82rem;color:var(--mut)}
+.datos .tags{margin:0}.vis .ecomi{width:100%;height:auto;display:block}
+.ej:has(a){border:0;padding:0;margin-top:14px;font:500 13px/1.6 var(--mono)}
+.acc-i:not(:has(.apps)){grid-template-columns:1fr}.acc-i:not(:has(.apps)) .ap{max-width:46em}
+@media (max-width:720px){.barra .enl{font-size:12px}}
+.acc-i .apps{max-width:360px;justify-self:center}.acc-i .apps img{border:1px solid #0002;box-shadow:0 26px 44px -26px #000a;background:#fff}
+@media (max-width:760px){.acc-i .apps{justify-self:start;max-width:100%}.barra .enl{gap:2px}.barra .enl a{padding:0 2px;font-size:12px}}
+@media (max-width:720px){.barra .enl{overflow-x:auto;scrollbar-width:none;gap:14px;justify-content:flex-start}.barra .enl::-webkit-scrollbar{display:none}.barra .enl a{white-space:nowrap;flex:none;font-size:13px;padding:0}}
+.marca-pl{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(24px,5vw,72px);align-items:center;margin-top:clamp(28px,5vh,56px);padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--tinta)}
+.mp-logo{width:clamp(72px,9vw,96px);height:auto;margin-bottom:18px}
+.marca-pl h3{font:800 clamp(2.2rem,5vw,4.4rem)/1 var(--sans);letter-spacing:-.04em}
+.mp-d{margin-top:16px;color:var(--mut);max-width:30em;font-size:1.08rem}
+.mp-a{display:flex;flex-wrap:wrap;gap:12px 26px;align-items:center;margin-top:26px}
+.mp-v{margin:0;position:relative;padding-bottom:clamp(40px,8vw,90px)}
+.mp-v .mp-d1{width:88%;height:auto;display:block;border:1px solid #0003;box-shadow:0 30px 56px -30px #000a;background:#fff}
+.mp-v .mp-m1{position:absolute;right:0;bottom:clamp(14px,3vw,34px);width:27%;height:auto;border:4px solid #14161b;box-shadow:0 26px 44px -22px #000b;background:#fff}
+.mp-v figcaption{position:absolute;left:0;bottom:0;font:500 11px/1.3 var(--mono);opacity:.8}
+@media (max-width:860px){.marca-pl{grid-template-columns:1fr}.mp-v .mp-d1{width:90%}.mp-v .mp-m1{width:30%}}
+.e3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:start}.e3 div{display:flex;flex-direction:column;gap:8px}.e3 img{width:100%;height:auto;display:block;border:1px solid #0003;box-shadow:0 18px 34px -22px #000a;background:#fff}.e3 span{font:500 11px/1.3 var(--mono);color:var(--mut)}
+.ecom3{background:none;padding:0;min-height:0}.ecom3 figcaption{margin-top:10px}
+@media (max-width:520px){.e3{gap:8px}.e3 span{font-size:10px}}
+.marco-v{border:8px solid #10b981;box-shadow:0 0 0 1px #0a8f63 inset,0 26px 44px -26px #000a;background:#fff;line-height:0}.marco-v img{width:100%;height:auto;display:block;border:0!important;box-shadow:none!important}
+.marco-v{position:relative;width:100%;aspect-ratio:640/1291;overflow:hidden;transition:border-color .3s}
+.marco-v[data-e=amb]{border-color:#e0a82e}.marco-v[data-e=roj]{border-color:#e0523f}
+.marco-v>img.est-ver{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}
+.est-r{position:absolute;inset:0;background:#f7f8fa;line-height:1.3;font-family:Roboto,Inter,system-ui,sans-serif}.est-r[hidden]{display:none}
+.er-h{background:#2f4f93;color:#fff;text-align:center;font-weight:600;font-size:clamp(14px,2.4vw,19px);padding:5% 0 4%}
+.er-b{padding:4% 5%;display:flex;flex-direction:column;gap:2.4%;height:calc(100% - 14%)}
+.er-b>img{width:100%;height:auto;border-radius:6px;display:block}
+.er-n{color:#fff;text-align:center;padding:4%;border-radius:8px;display:flex;flex-direction:column}.er-n small{font-size:clamp(12px,2vw,15px)}.er-n b{font-size:clamp(22px,4vw,32px)}
+.er-r{display:flex;justify-content:space-between;background:#fff;border-radius:8px;padding:3% 4%;box-shadow:0 1px 4px #0002;font-size:clamp(12px,2vw,15px)}.er-r b{font-weight:700}.er-r i{font-style:normal;opacity:.7}
+.er-t{align-self:flex-start;color:#fff;border-radius:999px;padding:1% 4%;font-size:clamp(11px,1.8vw,13px);margin-top:auto}
+.er-btn{background:#1b3d7a;color:#fff;text-align:center;border-radius:8px;padding:3%;font-weight:600;font-size:clamp(13px,2.2vw,16px)}
+.estados{display:none;flex-wrap:wrap;gap:6px;margin-bottom:10px}.js .estados{display:flex}
+.eb{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 12px;display:inline-flex;align-items:center;border:1px solid var(--tinta);font:500 13px/1 var(--sans);transition:background .2s}.eb:hover{background:var(--acbg)}.eb[aria-pressed=true]{background:var(--tinta);color:var(--papel)}.eb:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.acc-i .apps.par{max-width:none;justify-self:stretch}.dos{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.dos div{display:flex;flex-direction:column;gap:8px}.dos img{width:100%;height:auto;display:block;border:1px solid #0003;box-shadow:0 22px 40px -24px #000a;background:#fff}.dos span{font:500 11px/1.3 var(--mono);color:var(--mut)}@media (max-width:760px){.dos{grid-template-columns:1fr 1fr;gap:8px}.dos span{font-size:10px}}
+.vm-sec{font-size:13px;opacity:.85}
+.wa-fijo{display:none}
+@media (max-width:640px){
+ .wa-fijo{display:flex;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;min-height:48px;align-items:center;justify-content:center;background:var(--acento);color:#fff;font:600 15px/1 var(--sans);text-decoration:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+ .wa-fijo:active{background:var(--acento-h)}
+ .fpie{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+ html[data-pantalla="contacto"] .wa-fijo,html[data-pantalla="privacidad"] .wa-fijo,html[data-pantalla="terminos"] .wa-fijo{display:none}
+ html[data-pantalla="contacto"] .fpie,html[data-pantalla="privacidad"] .fpie,html[data-pantalla="terminos"] .fpie{padding-bottom:28px}
+}
+.hechos{display:grid;gap:10px}.hechos li{padding-bottom:10px;border-bottom:1px solid var(--linea);color:var(--mut)}.hechos b{color:var(--tinta);margin-right:6px}.hechos a{color:var(--acento);display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:640px){
+ [data-v="modelos"] .acc-i .apps{order:-1;max-width:260px;justify-self:center;margin:0 auto 6px}
+ [data-v="modelos"] .acc-i .apps.par{max-width:none;margin:0 0 6px}
+ [data-v="modelos"] .dos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+ [data-v="modelos"] .dos>div{flex:0 0 66%;scroll-snap-align:center}
+ [data-v="modelos"] .dos:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+}
+/* tira de modelos (carrusel) */
+.marcas>*{min-width:0}.tira-m{min-height:450px;min-width:0;max-width:100%;position:relative;margin:clamp(22px,4vh,40px) 0 6px;display:none}.js .tira-m{display:block}
+.tm-v{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 12px;scrollbar-width:thin}
+.tm-v:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.tm-i{all:unset;box-sizing:border-box;flex:0 0 clamp(128px,15vw,176px);scroll-snap-align:start;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:opacity .2s}
+.tm-i img{width:100%;height:auto;display:block;border:1px solid #0003;background:#fff;box-shadow:0 14px 26px -18px #000a;transition:transform .25s var(--ease)}
+.tm-i:hover img{transform:translateY(-3px)}
+.tm-i span{font:600 13px/1.3 var(--sans);color:var(--tinta)}
+.tm-i[aria-pressed="true"] img{outline:3px solid var(--acento);outline-offset:2px}
+.tm-i[aria-pressed="true"] span{color:var(--acento)}
+.tm-i:focus-visible{outline:2px solid var(--acento);outline-offset:4px}
+.tm-i.no-match{opacity:.38}
+.tm-f{position:absolute;top:38%;width:44px;height:44px;border:1px solid var(--tinta);background:var(--papel);color:var(--tinta);display:grid;place-items:center;cursor:pointer;z-index:2;font:700 20px/1 var(--sans);padding:0;border-radius:0}
+.tm-f:hover{background:var(--tinta);color:var(--papel)}.tm-f:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.tm-f.prev{left:-6px}.tm-f.next{right:-6px}.tm-f[disabled]{opacity:.35;cursor:default}
+@media (max-width:1199px){.tira-m{min-height:420px}}@media (max-width:899px){.tira-m{min-height:370px}}@media (max-width:640px){.tira-m{min-height:360px}.tm-i{flex-basis:118px}.tm-f{width:40px;height:40px}}
+@media (prefers-reduced-motion:reduce){.tm-v{scroll-behavior:auto}}
+/* panel de detalle de modelos (tira + panel = única navegación con JS) */
+.js .marcas>.acc[data-r]{display:none}
+.pm{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .28s var(--ease),opacity .28s ease,visibility 0s linear .28s;margin:0}
+.pm.open{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .28s var(--ease),opacity .28s ease,visibility 0s}
+.pm-w{overflow:hidden;min-height:0}
+.pm-in{position:relative;border-top:3px solid var(--acento);padding:clamp(18px,3vw,32px) 0 clamp(20px,3vw,36px);outline:none}
+.pm-c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,3.4vw,52px);align-items:start;transition:opacity .14s ease}
+.pm-c.fading{opacity:0}
+.pm-c .apps{margin:0;max-width:460px;justify-self:center;width:100%}
+.pm-c .apps img{width:100%;height:auto;display:block}
+.pm-c .apps.par{max-width:none}
+.pm-c .ap .pm-t{font:800 clamp(1.4rem,2.6vw,2.1rem)/1.15 var(--sans);letter-spacing:-.03em;margin:0 0 14px;padding-right:56px}
+.pm-x{position:absolute;top:10px;right:0;width:44px;height:44px;border:1px solid var(--tinta);background:var(--papel);color:var(--tinta);font:600 20px/1 var(--sans);cursor:pointer;padding:0;border-radius:0}
+.pm-x:hover{background:var(--tinta);color:var(--papel)}.pm-x:focus-visible,.pm-in:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+@media (max-width:760px){.pm-c{grid-template-columns:1fr}.pm-c .apps{max-width:300px;order:-1}.pm-c .apps.par{max-width:none}}
+@media (prefers-reduced-motion:reduce){.pm,.pm.open,.pm-c{transition:none}}
+.pm-c .ap h4{font:500 11px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acento);margin:20px 0 6px}.pm-c .ap .pm-t+h4{margin-top:0}.pm-c .ap p{color:var(--mut);max-width:34em}.pm-c .ap .cot{margin-top:16px}.pm-c .tags{display:flex;flex-wrap:wrap;gap:6px}.pm-c .tags li{border:1px solid var(--tinta);padding:5px 9px;font-size:.85rem;line-height:1.3}.pm-c .adapta{display:grid;gap:5px}.pm-c .adapta li{padding-left:16px;position:relative;color:var(--mut)}.pm-c .adapta li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--acento)}
+.tm-i{align-self:flex-start}
+.tm-i img{aspect-ratio:1/2.05;height:auto;object-fit:cover;object-position:top;width:100%}
+.tm-i span{min-height:3.9em;display:block}
+/* ===== PASO 1 (Impeccable): tipografía, planos, tamaños mínimos. Colores y estructura sin cambio ===== */
+:root{--mono:var(--sans)}
+.cod2,.cod2 pre,.sol .n,.pasos3 li span,.como li span,.flujo .ts,.flujo .sat text,.eb{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace!important}
+.etq2,.fq,.est,.acc-i .ap h4,.pm-c .ap h4,.datos dt,.ficha dt,.ficha2 dt,.vias span,.mod-est,.medida,.fila>h3,.ej,.sello,.nota,.leg,.peq,.tm-i span{letter-spacing:0!important;text-transform:none!important}
+.etq2,.fq,.acc-i .ap h4,.pm-c .ap h4,.datos dt,.ficha dt,.ficha2 dt,.vias span,.fila>h3{font-size:12px!important;font-weight:600!important}
+/* capturas y pantallas planas: sin sombra, borde de 1 px */
+img,.demo>*,.cod,.tel,.pay,.nav2,.marco-v,.cod2,.vis,.tm-i img,.e3 img,.dos img,.mp-v img{box-shadow:none!important}
+.acc-i .apps img,.pm-c .apps img,.tm-i img,.dos img,.e3 img,.mp-v .mp-d1,.nav2,.cap img{border:1px solid var(--linea)!important}
+.acc-i .cap .m,.mp-v .mp-m1{border:1px solid var(--linea)!important}
+.demo .lap,.demo .cod,.demo .pay{border:1px solid var(--linea)!important}
+/* móvil: ningún texto bajo 12 px; diagrama reescalado */
+@media (max-width:640px){
+ figcaption,.dos span,.e3 span,.tm-i span,.nota,.peq,.leg,.ej,.est,.mod-est,.medida,.fm,.er-n small,.er-t,.vias span{font-size:12px!important}
+ .er-r,.er-h,.er-btn{font-size:12px!important}
+ .flujo{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ .flujo svg{min-width:600px;overflow:visible}
+ .flujo .t{font-size:17px}.flujo .ts{font-size:15px;letter-spacing:0}.flujo .sat text{font-size:15px}
+ .flujo .sat .ts{font-size:14px!important}
+}
+@media (max-width:640px){.demo .lap .bar span,.demo .pay span,.demo .pay em,.demo .nota{font-size:12px!important}}
+/* A14: Marketing (BTo Digital) sobre grafito */
+.marca-pl{background:#16191e;color:#fff;border:0;padding:clamp(28px,5vw,64px)}
+.marca-pl h3{color:#fff}.marca-pl .mp-d{color:#c3c8d1}
+.marca-pl .btn{background:#fff!important;color:#16191e!important;border-color:#fff!important}
+.marca-pl .vermas{color:#a9c1ee;border-color:#a9c1ee}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"BTo Digital"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="duo" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values=".33 .33 .33 0 0 .33 .33 .33 0 0 .33 .33 .33 0 0 0 0 0 1 0"/><feComponentTransfer><feFuncR type="table" tableValues="0.047 0.357"/><feFuncG type="table" tableValues="0.075 0.553"/><feFuncB type="table" tableValues="0.122 0.937"/></feComponentTransfer></filter></svg>
+<div class="cortina" aria-hidden="true"></div>
+<header class="barra" data-barra>
+  <a class="logo" href="#inicio" aria-label="BTo Innova soluciones, inicio"><img src="img/logo-vector.svg?v=11b" alt="BTo Innova soluciones" width="158" height="46"></a>
+  <nav class="enl" aria-label="Principal">
+    <a href="#inicio" data-nav="inicio">Inicio</a>
+    <a href="#soluciones" data-nav="soluciones">Software</a>
+    <a href="#modelos" data-nav="modelos">Modelos de app</a>
+    <a href="#marcas" data-nav="marcas">Marketing</a>
+    <a href="#empresa" data-nav="empresa">Empresa</a>
+    <a href="#contacto" data-nav="contacto">Contacto</a>
+  </nav>
+  <a class="wa" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">WhatsApp</a>
+</header>
+
+<main>
+<section class="portada osc" id="inicio" data-v="inicio" aria-labelledby="t-in">
+  <div class="txt">
+    <h1 id="t-in" data-t data-k><span>Tu negocio, ahora también es digital.</span><em>Apps, web, publicidad y <b>e-commerce</b>, con un solo equipo.</em></h1>
+    <p class="sub">Diseñamos apps y sistemas a la medida de negocios chilenos, de principio a fin.</p>
+    <div class="cta"><a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Conversemos por WhatsApp</a><a class="vermas" href="#modelos">o mira los modelos de app ↓</a></div>
+  </div>
+  <div class="demo" id="demo" role="group" aria-label="Capturas reales de la web de BTo Digital, código de esta web y una maqueta de pago en línea">
+    <figure class="lap"><div class="bar"><i></i><i></i><i></i><span>BTo Digital</span></div><img src="img/btodigital-desktop.webp?v=13a" width="1280" height="800" alt="Captura de la página de inicio de BTo Digital en computador"></figure>
+    <figure class="cod"><img src="img/codigo-flujo.webp?v=11b" width="880" height="552" alt="Código de esta misma web"></figure>
+    <figure class="tel"><img src="img/btodigital-movil.webp?v=13a" width="390" height="800" alt="Captura de BTo Digital en el teléfono"></figure>
+    <div class="pay" aria-hidden="true"><span>Pago en línea</span><i class="l1"></i><i class="l2"></i><b><u></u></b><em>Pagar</em><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <svg class="flow" viewBox="0 0 100 85" preserveAspectRatio="none" aria-hidden="true"><path d="M26 78 C26 60 20 52 30 44"/><path d="M62 30 C70 22 70 14 76 8"/><path d="M60 60 C74 62 80 70 86 78"/></svg>
+    <p class="nota">Capturas de BTo Digital · código de esta web · maqueta de pago</p>
+  </div>
+</section>
+
+<section class="gigante osc" data-v="inicio" aria-label="De la idea al negocio funcionando">
+  <p class="gg" data-k>De la idea al</p>
+  <p class="gg" data-k><em>negocio funcionando.</em></p>
+</section>
+<section class="flujo-sec osc" id="flujo-sec" data-v="inicio" aria-label="Cómo se conectan software, marketing y cobro en línea">
+  <div class="flujo" id="flujo">
+    <svg viewBox="0 0 640 520" role="group" aria-label="Diagrama: la app o web, los clientes que llegan por marketing y el cobro en línea">
+      <title>Flujo: software, marketing y cobro en línea</title>
+      <g class="g" style="--d:3">
+        <path id="pAB" class="cam v" d="M110 350 C120 250 210 200 320 200"/>
+        <path id="pBC" class="cam v" d="M320 200 C430 200 520 250 530 350"/>
+        <path class="cam" d="M110 350 C200 450 440 450 530 350"/>
+      </g>
+      <g class="g" id="clientes" style="--d:7" aria-hidden="true"></g>
+      <g class="g" style="--d:12">
+        <g class="nd" tabindex="0" role="button" data-i="0" aria-label="Software: apps y sitios web a medida">
+          <circle class="h" cx="110" cy="350" r="62"/><circle id="fSW" class="fl" cx="110" cy="350" r="46"/><circle class="c" cx="110" cy="350" r="46"/>
+          <path class="ico" d="M98 338l-14 12 14 12M122 338l14 12-14 12M114 334l-8 32"/>
+          <text class="t" x="110" y="424">Software</text><text class="ts" x="110" y="442">APPS Y WEB</text>
+        </g>
+        <g class="nd" tabindex="0" role="button" data-i="1" aria-label="Marketing: publicidad que trae clientes">
+          <circle class="h" cx="320" cy="200" r="62"/><circle id="fMK" class="fl" cx="320" cy="200" r="46"/><circle class="c" cx="320" cy="200" r="46"/>
+          <circle class="ico" cx="320" cy="200" r="5"/><circle class="ico" cx="320" cy="200" r="16"/><circle class="ico" cx="320" cy="200" r="28" opacity=".5"/>
+          <text class="t" x="320" y="274">Marketing</text><text class="ts" x="320" y="292">CLIENTES QUE LLEGAN</text>
+        </g>
+        <g class="nd" tabindex="0" role="button" data-i="2" aria-label="Cobro en línea: tu software cobra un servicio con medios de pago de terceros">
+          <circle class="h" cx="530" cy="350" r="62"/><circle class="c" cx="530" cy="350" r="46"/>
+          <circle id="pago" class="pago" cx="530" cy="350" r="46"/>
+          <rect class="ico" x="508" y="336" width="44" height="30"/><path class="ico" d="M508 346h44M514 358h10"/>
+          <text class="t" x="530" y="424">Cobro en línea</text><text class="ts" x="530" y="442">POR UN SERVICIO</text>
+        </g>
+      </g>
+      <g class="g" id="part" style="--d:18" aria-hidden="true"></g>
+      <g class="g" style="--d:22">
+        <a class="sat" href="../digital/" aria-label="BTo Digital, marketing de BTo Innova">
+          <line class="cam" x1="395" y1="140" x2="350" y2="170"/>
+          <circle class="s" cx="420" cy="122" r="26"/><circle class="dot ok" cx="420" cy="122" r="4"/>
+          <text x="420" y="82" text-anchor="middle">BTo Digital</text><text class="ts" x="420" y="168" style="font-size:14px">MARKETING</text>
+        </a>
+      </g>
+    </svg>
+    <p class="capf" id="cap" aria-live="polite"><b>Pasa el cursor o toca cada nodo.</b></p>
+  </div>
+</section>
+
+<section class="pagina" data-v="soluciones" aria-labelledby="t-so">
+  <h2 id="t-so" data-t data-k>Software, <em>de BTo Innova.</em></h2>
+
+  <article class="sol">
+    <div class="txt">
+      <p class="n">01</p>
+      <h3>Software y apps</h3>
+      <p class="que">Programas hechos para tu negocio, no versiones genéricas.</p>
+      <dl class="datos">
+        <dt>Incluye</dt>
+        <dd><ul class="inc"><li>Apps para celular</li><li>Páginas y sistemas web</li><li>Sistemas internos para ordenar tu trabajo diario</li><li>Plataformas que conectan a clientes y prestadores</li><li>Cobro en línea por un servicio</li></ul></dd>
+        <dt>Para quién</dt>
+        <dd>Negocios que hoy se arreglan con planillas, mensajes sueltos o programas que no calzan con su forma de trabajar.</dd>
+      </dl>
+      <p class="ej">Ejemplo: <a href="#modelos" data-abre="a-2">aplicación de transporte y logística con geolocalización</a></p>
+      <p class="ley2">Los pagos los procesan proveedores autorizados de terceros. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p>
+      <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20app%20o%20un%20sistema%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cotizar una app o sistema →</a>
+    </div>
+    <figure class="vis"><div class="cod2" aria-hidden="true"><i></i><i></i><i></i><pre><span style="--l:0">function reservar(cliente, hora) {</span>
+<span style="--l:1">  if (hora.libre) {</span>
+<span style="--l:2">    agenda.agregar(cliente, hora);</span>
+<span style="--l:3">    avisar(cliente);</span>
+<span style="--l:4">  }</span>
+<span style="--l:5">}</span></pre></div><figcaption>Detalle ilustrativo de código</figcaption></figure>
+  </article>
+
+  <section class="como osc" aria-labelledby="t-como">
+    <h3 id="t-como" data-k>Así trabajamos</h3>
+    <ol>
+      <li><span>01</span><b>Conversamos</b><p>Entendemos tu negocio y qué necesitas.</p></li>
+      <li><span>02</span><b>Diseñamos</b><p>Te mostramos cómo quedaría antes de construir.</p></li>
+      <li><span>03</span><b>Construimos</b><p>Lo armamos y lo probamos contigo.</p></li>
+      <li><span>04</span><b>Operamos contigo</b><p>Lo ponemos en marcha y lo mantenemos al día.</p></li>
+    </ol>
+  </section>
+</section>
+
+<section class="pagina" data-v="marcas" aria-labelledby="t-ma">
+  <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
+  <h2 id="t-ma" data-t data-k><em>Marketing.</em></h2>
+  <p class="intro">La marca que BTo Innova crea y opera.</p>
+  <article class="marca-pl">
+    <div class="mp-t">
+      <h3>BTo Digital</h3>
+      <p class="mp-d">Estrategia de marca y marketing digital en un solo lugar: tu marca, tu página y tu publicidad.</p>
+      <div class="mp-a"><a class="btn" href="../digital/">Entrar a BTo Digital →</a><a class="vermas" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20conversar%20sobre%20marketing%20digital%20y%20una%20p%C3%A1gina%20web%20para%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu proyecto →</a></div>
+    </div>
+    <figure class="mp-v"><img class="mp-d1" src="img/btodigital-desktop.webp?v=13a" width="1280" height="800" alt="Captura de la página de inicio de BTo Digital en computador" loading="lazy"><img class="mp-m1" src="img/btodigital-movil.webp?v=13a" width="390" height="800" alt="Captura de BTo Digital en el teléfono" loading="lazy"></figure>
+  </article>
+</section>
+
+<section class="pagina emp" data-v="empresa" aria-labelledby="t-em">
+  <p class="etq2">Ecosistema BTo · marcas de BTo Innova SpA</p>
+  <h2 id="t-em" data-t data-k>Quiénes <em>somos.</em></h2>
+  <p class="lead">BTo Innova soluciones es la casa donde se diseñan, construyen y operan soluciones tecnológicas, propias y a medida.</p>
+
+  <div class="fila">
+    <h3>Qué hacemos</h3>
+    <div>
+      <ul class="tres">
+        <li><b>Software y apps</b><span>Lo que tu negocio necesita para funcionar mejor por dentro.</span></li>
+        <li><b>Marketing digital</b><span>Lo que hace que te encuentren por fuera.</span></li>
+        <li><b>Cobro en línea</b><span>Lo que permite que tu software cobre un servicio.</span></li>
+      </ul>
+      <a class="cot" href="#soluciones">Ver el software →</a>
+    </div>
+  </div>
+
+  <div class="fila">
+    <h3>Nuestras marcas</h3>
+    <div class="marcas2">
+      <p>BTo Digital es una marca de BTo Innova SpA: la creamos y la operamos nosotros.</p>
+      <svg viewBox="0 0 520 100" role="img" aria-label="BTo Innova SpA crea y opera una marca: BTo Digital"><path class="ln" d="M260 46 V60 H110 V70" style="display:none"/><rect class="nb0" x="170" y="6" width="180" height="46"/><text x="260" y="34" class="tt">BTo Innova SpA</text><path class="ln" d="M260 52 V70"/><rect class="nb1" x="170" y="70" width="180" height="24"/><text x="260" y="87" class="tt w" style="font-size:12px">BTo Digital</text></svg>
+      <p class="det2">BTo Digital es la marca de marketing de BTo Innova.</p>
+    </div>
+  </div>
+
+  <div class="fila osc bleed">
+    <h3>Nuestros principios</h3>
+    <ul class="princ">
+      <li><b>Hablamos claro.</b> Sin jerga ni letra chica.</li>
+      <li><b>Entregamos lo que dijimos.</b> Lo acordado es lo que se construye.</li>
+      <li><b>Tu información es tuya.</b> La usamos solo para tu proyecto.</li>
+      <li><b>Atención directa.</b> Hablas con quienes hacen el trabajo.</li>
+    </ul>
+  </div>
+
+    <div class="fila">
+    <h3>Preguntas frecuentes</h3>
+    <div class="faq">
+      <details><summary>¿Cómo trabajamos contigo?</summary><p>Conversamos, diseñamos, construimos y operamos contigo. Antes de construir te mostramos cómo quedaría.</p></details>
+      <details><summary>¿De quién es el código y el contenido?</summary><p>Depende de cada proyecto y se define por escrito antes de empezar. En proyectos para terceros, lo acordado en el contrato; en nuestras marcas, es de BTo Innova SpA.</p></details>
+      <details><summary>¿Cómo se pagan las compras en una tienda en línea?</summary><p>Con medios de pago de terceros autorizados. BTo Innova desarrolla la plataforma; no procesa pagos ni administra dinero de clientes.</p></details>
+      <details><summary>¿Cómo se cotiza?</summary><p>Nos escribes por WhatsApp o correo, nos cuentas tu negocio y qué necesitas, y te respondemos con una propuesta.</p></details>
+    </div>
+  </div>
+
+    <div class="fila">
+    <h3>Hechos verificables</h3>
+    <ul class="hechos">
+      <li><b>Empresa inscrita.</b> BTo Innova SpA, RUT 78.533.592-9.</li>
+      <li><b>Comuna.</b> Ñuñoa, Chile.</li>
+      <li><b>Una marca propia.</b> BTo Digital es la marca de marketing de BTo Innova: <a href="../digital/">conócela →</a></li>
+      <li><b>Contacto directo.</b> <a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a> o WhatsApp.</li>
+    </ul>
+  </div>
+
+  <div class="fila">
+    <h3>Datos legales y contacto</h3>
+    <dl class="ficha2">
+      <div><dt>Razón social</dt><dd>BTo Innova SpA</dd></div>
+      <div><dt>RUT</dt><dd>78.533.592-9</dd></div>
+      <div><dt>Actividad</dt><dd>Desarrollo de software, marketing digital y e-commerce</dd></div>
+      <div><dt>Comuna</dt><dd>Ñuñoa, Chile</dd></div>
+      <div><dt>Correo</dt><dd><a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="pagina contacto osc" data-v="contacto" aria-labelledby="t-co">
+  <h2 id="t-co" data-t data-k>Cuéntanos qué <em>necesitas.</em></h2>
+  <div class="accion">
+    <a class="btn grande" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n%20para%20mi%20negocio.%20Me%20dedico%20a%3A%20" rel="noopener">Cuéntanos tu proyecto por WhatsApp <span aria-hidden="true">→</span></a>
+    <a class="vermas vm-sec" href="mailto:contacto@btoinnova.cl">o por correo: contacto@btoinnova.cl</a>
+    <p class="ubic">BTo Innova SpA · Ñuñoa, Chile</p>
+  </div>
+</section>
+
+<section class="pagina" data-v="privacidad" aria-labelledby="t-pr">
+  <h2 id="t-pr" data-t data-k>Privacidad<em>.</em></h2>
+  <div class="legal-p">
+    <p>BTo Innova SpA (RUT 78.533.592-9) es la responsable de los datos que nos entregas al escribirnos por WhatsApp o por correo, por ejemplo tu nombre, teléfono, correo y el contenido de tu mensaje.</p>
+    <p>Los usamos solo para responder tu consulta y, si lo pides, para enviarte una propuesta. No los vendemos ni los compartimos con terceros ajenos a esa atención, salvo que la ley lo exija. Los conservamos mientras dure la conversación y, después, hasta 24 meses.</p>
+    <p>WhatsApp es un servicio de un tercero, con sus propias condiciones. Puedes pedir acceso, rectificación, supresión, oposición o portabilidad de tus datos escribiendo a contacto@btoinnova.cl; te responderemos dentro del plazo legal.</p>
+    <p>Este sitio no usa cookies de seguimiento. Última actualización: 11 de noviembre de 2026.</p>
+  </div>
+</section>
+
+<section class="pagina" data-v="terminos" aria-labelledby="t-te">
+  <h2 id="t-te" data-t data-k>Términos de uso<em>.</em></h2>
+  <div class="legal-p">
+    <p>Este sitio informa sobre BTo Innova SpA y sus marcas, y no permite contratar ni comprar.</p>
+    <p>El contenido, el diseño, los textos y las marcas (BTo Innova, BTo Digital) pertenecen a BTo Innova SpA o se usan con licencia; no se pueden copiar ni modificar sin autorización. La información es general y puede cambiar.</p>
+    <p>Los servicios de cada marca se rigen por sus propios términos, que se publican en su sitio o aplicación. Se aplica la ley chilena. Los consumidores conservan los derechos que les reconoce la Ley N° 19.496.</p>
+  </div>
+</section>
+<section class="pagina" data-v="modelos" aria-labelledby="t-mo">
+  <h2 id="t-mo" data-t data-k>Modelos de app <em>para tu negocio.</em></h2>
+  <p class="intro">Diseños de aplicaciones que ajustamos a la medida de tu negocio, tu marca y tu rubro.</p>
+  <div class="marcas" id="modelos">
+    <div class="tira-m" id="tira"></div>
+    <div class="filtro" id="filtro" role="group" aria-label="¿Cuál es tu negocio?"><p class="fq">¿Cuál es tu negocio?</p><div class="fch"><button type="button" class="fc" data-r="clinica" aria-pressed="false">Clínica o consulta</button><button type="button" class="fc" data-r="peluqueria" aria-pressed="false">Barbería o peluquería</button><button type="button" class="fc" data-r="almacen" aria-pressed="false">Almacén o minimarket</button><button type="button" class="fc" data-r="restaurante" aria-pressed="false">Restaurante o cafetería</button><button type="button" class="fc" data-r="flota" aria-pressed="false">Flota o transportista</button><button type="button" class="fc" data-r="reparto" aria-pressed="false">Bodega o reparto</button><button type="button" class="fc" data-r="conductor" aria-pressed="false">Conductor de aplicaciones</button><button type="button" class="fc" data-r="barrio" aria-pressed="false">Comercio de barrio</button><button type="button" class="fc" data-r="estacion" aria-pressed="false">Estación de servicio</button><button type="button" class="fc fc-t" data-r="" aria-pressed="false">Ver todas</button></div><p class="fm" id="fm" aria-live="polite"></p></div>
+    <article class="acc" id="a-2" data-r="flota reparto">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-2" id="b-2">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.6-6-11a6 6 0 0 1 12 0c0 5.4-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg></span></span><span class="an"><b>Aplicación de transporte y logística con geolocalización</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-2" role="region" aria-labelledby="b-2"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Seguimiento en el mapa de cargas, distribuciones, rutas y flotas, con vehículo, origen y destino en tiempo real.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Flotas de vehículos</li><li>Transportistas</li><li>Distribución de cargas</li><li>Reparto de última milla</li><li>Bodegas y centros de distribución</li><li>Empresas con reparto</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus rutas, vehículos y puntos de carga y entrega.</li><li>Los reportes y avisos que necesitas ver.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes vehículos o repartos y quieres ver en un mapa dónde va cada carga.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20transporte%20y%20log%C3%ADstica%20con%20geolocalizaci%C3%B3n.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/logistica-v4.webp?v=11f" width="720" height="1388" alt="Diseño de ejemplo: app de logística en un teléfono, con mapa, ruta, camión, punto de carga y punto de entrega" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-3" data-r="clinica peluqueria barberia">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-3" id="b-3">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="1"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span></span><span class="an"><b>Aplicación de agenda para consultas, barbería y peluquería, salud y atención comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-3" role="region" aria-labelledby="b-3"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Tus clientes eligen servicio, día y hora desde el celular, y tú ves la agenda del día. Puede sumar una tienda en línea.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Clínicas médicas y dentales</li><li>Consultas de salud y terapias</li><li>Barberías y peluquerías</li><li>Centros de estética</li><li>Cualquier negocio de atención personalizada con hora previa</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus servicios, profesionales y horarios.</li><li>Tus medios de pago de terceros, para reservas o tienda.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes un local y quieres que tus clientes pidan hora sin llamar.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20agenda%20de%20horas.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps par"><div class="dos" tabindex="0" role="region" aria-label="Ejemplos de pantallas; desliza para ver más"><div><img src="img/agenda-v6.webp?v=11l" width="640" height="1354" alt="Diseño de ejemplo: app de barbería y peluquería para pedir turno, con servicios, día y hora" loading="lazy"><span>Barbería y peluquería</span></div><div><img src="img/agenda-consulta-v8.webp?v=11l" width="640" height="1390" alt="Diseño de ejemplo: app de consulta de atención de salud para reservar hora, con profesionales, día y hora" loading="lazy"><span>Consulta de atención</span></div></div><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-4" data-r="restaurante almacen barrio reparto">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-4" id="b-4">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></svg></span></span><span class="an"><b>Aplicación de delivery con tienda en línea</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-4" role="region" aria-labelledby="b-4"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Catálogo de productos, carrito y despacho a domicilio, con pago en línea con medios de pago de terceros.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Restaurantes y cafeterías</li><li>Almacenes de barrio</li><li>Minimarkets y abarrotes</li><li>Librerías</li><li>Productos de limpieza</li><li>Farmacias de barrio</li><li>Ferreterías</li><li>Panaderías</li><li>Cualquier comercio con productos entregables a domicilio</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu catálogo de productos y tus zonas de despacho.</li><li>Tus medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Vendes productos en tu local y quieres que tus clientes los pidan desde el celular y los reciban en su casa.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20delivery%20con%20tienda%20en%20l%C3%ADnea.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/delivery-v4.webp?v=11f" width="640" height="1359" alt="Diseño de ejemplo: app de delivery en un teléfono, con catálogo de productos y carrito" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>    <article class="acc" id="a-10" data-r="almacen barrio">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-10" id="b-10">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8"/></svg></span></span><span class="an"><b>Aplicación de inventario y comercio</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-10" role="region" aria-labelledby="b-10"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Controla el stock de tu local, tu catálogo y tus ventas desde el celular o el computador.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Almacenes de barrio</li><li>Abarrotes</li><li>Minimarkets</li><li>Librerías</li><li>Ferreterías</li><li>Productos de limpieza</li><li>Panaderías</li><li>Farmacias de barrio</li><li>Comercios con productos en estantería</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu catálogo y tus categorías.</li><li>Tus proveedores y alertas de bajo stock.</li><li>Conexión con tu tienda en línea y medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Llevas el inventario en cuaderno o planilla y quieres saber qué tienes, qué se acabó y qué vender.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20inventario%20y%20comercio.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/inventario-v7.webp?v=11k" width="640" height="1318" alt="Diseño de ejemplo: app de inventario con fotos de productos, resumen de stock bajo y lista con cantidades y precios" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-5" data-r="barrio flota">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-5" id="b-5">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15l2-5a2 2 0 0 1 2-1.4h10A2 2 0 0 1 19 10l2 5v3h-3M3 15v3h3M3 15h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></span></span><span class="an"><b>Catálogo interactivo</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-5" role="region" aria-labelledby="b-5"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Un catálogo donde se desliza para elegir y se conectan la oferta y la demanda (match), con reserva y pago en línea con medios de pago de terceros.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Negocios con oferta de autos</li><li>Otros bienes que se eligen por catálogo</li><li>Servicios que se eligen por catálogo</li><li>Comunidades de oferta y demanda</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tu catálogo y tus reglas de publicación y reserva.</li><li>Tus medios de pago de terceros.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes una oferta que se elige mirando un catálogo y quieres que tus clientes deslicen, elijan y se conecten contigo.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20cat%C3%A1logo%20interactivo.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/catalogo-interactivo-v5.webp?v=11g" width="640" height="1330" alt="Diseño de ejemplo: catálogo interactivo donde se desliza para elegir, con tarjeta de auto y botones Pasar y Me interesa" loading="lazy"><figcaption>Diseño de ejemplo · datos ficticios</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-6" data-r="estacion barrio">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-6" id="b-6">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span></span><span class="an"><b>Aplicación de geolocalización comercial</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-6" role="region" aria-labelledby="b-6"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Mapa con comercios y servicios cercanos: precios, filtros, ruta y "Cómo llegar".</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Estaciones de servicio</li><li>Farmacias</li><li>Comercios de barrio</li><li>Servicios</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus comercios o servicios, con sus precios y filtros.</li><li>Tu mapa y tus puntos de interés.</li></ul>
+        <h4>Ideal si…</h4><p>Tienes comercios o servicios repartidos en una zona y quieres que se encuentren en un mapa, con precio y ruta para llegar.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20geolocalizaci%C3%B3n%20comercial.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/geolocalizacion-v6.webp?v=11i" width="640" height="1483" alt="Diseño de ejemplo: app con mapa de estaciones de servicio cercanas, precios por pin, ruta y botón Cómo llegar" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-7" data-r="flota conductor">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-7" id="b-7">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M5 8h14M5 8l-3 7a3 3 0 0 0 6 0L5 8zM19 8l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></span></span><span class="an"><b>Aplicación de conciliación de peajes y TAG</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-7" role="region" aria-labelledby="b-7"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Cruza los cobros de peajes con los viajes realizados.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas y empresas de transporte</li><li>Servicios de traslado</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus reglas de revisión y tus reportes.</li><li>Tus fuentes de datos de peajes y viajes.</li></ul>
+        <h4>Ideal si…</h4><p>Revisas los peajes a mano y quieres compararlos con tus viajes.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20conciliaci%C3%B3n%20de%20peajes%20y%20TAG.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps"><img src="img/conciliacion-v4.webp?v=11f" width="640" height="1406" alt="Diseño de ejemplo: app de conciliación de peajes y TAG en un teléfono" loading="lazy"><figcaption>Diseño de ejemplo</figcaption></figure></div></div>
+    </article>
+    <article class="acc" id="a-9" data-r="conductor flota">
+      <h3><button type="button" class="ah ah-m" aria-expanded="false" aria-controls="p-9" id="b-9">
+        <span class="al"><span class="mono-tile" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span></span><span class="an"><b>Aplicación de control de rentabilidad de viajes</b><em class="medida">A medida</em></span><i class="ax" aria-hidden="true"></i>
+      </button></h3>
+      <div class="acc-p" id="p-9" role="region" aria-labelledby="b-9"><div class="acc-i"><div class="ap">
+        <h4>Qué hace</h4><p>Lectura de pantalla en vivo con análisis de rentabilidad: mientras el viaje ocurre, muestra cuánto rinde realmente descontando costos. Después sirve de auditoría, y no solo registra peajes: cruza cobros, costos e ingresos.</p>
+        <h4>Sirve para</h4><ul class="tags"><li>Conductores de aplicaciones de transporte</li><li>Flotas pequeñas</li><li>Servicios de traslado</li></ul>
+        <h4>A la medida de tu negocio</h4><ul class="adapta"><li>Tu marca: nombre, colores y logo propios.</li><li>Tus costos y los datos de tus viajes.</li><li>Los reportes que necesitas ver.</li></ul>
+        <h4>Ideal si…</h4><p>Quieres saber cuánto te queda de cada viaje.</p>
+        <a class="cot" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Me%20interesa%20adaptar%20un%20modelo%20de%20app%3A%20control%20de%20rentabilidad%20de%20viajes.%20Mi%20negocio%20es%3A%20" rel="noopener">Conversemos tu versión →</a></div>
+        <figure class="apps auditoria"><div class="estados" role="group" aria-label="Estado del viaje"><button type="button" class="eb" data-e="ver" aria-pressed="true">Viaje rentable</button><button type="button" class="eb" data-e="amb" aria-pressed="false">Viaje justo</button><button type="button" class="eb" data-e="roj" aria-pressed="false">Viaje no rentable</button></div><div class="marco-v" id="marcoV" data-e="ver" role="img" aria-label="Diseño de ejemplo: app de rentabilidad del viaje con ruta, ganancia neta, ingreso y costos. El color del marco alrededor de la pantalla indica el resultado: verde, viaje rentable"><img class="est-ver" src="img/auditoria-viajes-v5.webp?v=11h" width="640" height="1291" alt="" loading="lazy"><div class="est-r est-amb" data-e="amb" hidden><div class="er-h">Rentabilidad del viaje</div><div class="er-b"><img src="img/mapa-ruta-v5.webp?v=11h" width="560" height="224" alt="" loading="lazy"><div class="er-n" style="background:#d49a1c"><small>Ganancia neta</small><b>$3.300</b></div><div class="er-r"><span>Ingreso</span><b>$14.000 <i>↗</i></b></div><div class="er-r"><span>Combustible</span><b>$5.200 <i>↗</i></b></div><div class="er-r"><span>Peajes</span><b>$3.200 <i>↘</i></b></div><div class="er-r"><span>Comisión</span><b>$2.300 <i>↘</i></b></div><span class="er-t" style="background:#d49a1c">Viaje justo</span><div class="er-btn">Ver auditoría</div></div></div><div class="est-r est-roj" data-e="roj" hidden><div class="er-h">Rentabilidad del viaje</div><div class="er-b"><img src="img/mapa-ruta-v5.webp?v=11h" width="560" height="224" alt="" loading="lazy"><div class="er-n" style="background:#c24a3a"><small>Ganancia neta</small><b>−$1.900</b></div><div class="er-r"><span>Ingreso</span><b>$9.000 <i>↗</i></b></div><div class="er-r"><span>Combustible</span><b>$5.800 <i>↗</i></b></div><div class="er-r"><span>Peajes</span><b>$3.200 <i>↘</i></b></div><div class="er-r"><span>Comisión</span><b>$1.900 <i>↘</i></b></div><span class="er-t" style="background:#c24a3a">Viaje no rentable</span><div class="er-btn">Ver auditoría</div></div></div></div><figcaption id="capV">Diseño de ejemplo · Marco verde: viaje rentable</figcaption></figure></div></div>
+    </article>
+    <aside class="punto osc bleed" aria-labelledby="t-punto">
+      <h3 id="t-punto">Ningún modelo es el final: es el punto de partida.</h3>
+      <ol class="pasos3"><li><span>01</span>Conversamos tu negocio</li><li><span>02</span>Ajustamos el diseño a tu medida</li><li><span>03</span>La construimos y la operamos contigo</li></ol>
+      <a class="btn" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20ajustar%20una%20modelo%20de%20app%20a%20mi%20negocio.%20Mi%20negocio%20es%3A%20" rel="noopener">Cuéntanos tu negocio</a>
+    </aside>
+  </div>
+</section>
+
+</main>
+<footer class="fpie"><div class="fin"><p class="leg"><span class="ley">BTo Innova SpA · RUT 78.533.592-9 · Desarrollo de software, marketing digital y e-commerce · </span><span class="loc">Ñuñoa, Chile</span><span class="mail"><a href="mailto:contacto@btoinnova.cl">contacto@btoinnova.cl</a></span></p><p class="leg lnk"><a href="#privacidad">Privacidad</a> · <a href="#terminos">Términos de uso</a></p></div></footer>
+<script src="pantallas.js?v=11b"></script>
+<script>
+(function(){var d=document.getElementById('demo'),h=document.getElementById('inicio')||d.parentNode;if(!d||!h||matchMedia('(prefers-reduced-motion:reduce)').matches||!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+var pend=false,e0;h.addEventListener('pointermove',function(e){e0=e;if(!pend){pend=true;requestAnimationFrame(function(){pend=false;var r=h.getBoundingClientRect();d.style.setProperty('--mx',((e0.clientX-r.left)/r.width-.5)*2);d.style.setProperty('--my',((e0.clientY-r.top)/r.height-.5)*2)})}},{passive:true});
+h.addEventListener('pointerleave',function(){d.style.setProperty('--mx',0);d.style.setProperty('--my',0)})})();
+</script>
+<script>
+(function(){var flujo=document.getElementById('flujo');if(!flujo)return;var NS='http://www.w3.org/2000/svg',svg=flujo.querySelector('svg'),cap=document.getElementById('cap');
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches,movil=false;
+var textos=['<b class="m">Software.</b> Apps y sitios web a medida. Aquí nace lo que luego se vende.','<b class="m">Marketing.</b> Publicidad que trae clientes a la app o a la web. Lo lleva BTo Marketing Digital.','<b class="m">Cobro en línea.</b> Tu software cobra un servicio, con medios de pago de terceros.'];
+var defecto=cap.innerHTML,nodos=[].slice.call(flujo.querySelectorAll('.nd')),vel=1;
+function foco(i){pAB.classList.toggle('on',i===0||i===1);pBC.classList.toggle('on',i===1||i===2);nodos.forEach(function(n,k){n.classList.toggle('on',k===i)});cap.innerHTML=i>=0?textos[i]:defecto;vel=i>=0?3:1}
+nodos.forEach(function(n,i){n.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')foco(i)});n.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')foco(-1)});n.addEventListener('focus',function(){foco(i)});n.addEventListener('blur',function(){foco(-1)});n.addEventListener('click',function(){foco(i)});n.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();foco(i)}})});
+var pAB=document.getElementById('pAB'),pBC=document.getElementById('pBC'),lAB=pAB.getTotalLength(),lBC=pBC.getTotalLength(),L=lAB+lBC;
+function en(t){var d=t*L;return d<=lAB?pAB.getPointAtLength(d):pBC.getPointAtLength(d-lAB)}
+var gp=document.getElementById('part'),N=14,ps=[];
+for(var i=0;i<N;i++){var c=document.createElementNS(NS,'circle');c.setAttribute('class','part');c.setAttribute('r',i%3?3:4.5);gp.appendChild(c);ps.push({el:c,t:i/N,hecho:false})}
+var gc=document.getElementById('clientes'),cl=[];
+for(var j=0;j<7;j++){var q=document.createElementNS(NS,'circle');q.setAttribute('class','cli');q.setAttribute('r',3.5);gc.appendChild(q);cl.push({el:q,u:j/7,a:(j*53)%360})}
+var pago=document.getElementById('pago'),fSW=document.getElementById('fSW'),fMK=document.getElementById('fMK');function dest(e){e.classList.remove('go');void e.getBoundingClientRect();e.classList.add('go')}
+function ponCli(c,op){var ang=(c.a-20)*Math.PI/180,rad=210*(1-c.u)+50;c.el.setAttribute('cx',320+Math.cos(ang)*rad);c.el.setAttribute('cy',200+Math.sin(ang)*rad*.55-10);c.el.setAttribute('opacity',op)}
+function pinta(dt){ps.forEach(function(p){var tp=p.t;p.t+=dt*.00013*vel;if(p.t>=1){p.t-=1;p.hecho=false;dest(fSW)}if(tp<lAB/L&&p.t>=lAB/L)dest(fMK);var pt=en(p.t);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y);p.el.setAttribute('opacity',Math.min(1,p.t*8,(1-p.t)*8));if(p.t>.96&&!p.hecho){p.hecho=true;pago.classList.remove('go');void pago.getBoundingClientRect();pago.classList.add('go')}});cl.forEach(function(c){c.u+=dt*.00022*vel;if(c.u>=1)c.u-=1;ponCli(c,Math.min(1,c.u*5,(1-c.u)*3)*.8)})}
+function estatico(){ps.forEach(function(p,i){var pt=en((i+.5)/N);p.el.setAttribute('cx',pt.x);p.el.setAttribute('cy',pt.y)});cl.forEach(function(c){ponCli(c,.5)})}
+var visible=true,raf=0,last=0;
+function loop(ts){raf=0;if(!visible||document.hidden){last=0;return}var dt=last?Math.min(48,ts-last):16;last=ts;pinta(dt);raf=requestAnimationFrame(loop)}
+function arranca(){if(!raf&&!reduce&&!movil){last=0;raf=requestAnimationFrame(loop)}}
+if(reduce||movil){estatico()}else{if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)arranca()}).observe(flujo)}document.addEventListener('visibilitychange',function(){if(!document.hidden)arranca()});arranca()}
+var host=document.getElementById('flujo-sec'),pend=false,px=0,py=0;
+if(fino&&!reduce){host.addEventListener('pointermove',function(e){var rc=host.getBoundingClientRect();px=e.clientX-rc.left;py=e.clientY-rc.top;if(!pend){pend=true;requestAnimationFrame(function(){pend=false;svg.style.setProperty('--mx',((px/rc.width)-.5)*2);svg.style.setProperty('--my',((py/rc.height)-.5)*2)})}},{passive:true});host.addEventListener('pointerleave',function(){svg.style.setProperty('--mx',0);svg.style.setProperty('--my',0)})}
+})();
+</script>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fino=matchMedia('(hover:hover) and (pointer:fine)').matches;
+/* kinetic: separa en palabras, conserva <em> */
+function parte(el){if(el.__k)return;el.__k=1;var n=0;
+ (function rec(nodo){[].slice.call(nodo.childNodes).forEach(function(c){
+  if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(' '));return}
+   var w=document.createElement('span');w.className='k';var i=document.createElement('i');i.textContent=t;i.style.setProperty('--w',n++);w.appendChild(i);f.appendChild(w)});c.parentNode.replaceChild(f,c)}
+  else if(c.nodeType===1&&c.tagName!=='SVG'&&c.tagName!=='EM')rec(c)})})(el)}
+var els=[].slice.call(document.querySelectorAll('[data-k]'));
+els.forEach(parte);
+var io='IntersectionObserver' in window&&!reduce?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('k-on');setTimeout(function(){e.target.classList.add('k-done')},1400);io.unobserve(e.target)}})},{threshold:.25}):null;
+function arma(){els.forEach(function(e){e.classList.remove('k-on','k-done');if(io){io.observe(e)}else{e.classList.add('k-on','k-done')}});
+ [].slice.call(document.querySelectorAll('.como')).forEach(function(c){c.classList.remove('k-on');[].slice.call(c.querySelectorAll('li')).forEach(function(l,i){l.style.setProperty('--i',i)});if(io)io.observe(c);else c.classList.add('k-on')})}
+document.addEventListener('pantalla',function(){if(io){els.forEach(function(e){io.unobserve(e)})}setTimeout(arma,30)});
+arma();
+if(!reduce&&fino){
+ /* spotlight en secciones oscuras */
+ [].slice.call(document.querySelectorAll('.osc')).forEach(function(o){var pend=false,ev;o.addEventListener('pointermove',function(e){ev=e;if(!pend){pend=true;requestAnimationFrame(function(){pend=false;var r=o.getBoundingClientRect();o.style.setProperty('--cx',(ev.clientX-r.left)+'px');o.style.setProperty('--cy',(ev.clientY-r.top)+'px')})}},{passive:true})});
+ /* botones magnéticos */
+ [].slice.call(document.querySelectorAll('.btn,.barra .wa')).forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left)/r.width-.5)*10+'px,'+((e.clientY-r.top)/r.height-.5)*8+'px)'});b.addEventListener('pointerleave',function(){b.style.transform=''})})
+}
+})();
+</script>
+<script>
+(function(){var as=[].slice.call(document.querySelectorAll('.acc'));if(!as.length)return;
+function abre(a,si){as.forEach(function(x){var on=x===a?si:(x.hasAttribute('data-r')&&a.hasAttribute('data-r')?x.classList.contains('open'):false);x.classList.toggle('open',on);x.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')})}
+as.forEach(function(a,i){var b=a.querySelector('.ah');
+b.addEventListener('click',function(){abre(a,!a.classList.contains('open'))});
+b.addEventListener('keydown',function(e){var t=null;if(e.key==='ArrowDown')t=as[(i+1)%as.length];if(e.key==='ArrowUp')t=as[(i+as.length-1)%as.length];if(t){e.preventDefault();t.querySelector('.ah').focus()}})})})();
+</script>
+<script>
+(function(){var f=document.getElementById('filtro');if(!f)return;var as=[].slice.call(document.querySelectorAll('.acc[data-r]')),cs=[].slice.call(f.querySelectorAll('.fc')),fm=document.getElementById('fm');
+function abre(a,on){a.classList.toggle('open',on);a.querySelector('.ah').setAttribute('aria-expanded',on?'true':'false')}
+cs.forEach(function(c){c.addEventListener('click',function(){var k=c.getAttribute('data-r'),act=c.getAttribute('aria-pressed')==='true';
+cs.forEach(function(x){x.setAttribute('aria-pressed','false')});
+if(!k||act){as.forEach(function(a){a.classList.remove('match','no-match');abre(a,false)});fm.textContent='';return}
+c.setAttribute('aria-pressed','true');var n=0;
+as.forEach(function(a){var ok=(' '+a.getAttribute('data-r')+' ').indexOf(' '+k+' ')>-1;a.classList.toggle('match',ok);a.classList.toggle('no-match',!ok);abre(a,ok);if(ok)n++});
+fm.textContent=n+(n===1?' modelo sirve':' modelos sirven')+' para "'+c.textContent+'".';
+var first=document.querySelector('.acc.match');if(first&&first.scrollIntoView&&!matchMedia('(prefers-reduced-motion:reduce)').matches)first.scrollIntoView({behavior:'smooth',block:'nearest'})})})})();
+</script>
+<script>
+(function(){var pend=null;
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-abre]');if(a)pend=a.getAttribute('data-abre')},true);
+document.addEventListener('pantalla',function(ev){if(!pend||ev.detail!=='modelos')return;var id=pend;pend=null;setTimeout(function(){if(window.abrirModelo)window.abrirModelo(id)},120)})})();
+</script>
+<script>
+(function(){var f=document.querySelector('.auditoria');if(!f)return;var m=document.getElementById('marcoV'),c=document.getElementById('capV'),bs=[].slice.call(f.querySelectorAll('.eb'));
+var T={ver:['Marco verde: viaje rentable','verde, viaje rentable'],amb:['Marco ámbar: viaje justo','ámbar, viaje justo'],roj:['Marco rojo: viaje no rentable','rojo, viaje no rentable']};
+bs.forEach(function(b){b.addEventListener('click',function(){var e=b.getAttribute('data-e');bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});m.setAttribute('data-e',e);
+m.querySelector('.est-ver').style.visibility=e==='ver'?'visible':'hidden';[].slice.call(m.querySelectorAll('.est-r')).forEach(function(x){x.hidden=x.getAttribute('data-e')!==e});
+c.textContent='Diseño de ejemplo · '+T[e][0];m.setAttribute('aria-label','Diseño de ejemplo: app de rentabilidad del viaje con ruta, ganancia neta, ingreso y costos. El color del marco indica el resultado: '+T[e][1])})})})();
+</script>
+<a class="wa-fijo" href="https://wa.me/56923971471?text=Hola%20BTo%20Innova.%20Quiero%20cotizar%20una%20soluci%C3%B3n.%20Me%20dedico%20a%3A%20" rel="noopener" aria-label="Cotizar por WhatsApp">Cotizar por WhatsApp</a>
+<script>
+(function(){var m=document.getElementById('modelos');if(!m)return;var fil=document.getElementById('filtro'),t=document.getElementById('tira');if(!t)return;
+var accs=[].slice.call(m.querySelectorAll('.acc[data-r]'));if(!accs.length)return;
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches,cur=null;
+t.innerHTML='<button type="button" class="tm-f prev" aria-label="Modelo anterior">&#8592;</button><div class="tm-v" tabindex="0" role="region" aria-label="Modelos de app"></div><button type="button" class="tm-f next" aria-label="Modelo siguiente">&#8594;</button>';
+var v=t.querySelector('.tm-v'),pv=t.querySelector('.prev'),nx=t.querySelector('.next');
+var pm=document.createElement('div');pm.className='pm';pm.id='panelM';pm.innerHTML='<div class="pm-w"><div class="pm-in" id="pmIn" tabindex="-1" role="region" aria-label="Detalle del modelo"><button type="button" class="pm-x" aria-label="Cerrar detalle">&#10005;</button><div class="pm-c" id="pmC"></div></div></div>';
+t.parentNode.insertBefore(pm,t.nextSibling);
+var pin=pm.querySelector('#pmIn'),pc=pm.querySelector('#pmC'),px=pm.querySelector('.pm-x');
+function ttl(a){var s=(a.querySelector('.an b')||{textContent:''}).textContent.replace(/^(Aplicación|Plataforma) de /,'');return s.charAt(0).toUpperCase()+s.slice(1)}
+accs.forEach(function(a){var im=a.querySelector('.acc-i img');if(!im)return;var tit=ttl(a);
+var b=document.createElement('button');b.type='button';b.className='tm-i';b.setAttribute('data-id',a.id);b.setAttribute('aria-pressed','false');b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','panelM');b.setAttribute('aria-label','Ver el modelo: '+tit);
+var i=document.createElement('img');i.src=im.getAttribute('src');i.width=im.getAttribute('width');i.height=im.getAttribute('height');i.alt='';i.loading='lazy';var s=document.createElement('span');s.textContent=tit;b.appendChild(i);b.appendChild(s);v.appendChild(b);
+b.addEventListener('click',function(){abrir(a.id,true)})});
+function rellena(a){pc.innerHTML='';var ap=a.querySelector('.acc-i .ap').cloneNode(true);var h=document.createElement('h3');h.className='pm-t';h.textContent=ttl(a);ap.insertBefore(h,ap.firstChild);
+var fg=a.querySelector('.acc-i .apps');var f=fg?fg.cloneNode(true):null;if(f)pc.appendChild(f);pc.appendChild(ap)}
+function marca(){[].slice.call(v.children).forEach(function(b){var on=b.getAttribute('data-id')===cur;b.setAttribute('aria-pressed',on?'true':'false');b.setAttribute('aria-expanded',on?'true':'false')})}
+function abrir(id,foco){var a=document.getElementById(id);if(!a)return;
+if(cur&&cur!==id&&pm.classList.contains('open')&&!red){cur=id;pc.classList.add('fading');setTimeout(function(){rellena(a);pc.classList.remove('fading')},140)}
+else{cur=id;rellena(a);pm.classList.add('open')}
+marca();if(foco)pin.focus({preventScroll:true})}
+function cerrar(){var c=cur;cur=null;pm.classList.remove('open');marca();var b=c&&v.querySelector('[data-id="'+c+'"]');if(b)b.focus({preventScroll:true})}
+px.addEventListener('click',cerrar);
+pm.addEventListener('keydown',function(e){if(e.key==='Escape'){e.preventDefault();cerrar()}});
+window.abrirModelo=function(id){abrir(id,true)};
+function sync(){[].slice.call(v.children).forEach(function(b){var a=document.getElementById(b.getAttribute('data-id'));b.classList.toggle('no-match',a.classList.contains('no-match'))});upd()}
+function upd(){pv.disabled=v.scrollLeft<=2;nx.disabled=v.scrollLeft+v.clientWidth>=v.scrollWidth-2}
+function paso(d){v.scrollBy({left:d*(v.clientWidth*.8),behavior:red?'auto':'smooth'})}
+pv.addEventListener('click',function(){paso(-1)});nx.addEventListener('click',function(){paso(1)});
+v.addEventListener('scroll',upd,{passive:true});
+v.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();paso(1)}if(e.key==='ArrowLeft'){e.preventDefault();paso(-1)}});
+if(fil)fil.addEventListener('click',function(){setTimeout(function(){sync();var first=accs.filter(function(a){return a.classList.contains('match')})[0];if(first&&!cur){}},60)});
+sync();addEventListener('resize',upd);
+})();
+</script>
+</body>
+</html>
