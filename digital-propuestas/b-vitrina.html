@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BTo Digital · Propuesta B Vitrina</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Figtree:wght@400;600&family=Fragment+Mono&display=swap">
+<style>
+:root{--carbono:#16191e;--grafito:#1f2329;--electrico:#1b3d7a;--marino:#1b3d7a;--luz:#a9c1ee;--gris:#edf1f6;--blanco:#fff;--linea:#cbd5e3;
+--disp:"Familjen Grotesk","Segoe UI",system-ui,sans-serif;--cuerpo:"Figtree",system-ui,sans-serif;--mono:"Fragment Mono",ui-monospace,Consolas,monospace;--m:clamp(20px,6vw,96px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--gris);color:var(--grafito);font:400 clamp(1rem,1.1vw,1.1rem)/1.6 var(--cuerpo)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--electrico);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px var(--m);background:var(--carbono);border-bottom:1px solid #343a43}
+.marca{font:700 1.3rem/1 var(--disp);text-decoration:none;color:var(--blanco)}
+nav{display:flex;gap:24px;font:400 13px/1 var(--mono);color:var(--gris)}nav a{text-decoration:none}nav a:hover{color:var(--luz)}
+@media(max-width:640px){nav a:not(:last-child){display:none}}
+.hero{background:var(--carbono);color:var(--gris);padding:clamp(36px,6vw,80px) var(--m);display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center}
+.t{grid-column:1/8}
+h1{margin:0;font:700 clamp(2.4rem,6.4vw,6rem)/.98 var(--disp);letter-spacing:-.035em;color:var(--blanco)}
+.rot{display:block;color:var(--luz);height:1.05em;overflow:hidden}
+.rot span{display:block;animation:rot 12s steps(1) infinite}
+.rot b{display:block;font-weight:700;height:1.05em}
+.t p{margin:24px 0 0;max-width:32em;font-size:clamp(1.05rem,1.35vw,1.25rem)}
+.btn{display:inline-flex;gap:12px;margin-top:28px;padding:16px 26px;background:var(--marino);color:var(--blanco);font:400 14px/1 var(--mono);text-decoration:none;box-shadow:6px 6px 0 var(--luz);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--luz)}
+.v{grid-column:8/13;position:relative;aspect-ratio:4/5;background:var(--marino);border:10px solid var(--blanco);outline:1px solid var(--linea)}
+.v img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.28) 0 14%,transparent 14% 24%,rgba(255,255,255,.14) 24% 28%,transparent 28%);pointer-events:none}
+@media(max-width:860px){.t,.v{grid-column:1/-1}.v{aspect-ratio:4/3}}
+.panel{background:var(--gris);color:var(--grafito);padding:clamp(56px,9vw,120px) var(--m)}
+h2{margin:0;font:700 clamp(1.7rem,3.6vw,3.2rem)/1.04 var(--disp);letter-spacing:-.03em;color:var(--carbono)}
+.l{margin:clamp(28px,4vw,56px) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.l li{background:var(--blanco);padding:24px;border-top:4px solid var(--marino);transition:transform .2s,background .2s}
+.l li:hover{transform:translateY(-6px) rotate(-.6deg)}
+.l h3{margin:0 0 8px;font:700 1.15rem/1.2 var(--disp);color:var(--carbono)}
+.l p{margin:0;color:#4a5260;font-size:.98rem}
+.c{padding:clamp(56px,9vw,120px) var(--m);background:var(--carbono)}
+.c a{display:inline-block;margin-top:22px;font:700 clamp(1rem,5vw,2.6rem)/1.1 var(--disp);color:var(--blanco);text-decoration:none;overflow-wrap:anywhere;max-width:100%;border-bottom:3px solid var(--luz)}
+footer{padding:22px var(--m);font:400 12px/1.5 var(--mono);color:#8c95a3;background:var(--grafito)}
+@keyframes rot{0%{transform:translateY(0)}25%{transform:translateY(-1.05em)}50%{transform:translateY(-2.1em)}75%{transform:translateY(-3.15em)}}
+@media(prefers-reduced-motion:reduce){.rot span{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><a class="marca" href="#">BTo Digital</a><nav aria-label="Principal"><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav></header>
+<main>
+<section class="hero">
+<div class="t">
+<h1>Tu negocio<span class="rot" aria-hidden="true"><span><b>a la vista</b><b>en el mapa</b><b>en el celular</b><b>de todos.</b></span></span><span class="sr" style="position:absolute;left:-9999px">a la vista de todos.</span></h1>
+<p>Hacemos que te encuentren: <strong>marca</strong>, <strong>página web</strong> y <strong>publicidad digital</strong> en un solo lugar, con un equipo que te explica todo en simple.</p>
+<a class="btn" href="https://wa.me/56923971471?text=Hola%2C%20quiero%20conversar%20sobre%20marketing%20digital%20para%20mi%20negocio." target="_blank" rel="noopener">Escríbenos por WhatsApp →</a>
+</div>
+<div class="v" role="img" aria-label="Dueña de un café en su local"><img src="img/cafe-1.jpg" alt="" style="object-position:62% 30%"></div>
+</section>
+<section class="panel" id="servicios"><h2>Lo que hacemos.</h2>
+<ul class="l">
+<li><h3>Posicionamiento de marca</h3><p>Cómo se presenta tu negocio y qué dice de ti.</p></li>
+<li><h3>Páginas web</h3><p>Tu sitio, con formulario de contacto y botón de WhatsApp.</p></li>
+<li><h3>Publicidad y buscadores</h3><p>Campañas para aparecer cuando alguien busca lo que ofreces.</p></li>
+<li><h3>Publicidad en redes</h3><p>Anuncios a quienes pueden necesitar tu servicio.</p></li>
+<li><h3>Redes y contenido</h3><p>Publicaciones, imágenes y textos para que se te vea activo.</p></li>
+<li><h3>Medición</h3><p>Qué campañas traen clientes y cuáles ajustar.</p></li>
+</ul></section>
+</main>
+<section class="c" id="contacto"><h2 style="color:var(--blanco)">Cuéntanos a qué te dedicas.</h2><a href="mailto:contacto@btodigital.cl">contacto@btodigital.cl</a></section>
+<footer>BTo Digital · Una marca de BTo Innova SpA · RUT 78.533.592-9 · Chile</footer>
+</body>
+</html>
