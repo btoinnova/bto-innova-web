@@ -27,3 +27,19 @@ Verificado: plus=false, premium=false en la API de Unsplash.
 - comercio-3.jpg: Jack Barton, https://unsplash.com/photos/K-v4b-jaeBs
 - inmersiva-1.jpg: Taylor Heery, https://unsplash.com/photos/ZSgWcW70cTs
 Todas verificadas plus=false, premium=false en la API de Unsplash (5-nov-2026).
+
+## Reemplazadas el 13-nov-2026 (rasgos latinos, sin posados falsos; pedido de Alberto)
+Fuente: Pexels (https://www.pexels.com/license/): uso comercial gratuito, sin atribución obligatoria. Recortadas al tamaño del sitio, JPEG progresivo calidad 78.
+| Archivo | Foto Pexels | Autor | Antes |
+|---|---|---|---|
+| cafe-1.jpg | https://www.pexels.com/photo/40843845/ | Sergio Arreola | mujer con delantal en café (Unsplash) |
+| comercio-1.jpg | https://www.pexels.com/photo/5410081/ | Amina Filkins | mujer rubia en tienda de ropa |
+| ejecutivo-1.jpg | https://www.pexels.com/photo/9050613/ | Mike Jones | ejecutivo canoso al teléfono |
+| profesional-1.jpg | https://www.pexels.com/photo/7904470/ | Anna Tarazevich | doctora al teléfono |
+| profesional-2.jpg | https://www.pexels.com/photo/12917343/ | iam luisao | dentista con paciente |
+| ejecutivo-2.jpg | https://www.pexels.com/photo/15155573/ | Manuel Guillén Vega | corredora con pareja |
+Las anteriores quedan respaldadas fuera del repo; las líneas de arriba sobre esos archivos son históricas.
+
+Segunda ronda (13-nov): cafe-1, ejecutivo-1, profesional-1 y ejecutivo-2 cambiadas otra vez porque la primera elección no se leía claramente latina (objeción del orquestador). Ojo: en profesional-1 se lee «HOSPITAL» de fondo y en ejecutivo-2 un monitor con marca pequeña.
+Tercera ronda (13-nov): cafe-1 = comerciante de barrio de día; profesional-1 = doctora sin logos ni rótulos; ejecutivo-2 recortada sin el monitor Dell; ejecutivo-1 con el letrero del fondo y el logo del teléfono difuminados (edición permitida por la licencia Pexels).
+Cuarta ronda (14-nov): cafe-1 = latina en un café de día (logos de la taza y la polera difuminados); ejecutivo-1 = hombre conversando en un café, sin letreros ni manchas.
