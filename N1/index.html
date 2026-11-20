@@ -713,6 +713,10 @@ img,.demo>*,.cod,.tel,.pay,.nav2,.marco-v,.cod2,.vis,.tm-i img,.e3 img,.dos img,
 .pm-c{row-gap:clamp(40px,6vw,80px)}
 .pm-c .esc{margin-top:clamp(8px,2vw,24px);padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--linea)}
 @media (min-width:761px){.pm-c .apps.par{max-width:none}.pm-c .dos{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);overflow:visible}.pm-c .dos>div{flex:none}.pm-c .dos-n{display:none}.pm-c .dos img{max-width:300px;margin:0 auto}.pm-c .dos span{text-align:center}}
+/* N1 correcciones Ojos Claros */
+.demo .lap .bar span,.demo .pay span,.nav2 .bar span,.pay2 span{font-size:12px}.demo .pay em{font-size:12px}.demo .nota{font-size:12px}
+.cod2 pre{font-size:clamp(12px,1.3vw,14px)}
+@media (max-width:720px){.barra .enl{gap:10px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent)}.barra .enl.fin{-webkit-mask-image:none;mask-image:none}.barra .enl a{font-size:12.5px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTo Innova soluciones","legalName":"BTo Innova SpA","taxID":"78.533.592-9","email":"contacto@btoinnova.cl","telephone":"+56923971471","brand":[{"@type":"Brand","name":"BTo Digital"}],"address":{"@type":"PostalAddress","addressLocality":"Ñuñoa","addressCountry":"CL"}}</script>
 </head>
@@ -1198,7 +1202,7 @@ function aModelo(){if(!clave())return;var b=[].slice.call(v.children).filter(fun
 v.scrollTo({left:b.offsetLeft-v.offsetLeft-2,behavior:red?'auto':'smooth'});
 var hd=document.querySelector('.barra'),h=hd?hd.getBoundingClientRect().bottom:0,r=t.getBoundingClientRect();if(r.top<h||r.top>innerHeight*.5)scrollTo({top:scrollY+r.top-h-12,behavior:red?'auto':'smooth'})}
 function upd(){pv.disabled=v.scrollLeft<=2;nx.disabled=v.scrollLeft+v.clientWidth>=v.scrollWidth-2}
-function paso(d){v.scrollBy({left:d*(v.clientWidth*.8),behavior:red?'auto':'smooth'})}
+function paso(d){var m=v.scrollWidth-v.clientWidth,x=v.scrollLeft+d*Math.max(v.clientWidth*.8,160);v.scrollTo({left:Math.max(0,Math.min(m,x)),behavior:red?'auto':'smooth'})}
 pv.addEventListener('click',function(){paso(-1)});nx.addEventListener('click',function(){paso(1)});
 v.addEventListener('scroll',upd,{passive:true});
 v.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();paso(1)}if(e.key==='ArrowLeft'){e.preventDefault();paso(-1)}});
@@ -1225,12 +1229,15 @@ new MutationObserver(ini).observe(document.body,{childList:true,subtree:true});i
 </script>
 <script>
 (function(){try{var v=document.querySelector('#tira .tm-v');if(!v||matchMedia('(prefers-reduced-motion:reduce)').matches)return;var pa=false,vis=false,t=0,tm;
-function paso(){if(pa||!vis||document.hidden||document.querySelector('#panelM.open'))return;if(v.scrollLeft+v.clientWidth>=v.scrollWidth-4)v.scrollTo({left:0,behavior:'smooth'});else v.scrollBy({left:v.clientWidth*.6,behavior:'smooth'})}
+function paso(){if(pa||!vis||document.hidden||document.querySelector('#panelM.open'))return;if(v.scrollLeft+v.clientWidth>=v.scrollWidth-4)v.scrollTo({left:0,behavior:'smooth'});else v.scrollTo({left:Math.min(v.scrollWidth-v.clientWidth,v.scrollLeft+v.clientWidth*.6),behavior:'smooth'})}
 function paro(){pa=true;clearTimeout(tm)}function sigue(){clearTimeout(tm);tm=setTimeout(function(){pa=false},7000)}
 ['pointerdown','touchstart','wheel','focusin','mouseenter'].forEach(function(e){v.addEventListener(e,paro,{passive:true})});['mouseleave','focusout'].forEach(function(e){v.addEventListener(e,sigue)});
 v.addEventListener('pointerup',sigue);v.addEventListener('touchend',sigue,{passive:true});
 if('IntersectionObserver' in window)new IntersectionObserver(function(x){vis=x[0].isIntersecting}).observe(v);else vis=true;
 setInterval(paso,3800)}catch(e){}})();
+</script>
+<script>
+(function(){try{var e=document.querySelector('.barra .enl');if(!e)return;function f(){e.classList.toggle('fin',e.scrollLeft+e.clientWidth>=e.scrollWidth-3)}e.addEventListener('scroll',f,{passive:true});addEventListener('resize',f);f()}catch(x){}})();
 </script>
 </body>
 </html>
